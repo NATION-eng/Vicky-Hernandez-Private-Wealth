@@ -43,7 +43,10 @@ export const AppNavigation: React.FC = () => {
         <div className="flex items-center space-x-1 sm:space-x-1.5 overflow-x-auto py-2.5 no-scrollbar">
           {navLinks.map((link) => {
             const Icon = link.icon;
-            const isActive = pathname === link.href || (link.href !== '/dashboard' && pathname.startsWith(link.href) && (link.href !== '/portfolio' || pathname === '/portfolio'));
+            const isOverview = link.href === '/dashboard';
+            const isActive = isOverview 
+              ? (pathname === '/' || pathname === '/dashboard')
+              : (pathname.startsWith(link.href) && (link.href !== '/portfolio' || pathname === '/portfolio'));
 
             return (
               <Link

@@ -126,6 +126,14 @@ export const ClientDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   useEffect(() => {
     let isMounted = true;
 
+    // Fast synchronous restore on mount
+    if (typeof window !== 'undefined') {
+      const cachedAuth = localStorage.getItem('vhpw_authenticated');
+      if (cachedAuth === 'true') {
+        setIsAuthenticated(true);
+      }
+    }
+
     async function checkSession() {
       try {
         const res = await fetch('/api/auth/session');
@@ -138,11 +146,17 @@ export const ClientDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
             scheduleSessionExpiration(data.expiresAt);
           } else {
             setIsAuthenticated(false);
+            if (typeof window !== 'undefined') {
+              localStorage.removeItem('vhpw_authenticated');
+            }
           }
         }
       } catch {
         if (isMounted) {
-          setIsAuthenticated(false);
+          // In case of transient network error, keep cached auth state if present
+          if (typeof window !== 'undefined' && localStorage.getItem('vhpw_authenticated') !== 'true') {
+            setIsAuthenticated(false);
+          }
         }
       }
     }

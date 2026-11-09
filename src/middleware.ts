@@ -14,6 +14,22 @@ const PROTECTED_PREFIXES = [
   '/verify'
 ];
 
+/**
+ * Universal base64url decode that works reliably across Edge Runtime, Node.js, and Browsers
+ */
+function decodeJwtPayload(tokenPart: string): { u?: string; exp?: number } | null {
+  try {
+    let base64 = tokenPart.replace(/-/g, '+').replace(/_/g, '/');
+    while (base64.length % 4) {
+      base64 += '=';
+    }
+    const jsonStr = atob(base64);
+    return JSON.parse(jsonStr);
+  } catch {
+    return null;
+  }
+}
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -25,35 +41,30 @@ export function middleware(request: NextRequest) {
     const sessionCookie = request.cookies.get('vhpw_session')?.value;
 
     if (!sessionCookie) {
-      // Direct access bypass prevented — redirect to login page
+      // Direct access bypass prevented — redirect to login entry point
       const loginUrl = new URL('/', request.url);
       loginUrl.searchParams.set('redirect', pathname);
       return NextResponse.redirect(loginUrl);
     }
 
-    // Verify token structure and expiration
+    // Verify token structure
     const parts = sessionCookie.split('.');
     if (parts.length !== 2) {
       const loginUrl = new URL('/', request.url);
       return NextResponse.redirect(loginUrl);
     }
 
-    try {
-      // Decode payload to verify expiration
-      const payloadJson = Buffer.from(parts[0], 'base64url').toString('utf8');
-      const payload = JSON.parse(payloadJson);
+    const payload = decodeJwtPayload(parts[0]);
 
-      if (!payload.exp || Date.now() > payload.exp) {
-        // Expired session
-        const loginUrl = new URL('/', request.url);
-        loginUrl.searchParams.set('expired', 'true');
-        const response = NextResponse.redirect(loginUrl);
-        response.cookies.delete('vhpw_session');
-        return response;
-      }
-    } catch {
+    if (!payload || !payload.exp || Date.now() > payload.exp) {
+      // Expired or invalid session
       const loginUrl = new URL('/', request.url);
-      return NextResponse.redirect(loginUrl);
+      if (payload && payload.exp && Date.now() > payload.exp) {
+        loginUrl.searchParams.set('expired', 'true');
+      }
+      const response = NextResponse.redirect(loginUrl);
+      response.cookies.delete('vhpw_session');
+      return response;
     }
   }
 

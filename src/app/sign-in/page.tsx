@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import React, { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { useClientData } from '@/context/ClientDataContext';
+import { DashboardView } from '@/components/DashboardView';
 import { 
-  Lock, 
   User, 
   ArrowRight, 
   ShieldCheck, 
@@ -15,7 +15,6 @@ import {
 } from 'lucide-react';
 
 export default function SignInPage() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const { profile, isAuthenticated, login, sessionExpired } = useClientData();
 
@@ -26,12 +25,6 @@ export default function SignInPage() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const isExpired = searchParams?.get('expired') === 'true' || sessionExpired;
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      router.replace('/dashboard');
-    }
-  }, [isAuthenticated, router]);
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,8 +40,12 @@ export default function SignInPage() {
     try {
       const success = await login(username.trim(), password);
       if (success) {
-        const redirectPath = searchParams?.get('redirect') || '/dashboard';
-        router.push(redirectPath);
+        const redirectPath = searchParams?.get('redirect');
+        if (redirectPath && redirectPath !== '/' && redirectPath !== '/dashboard' && redirectPath !== '/sign-in') {
+          window.location.href = redirectPath;
+          return;
+        }
+        setIsLoading(false);
       } else {
         setErrorMessage("Invalid credentials. Please verify your username and password.");
         setIsLoading(false);
@@ -60,18 +57,11 @@ export default function SignInPage() {
   };
 
   if (isAuthenticated) {
-    return (
-      <div className="min-h-[60vh] flex items-center justify-center">
-        <div className="flex items-center gap-3 text-slate-700 text-sm font-semibold">
-          <div className="w-5 h-5 border-2 border-wealth-gold-500 border-t-transparent rounded-full animate-spin" />
-          <span>Opening private dashboard...</span>
-        </div>
-      </div>
-    );
+    return <DashboardView />;
   }
 
   return (
-    <div className="max-w-md mx-auto my-6 sm:my-12 px-3 sm:px-0">
+    <div className="max-w-md mx-auto my-6 sm:my-12 px-3 sm:px-0 animate-in fade-in-50 duration-200">
       <div className="bg-white rounded-2xl shadow-luxury border border-slate-200/90 p-6 sm:p-10 relative overflow-hidden">
         {/* Luxury Gold Hairline Accent */}
         <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-wealth-navy-950 via-wealth-gold-500 to-wealth-navy-950" />
@@ -126,13 +116,13 @@ export default function SignInPage() {
         {/* Secure Credentials Form */}
         <form onSubmit={handleSignIn} className="space-y-4">
           <div>
-            <label htmlFor="auth-username-alt" className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-1.5">
+            <label htmlFor="auth-username" className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-1.5">
               Username
             </label>
             <div className="relative">
               <User className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" aria-hidden="true" />
               <input
-                id="auth-username-alt"
+                id="auth-username"
                 type="text"
                 autoComplete="username"
                 required
@@ -145,13 +135,13 @@ export default function SignInPage() {
           </div>
 
           <div>
-            <label htmlFor="auth-password-alt" className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-1.5">
+            <label htmlFor="auth-password" className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-1.5">
               Password
             </label>
             <div className="relative">
               <KeyRound className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" aria-hidden="true" />
               <input
-                id="auth-password-alt"
+                id="auth-password"
                 type={showPassword ? "text" : "password"}
                 autoComplete="current-password"
                 required

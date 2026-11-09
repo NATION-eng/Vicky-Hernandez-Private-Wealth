@@ -383,7 +383,10 @@ export const AccessibleHeader: React.FC = () => {
                 <nav aria-label="Mobile Drawer Navigation" className="p-4 space-y-1">
                   {navLinks.map((link) => {
                     const Icon = link.icon;
-                    const isActive = pathname === link.href || (link.href !== '/dashboard' && pathname.startsWith(link.href));
+                    const isOverview = link.href === '/dashboard';
+                    const isActive = isOverview
+                      ? (pathname === '/' || pathname === '/dashboard')
+                      : (pathname === link.href || (link.href !== '/dashboard' && pathname.startsWith(link.href)));
                     return (
                       <Link
                         key={link.href}

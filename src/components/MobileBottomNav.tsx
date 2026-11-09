@@ -25,7 +25,7 @@ export const MobileBottomNav: React.FC = () => {
       href: '/dashboard',
       label: 'Overview',
       icon: LayoutDashboard,
-      isActive: pathname === '/dashboard',
+      isActive: pathname === '/dashboard' || pathname === '/',
     },
     {
       href: '/portfolio',

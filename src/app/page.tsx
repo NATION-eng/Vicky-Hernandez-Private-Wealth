@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import React, { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { useClientData } from '@/context/ClientDataContext';
+import { DashboardView } from '@/components/DashboardView';
 import { 
-  Lock, 
   User, 
   ArrowRight, 
   ShieldCheck, 
@@ -15,7 +15,6 @@ import {
 } from 'lucide-react';
 
 export default function RootEntryPage() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const { profile, isAuthenticated, login, sessionExpired } = useClientData();
 
@@ -26,13 +25,6 @@ export default function RootEntryPage() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const isExpired = searchParams?.get('expired') === 'true' || sessionExpired;
-
-  // If already authenticated, redirect directly to dashboard
-  useEffect(() => {
-    if (isAuthenticated) {
-      router.replace('/dashboard');
-    }
-  }, [isAuthenticated, router]);
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,8 +40,14 @@ export default function RootEntryPage() {
     try {
       const success = await login(username.trim(), password);
       if (success) {
-        const redirectPath = searchParams?.get('redirect') || '/dashboard';
-        router.push(redirectPath);
+        // If a specific inner page was requested (e.g., /documents), navigate there
+        const redirectPath = searchParams?.get('redirect');
+        if (redirectPath && redirectPath !== '/' && redirectPath !== '/dashboard') {
+          window.location.href = redirectPath;
+          return;
+        }
+        // Otherwise, isAuthenticated is now true, instantly rendering DashboardView in-place!
+        setIsLoading(false);
       } else {
         setErrorMessage("Invalid credentials. Please verify your username and password.");
         setIsLoading(false);
@@ -60,20 +58,14 @@ export default function RootEntryPage() {
     }
   };
 
-  // Keep view clean while redirecting if authenticated
+  // If authenticated, instantly render private dashboard in-place (no redirect lag, no loading freeze)
   if (isAuthenticated) {
-    return (
-      <div className="min-h-[60vh] flex items-center justify-center">
-        <div className="flex items-center gap-3 text-slate-700 text-sm font-semibold">
-          <div className="w-5 h-5 border-2 border-wealth-gold-500 border-t-transparent rounded-full animate-spin" />
-          <span>Opening private dashboard...</span>
-        </div>
-      </div>
-    );
+    return <DashboardView />;
   }
 
+  // Otherwise, render the secure Sign-In view
   return (
-    <div className="max-w-md mx-auto my-6 sm:my-12 px-3 sm:px-0">
+    <div className="max-w-md mx-auto my-6 sm:my-12 px-3 sm:px-0 animate-in fade-in-50 duration-200">
       <div className="bg-white rounded-2xl shadow-luxury border border-slate-200/90 p-6 sm:p-10 relative overflow-hidden">
         {/* Luxury Gold Hairline Accent */}
         <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-wealth-navy-950 via-wealth-gold-500 to-wealth-navy-950" />
