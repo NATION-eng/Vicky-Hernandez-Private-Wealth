@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useClientData } from '@/context/ClientDataContext';
-import { Lightbulb, ArrowUpRight, HelpCircle, FileText } from 'lucide-react';
+import { Lightbulb, ArrowUpRight, Target, Calendar, ShieldAlert, Phone } from 'lucide-react';
 import Link from 'next/link';
 
 export const ProposedAllocationCard: React.FC = () => {
@@ -11,67 +11,70 @@ export const ProposedAllocationCard: React.FC = () => {
   return (
     <section 
       aria-labelledby="proposed-allocation-title"
-      className="bg-white rounded-2xl shadow-luxury border-2 border-wealth-gold-400/50 p-5 sm:p-6 md:p-8 relative overflow-hidden transition-all hover:border-wealth-gold-500 hover:shadow-luxury-hover"
+      className="bg-white rounded-2xl shadow-luxury border-2 border-wealth-gold-400/50 p-5 sm:p-6 md:p-7 relative overflow-hidden transition-all hover:border-wealth-gold-500 hover:shadow-luxury-hover flex flex-col justify-between"
     >
       {/* Visual Accent Badge */}
-      <div className="absolute top-0 right-0 bg-gradient-to-l from-wealth-gold-600 to-wealth-gold-500 text-wealth-navy-950 font-bold text-[9px] sm:text-[10px] uppercase px-3 sm:px-3.5 py-1 rounded-bl-xl tracking-[0.16em] sm:tracking-[0.2em] shadow-xs">
-        Strategic Advisory Proposal
+      <div className="absolute top-0 right-0 bg-gradient-to-l from-wealth-gold-600 to-wealth-gold-500 text-wealth-navy-950 font-bold text-[9px] sm:text-[10px] uppercase px-3 py-1 rounded-bl-xl tracking-widest shadow-xs">
+        Planning Proposal
       </div>
 
-      <div className="flex flex-col sm:flex-row items-start gap-3.5 sm:gap-4 pt-4 sm:pt-0">
-        <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-wealth-gold-50 flex items-center justify-center shrink-0 border border-wealth-gold-300/60 shadow-xs">
-          <Lightbulb className="w-5 h-5 sm:w-6 sm:h-6 text-wealth-gold-700" aria-hidden="true" />
+      <div>
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-9 h-9 rounded-xl bg-wealth-gold-50 flex items-center justify-center shrink-0 border border-wealth-gold-300/60 shadow-xs">
+            <Lightbulb className="w-5 h-5 text-wealth-gold-700" aria-hidden="true" />
+          </div>
+          <div>
+            <h2 id="proposed-allocation-title" className="text-xl sm:text-2xl font-serif font-bold text-wealth-navy-950">
+              {proposedAllocation.title}
+            </h2>
+            <p className="text-[11px] font-bold uppercase tracking-wider text-wealth-gold-800">
+              Short-Duration Fixed Income
+            </p>
+          </div>
         </div>
 
-        <div className="flex-1 w-full">
-          <h2 id="proposed-allocation-title" className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-wealth-navy-950 tracking-tight leading-snug">
-            {proposedAllocation.title}
-          </h2>
-
-          <p className="text-xs font-semibold tracking-wider uppercase text-wealth-gold-800 mt-1">
-            Focus: {proposedAllocation.targetAssetClass}
-          </p>
-
-          <div className="mt-3.5 sm:mt-4 bg-wealth-sand-50/80 border border-wealth-sand-200 rounded-xl p-3.5 sm:p-4 text-xs sm:text-sm text-slate-700 leading-relaxed font-sans">
-            <p className="font-bold text-wealth-navy-950 mb-1">
-              What does this 20% represent?
-            </p>
-            <p className="text-slate-600 text-xs sm:text-sm">
-              {proposedAllocation.basisDescription}
-            </p>
-            <p className="mt-2 text-xs text-slate-500 italic pt-2 border-t border-slate-200/60">
-              <strong>Denominator Basis:</strong> {proposedAllocation.intendedDenominator}
-            </p>
+        {/* 3 Sleek Icon Metric Rows (replacing large text paragraphs) */}
+        <div className="mt-4 space-y-2 text-xs">
+          <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-wealth-sand-50 border border-wealth-sand-200/80">
+            <Target className="w-4 h-4 text-wealth-gold-700 shrink-0" aria-hidden="true" />
+            <span className="text-slate-800">
+              <strong>Target Class:</strong> US Treasury Notes (Principal Protected)
+            </span>
           </div>
 
-          {/* Fiduciary Guardrail Notice */}
-          <div className="mt-3 flex items-start gap-2.5 text-xs text-slate-500 bg-slate-50/70 p-3 rounded-lg border border-slate-200/60">
-            <HelpCircle className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" aria-hidden="true" />
-            <p className="leading-relaxed text-[11px] sm:text-xs">
-              <strong>Important Fiduciary Boundary:</strong> {proposedAllocation.disclaimer}
-            </p>
+          <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+            <Calendar className="w-4 h-4 text-slate-500 shrink-0" aria-hidden="true" />
+            <span className="text-slate-700">
+              <strong>Execution Status:</strong> On Hold pending Annual Review (Nov 15)
+            </span>
           </div>
 
-          {/* Action Row */}
-          <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
-            <Link
-              href="/plan"
-              className="btn-touch w-full sm:w-auto justify-center px-4 py-2.5 bg-wealth-navy-950 text-white rounded-xl text-xs font-semibold hover:bg-wealth-navy-850 transition-all flex items-center gap-1.5 shadow-sm text-center"
-            >
-              <span>Explore My Full Financial Plan</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-wealth-gold-400" aria-hidden="true" />
-            </Link>
-
-            <Link
-              href="/help/contact"
-              className="btn-touch w-full sm:w-auto justify-center px-3.5 py-2.5 bg-slate-100 text-slate-800 rounded-xl text-xs font-medium hover:bg-slate-200 transition-colors flex items-center gap-1.5 border border-slate-200 text-center"
-            >
-              <FileText className="w-3.5 h-3.5 text-slate-500" aria-hidden="true" />
-              <span>Discuss With {profile.adviserName.split(',')[0]}</span>
-            </Link>
+          <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+            <ShieldAlert className="w-4 h-4 text-emerald-600 shrink-0" aria-hidden="true" />
+            <span className="text-slate-600 text-[11px]">
+              Fiduciary Planning Model • Requires Authorized Instruction
+            </span>
           </div>
-
         </div>
+      </div>
+
+      {/* Action Row */}
+      <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+        <Link
+          href="/plan"
+          className="btn-touch px-4 py-2 bg-wealth-navy-950 text-white rounded-xl text-xs font-semibold hover:bg-wealth-navy-800 transition-all flex items-center gap-1.5 shadow-sm"
+        >
+          <span>Explore Plan</span>
+          <ArrowUpRight className="w-3.5 h-3.5 text-wealth-gold-400" aria-hidden="true" />
+        </Link>
+
+        <a
+          href={`tel:${profile.adviserPhone.replace(/[^0-9+]/g, '')}`}
+          className="btn-touch px-3 py-2 text-xs font-semibold text-slate-700 hover:text-wealth-gold-700 transition-colors flex items-center gap-1.5"
+        >
+          <Phone className="w-3.5 h-3.5 text-wealth-gold-600" aria-hidden="true" />
+          <span>Discuss</span>
+        </a>
       </div>
     </section>
   );

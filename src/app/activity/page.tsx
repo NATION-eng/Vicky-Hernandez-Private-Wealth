@@ -15,7 +15,8 @@ import {
   ArrowUpRight, 
   Landmark,
   FileCheck,
-  ChevronRight
+  ChevronRight,
+  ShieldCheck
 } from 'lucide-react';
 
 export default function ActivityPage() {
@@ -36,28 +37,26 @@ export default function ActivityPage() {
     <div className="space-y-6 sm:space-y-8">
       
       {/* Activity Page Header */}
-      <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5 sm:p-6 md:p-8">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5 sm:p-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs uppercase font-bold tracking-widest text-wealth-gold-600 bg-wealth-gold-50 px-2.5 py-0.5 rounded-full border border-wealth-gold-200">
-                Audited Ledger
+              <span className="text-[10px] uppercase font-bold tracking-widest text-wealth-gold-700 bg-wealth-gold-50 px-2.5 py-0.5 rounded-full border border-wealth-gold-200 flex items-center gap-1">
+                <History className="w-3 h-3 text-wealth-gold-600" />
+                <span>Audited Ledger</span>
               </span>
-              <span className="text-xs text-slate-500 font-medium">
+              <span className="text-xs text-slate-400 font-medium">
                 Immutable Source Records
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-serif font-bold text-wealth-navy-950">
-              Account Activity & Ledger
+              Account Activity
             </h1>
-            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
-              Every activity entry is traceable to an institutional custodian identifier, timestamp, and plain-language explanation.
-            </p>
           </div>
 
-          <div className="text-xs bg-slate-50 p-3 rounded-lg border border-slate-200 text-slate-600 self-start md:self-auto">
-            <p className="font-bold text-wealth-navy-950">Fiduciary Guarantee:</p>
-            <p>No invented transaction IDs or unverified entries.</p>
+          <div className="text-xs bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200 text-emerald-800 font-semibold flex items-center gap-1.5 w-fit">
+            <ShieldCheck className="w-4 h-4 text-emerald-600" />
+            <span>Custodian Sourced</span>
           </div>
         </div>
       </div>

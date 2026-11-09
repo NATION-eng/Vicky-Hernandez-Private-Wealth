@@ -29,6 +29,7 @@ export interface ClientProfile {
   adviserName: string;
   adviserPhone: string;
   adviserEmail: string;
+  avatarUrl?: string;
   accessibilityPreferences: AccessibilitySettings;
 }
 

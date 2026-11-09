@@ -39,23 +39,21 @@ export default function PortfolioOverviewPage() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs uppercase font-bold tracking-widest text-wealth-gold-600 bg-wealth-gold-50 px-2.5 py-0.5 rounded-full border border-wealth-gold-200">
-                Fiduciary Portfolio
+              <span className="text-[10px] uppercase font-bold tracking-widest text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1">
+                <ShieldCheck className="w-3 h-3 text-emerald-600" />
+                <span>Live Custody</span>
               </span>
-              <span className="text-xs text-slate-500 font-medium">
-                Mandate: Balanced Conservative Growth
+              <span className="text-xs text-slate-400 font-medium">
+                Northern Trust
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-serif font-bold text-wealth-navy-950">
-              My Portfolio Overview
+              My Portfolio
             </h1>
-            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
-              Consolidated view of your asset holdings, verified directly against institutional custodian records with source timestamps.
-            </p>
           </div>
 
           {/* Subpage Quick Links (Horizontally scrollable on mobile) */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar w-full md:w-auto">
+          <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 no-scrollbar w-full md:w-auto">
             <Link
               href="/portfolio/allocation"
               className="btn-touch px-3.5 sm:px-4 py-2 bg-wealth-navy-950 text-white rounded-lg text-xs font-semibold hover:bg-wealth-navy-800 transition-colors flex items-center gap-1.5 shrink-0"

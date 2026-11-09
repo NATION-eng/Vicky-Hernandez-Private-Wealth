@@ -36,68 +36,59 @@ export default function PlanPage() {
     <div className="space-y-8">
       
       {/* Plan Header */}
-      <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5 sm:p-6 md:p-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs uppercase font-bold tracking-widest text-wealth-gold-600 bg-wealth-gold-50 px-2.5 py-0.5 rounded-full border border-wealth-gold-200">
-                Strategic Mandate
+              <span className="text-[10px] uppercase font-bold tracking-widest text-wealth-gold-700 bg-wealth-gold-50 px-2.5 py-0.5 rounded-full border border-wealth-gold-200 flex items-center gap-1">
+                <Target className="w-3 h-3 text-wealth-gold-600" />
+                <span>Strategic Mandate</span>
               </span>
-              <span className="text-xs text-slate-500 font-medium">
-                Annual Review Scheduled: Nov 15, 2027
+              <span className="text-xs text-slate-400 font-medium">
+                Annual Review: Nov 15
               </span>
             </div>
-            <h1 className="text-2xl md:text-3xl font-serif font-bold text-wealth-navy-950">
-              My Financial & Wealth Plan
+            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-wealth-navy-950">
+              My Financial Plan
             </h1>
-            <p className="text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
-              Tailored wealth preservation and income architecture formulated for Vicky Hernandez in partnership with Katherine Sterling, CFP®.
-            </p>
           </div>
 
-          <div className="text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
-            <p className="font-bold text-wealth-navy-950">Fiduciary Lead:</p>
-            <p className="text-slate-700">{profile.adviserName}</p>
-            <p className="text-slate-500 mt-0.5">{profile.adviserEmail}</p>
+          <div className="text-xs bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-slate-600 flex items-center gap-2 w-fit">
+            <span className="font-bold text-wealth-navy-950">Adviser:</span>
+            <span>{profile.adviserName}</span>
           </div>
         </div>
 
-        {/* Risk Profile & Horizon Summary Banner */}
-        <div className="mt-6 pt-6 border-t border-slate-100 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-              Risk Tolerance Profile
-            </span>
-            <p className="text-lg font-bold font-serif text-wealth-navy-950 mt-1">
-              Conservative Capital Preservation
-            </p>
-            <p className="text-xs text-slate-600 mt-1">
-              Focuses on safeguarding principal against inflation with minimal drawdown tolerance.
-            </p>
+        {/* 3 Sleek Icon Metric Tiles */}
+        <div className="mt-5 pt-5 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+          <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 flex items-center gap-3">
+            <div className="w-9 h-9 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-5 h-5 text-emerald-700" />
+            </div>
+            <div>
+              <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Risk Profile</span>
+              <p className="text-sm font-bold font-serif text-wealth-navy-950">Conservative</p>
+            </div>
           </div>
 
-          <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-              Planning Horizon
-            </span>
-            <p className="text-lg font-bold font-serif text-wealth-navy-950 mt-1">
-              Multi-Generational (10+ Years)
-            </p>
-            <p className="text-xs text-slate-600 mt-1">
-              Tailored for ongoing retirement cash flow and estate preservation.
-            </p>
+          <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 flex items-center gap-3">
+            <div className="w-9 h-9 rounded-lg bg-wealth-sand-100 border border-wealth-sand-300 flex items-center justify-center shrink-0">
+              <Clock className="w-5 h-5 text-wealth-navy-900" />
+            </div>
+            <div>
+              <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Horizon</span>
+              <p className="text-sm font-bold font-serif text-wealth-navy-950">10+ Years (Legacy)</p>
+            </div>
           </div>
 
-          <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-              Tax Optimization Strategy
-            </span>
-            <p className="text-lg font-bold font-serif text-wealth-navy-950 mt-1">
-              Treasury Exemption & Dividend Shield
-            </p>
-            <p className="text-xs text-slate-600 mt-1">
-              State-tax-exempt sovereign debt and qualified dividends.
-            </p>
+          <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 flex items-center gap-3">
+            <div className="w-9 h-9 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center shrink-0">
+              <Sparkles className="w-5 h-5 text-wealth-gold-700" />
+            </div>
+            <div>
+              <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Tax Strategy</span>
+              <p className="text-sm font-bold font-serif text-wealth-navy-950">Treasury Shield</p>
+            </div>
           </div>
         </div>
       </div>

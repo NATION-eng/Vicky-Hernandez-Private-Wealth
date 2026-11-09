@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useClientData } from '@/context/ClientDataContext';
 import { useAccessibility } from '@/context/AccessibilityContext';
 import { StepUpVerificationModal } from '@/components/StepUpVerificationModal';
@@ -18,16 +18,51 @@ import {
   ZapOff,
   Sun,
   Moon,
-  AlertCircle
+  AlertCircle,
+  Camera,
+  Upload,
+  Trash2
 } from 'lucide-react';
 
 export default function SettingsPage() {
-  const { profile, updateProfileName, auditLog, isStepUpVerified, requestStepUpReset } = useClientData();
+  const { profile, updateProfileName, updateProfilePhoto, auditLog, isStepUpVerified, requestStepUpReset } = useClientData();
   const { settings, setTextSize, setContrastMode, toggleReducedMotion } = useAccessibility();
 
   const [activeTab, setActiveTab] = useState<'profile' | 'display' | 'security' | 'audit'>('profile');
   const [preferredNameInput, setPreferredNameInput] = useState(profile.preferredName);
   const [isNameSaved, setIsNameSaved] = useState(false);
+  const [photoSuccessMessage, setPhotoSuccessMessage] = useState<string>("");
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (file.size > 5 * 1024 * 1024) {
+      alert("Image file size must be under 5MB.");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const dataUrl = event.target?.result as string;
+      if (dataUrl) {
+        updateProfilePhoto(dataUrl);
+        setPhotoSuccessMessage("Profile photo updated successfully!");
+        setTimeout(() => setPhotoSuccessMessage(""), 3500);
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleRemovePhoto = () => {
+    updateProfilePhoto("");
+    setPhotoSuccessMessage("Profile photo removed. Monogram crest restored.");
+    setTimeout(() => setPhotoSuccessMessage(""), 3500);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  };
 
   // Step-up verification state
   const [isStepUpOpen, setIsStepUpOpen] = useState(false);
@@ -154,18 +189,101 @@ export default function SettingsPage() {
 
       {/* Tab 1: Profile & Greeting */}
       {activeTab === 'profile' && (
-        <section aria-labelledby="profile-settings-title" className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
-          <h2 id="profile-settings-title" className="text-xl font-serif font-bold text-wealth-navy-950 mb-1">
-            Personal Details & Salutation
-          </h2>
-          <p className="text-xs text-slate-500 mb-6">
-            Configure how our platform addresses you across headers and reports.
-          </p>
+        <section aria-labelledby="profile-settings-title" className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8 space-y-6">
+          <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+            <div>
+              <h2 id="profile-settings-title" className="text-xl font-serif font-bold text-wealth-navy-950">
+                Personal Profile & Photo
+              </h2>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Manage your portal display identity and verified salutation.
+              </p>
+            </div>
+          </div>
 
-          <form onSubmit={handleSaveProfile} className="space-y-4 max-w-lg">
+          {/* Profile Photo Uploader */}
+          <div className="p-5 bg-wealth-sand-50/60 rounded-xl border border-wealth-sand-200/80 flex flex-col sm:flex-row items-center gap-5">
+            <div className="relative group shrink-0">
+              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-wealth-gold-400 bg-wealth-navy-950 flex items-center justify-center shadow-luxury">
+                {profile.avatarUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img 
+                    src={profile.avatarUrl} 
+                    alt={profile.preferredName} 
+                    className="w-full h-full object-cover" 
+                  />
+                ) : (
+                  <span className="font-serif text-2xl font-bold text-wealth-gold-300">
+                    VH
+                  </span>
+                )}
+              </div>
+              
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                className="absolute inset-0 bg-black/40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white"
+                title="Change Photo"
+                aria-label="Upload profile photo"
+              >
+                <Camera className="w-6 h-6 text-wealth-gold-300" />
+              </button>
+            </div>
+
+            <div className="flex-1 text-center sm:text-left space-y-2">
+              <div>
+                <h3 className="font-bold text-sm text-wealth-navy-950 font-serif">
+                  Profile Photo
+                </h3>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Personalize your private wealth dashboard. Supports JPG, PNG, or WebP.
+                </p>
+              </div>
+
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                onChange={handlePhotoUpload}
+                className="hidden"
+                id="photo-upload-input"
+              />
+
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-1">
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  className="btn-touch px-3.5 py-1.5 bg-wealth-navy-950 text-white rounded-lg text-xs font-semibold hover:bg-wealth-navy-800 transition-colors flex items-center gap-1.5"
+                >
+                  <Upload className="w-3.5 h-3.5 text-wealth-gold-400" aria-hidden="true" />
+                  <span>Upload Photo</span>
+                </button>
+
+                {profile.avatarUrl && (
+                  <button
+                    type="button"
+                    onClick={handleRemovePhoto}
+                    className="btn-touch px-3 py-1.5 bg-white border border-slate-300 text-slate-700 hover:text-red-700 hover:border-red-300 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5"
+                  >
+                    <Trash2 className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
+                    <span>Remove</span>
+                  </button>
+                )}
+              </div>
+
+              {photoSuccessMessage && (
+                <p className="text-xs font-bold text-emerald-700 flex items-center gap-1 pt-1 justify-center sm:justify-start">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>{photoSuccessMessage}</span>
+                </p>
+              )}
+            </div>
+          </div>
+
+          <form onSubmit={handleSaveProfile} className="space-y-4 max-w-lg pt-2">
             <div>
               <label htmlFor="preferred-name" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
-                Preferred Name (Used in Portal Greeting)
+                Preferred Name
               </label>
               <input
                 id="preferred-name"
@@ -178,7 +296,7 @@ export default function SettingsPage() {
 
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
-                Legal Registered Name
+                Legal Trust Name
               </label>
               <input
                 type="text"
@@ -186,12 +304,11 @@ export default function SettingsPage() {
                 value={profile.fullName}
                 className="w-full p-2.5 bg-slate-100 border border-slate-200 rounded-lg text-sm text-slate-600 cursor-not-allowed"
               />
-              <p className="text-xs text-slate-400 mt-1">Changes to legal identity require certified custodian documentation.</p>
             </div>
 
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
-                Client Account Masked Identifier
+                Custody Account Number
               </label>
               <input
                 type="text"
@@ -204,7 +321,7 @@ export default function SettingsPage() {
             {isNameSaved && (
               <div className="p-3 bg-emerald-50 border border-emerald-300 rounded-lg text-xs font-semibold text-emerald-900 flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" aria-hidden="true" />
-                <span>Preferred name updated successfully and recorded in audit log.</span>
+                <span>Preferred name updated successfully.</span>
               </div>
             )}
 

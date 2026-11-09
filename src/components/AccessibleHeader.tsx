@@ -76,13 +76,22 @@ export const AccessibleHeader: React.FC = () => {
                 className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none"
                 aria-label="Vicky Hernandez Private Wealth Home"
               >
-                {/* Bespoke Private Wealth Monogram Crest */}
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-wealth-navy-900 to-wealth-navy-950 border border-wealth-gold-400/60 shadow-inner flex items-center justify-center relative group-hover:border-wealth-gold-300 transition-all shrink-0">
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-wealth-gold-500/30 flex items-center justify-center">
-                    <span className="font-serif text-xs sm:text-sm font-bold tracking-tighter text-wealth-gold-300 group-hover:text-wealth-gold-200 transition-colors">
-                      VH
-                    </span>
-                  </div>
+                {/* Bespoke Monogram Crest or Uploaded Profile Photo */}
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-wealth-navy-900 to-wealth-navy-950 border border-wealth-gold-400/60 shadow-inner flex items-center justify-center relative group-hover:border-wealth-gold-300 transition-all shrink-0 overflow-hidden">
+                  {profile.avatarUrl ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img 
+                      src={profile.avatarUrl} 
+                      alt={profile.preferredName} 
+                      className="w-full h-full object-cover" 
+                    />
+                  ) : (
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-wealth-gold-500/30 flex items-center justify-center">
+                      <span className="font-serif text-xs sm:text-sm font-bold tracking-tighter text-wealth-gold-300 group-hover:text-wealth-gold-200 transition-colors">
+                        VH
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex flex-col">
@@ -218,11 +227,16 @@ export const AccessibleHeader: React.FC = () => {
             <div>
               <div className="p-4 border-b border-wealth-navy-800 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-full bg-wealth-navy-900 border border-wealth-gold-400/60 flex items-center justify-center">
-                    <span className="font-serif text-xs font-bold text-wealth-gold-300">VH</span>
+                  <div className="w-10 h-10 rounded-full bg-wealth-navy-900 border border-wealth-gold-400/60 flex items-center justify-center overflow-hidden shrink-0">
+                    {profile.avatarUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={profile.avatarUrl} alt={profile.preferredName} className="w-full h-full object-cover" />
+                    ) : (
+                      <span className="font-serif text-xs font-bold text-wealth-gold-300">VH</span>
+                    )}
                   </div>
                   <div>
-                    <p className="font-display text-sm font-bold tracking-wider text-white uppercase">Vicky Hernandez</p>
+                    <p className="font-display text-sm font-bold tracking-wider text-white uppercase">{profile.fullName}</p>
                     <p className="text-[10px] text-wealth-gold-400 uppercase tracking-widest">Private Wealth</p>
                   </div>
                 </div>

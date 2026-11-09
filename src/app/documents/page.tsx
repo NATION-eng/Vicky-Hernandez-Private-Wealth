@@ -187,28 +187,26 @@ Certified copy for client tax preparation archives.
     <div className="space-y-8">
       
       {/* Documents Header */}
-      <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5 sm:p-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs uppercase font-bold tracking-widest text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-300">
-                Official Fiduciary Vault
+              <span className="text-[10px] uppercase font-bold tracking-widest text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1">
+                <ShieldCheck className="w-3 h-3 text-emerald-600" />
+                <span>Certified Vault</span>
               </span>
-              <span className="text-xs text-slate-500 font-medium">
-                Live Custodian Feeds & Certified Statements
+              <span className="text-xs text-slate-400 font-medium">
+                Northern Trust
               </span>
             </div>
-            <h1 className="text-2xl md:text-3xl font-serif font-bold text-wealth-navy-950">
-              Statements, Tax & Advisory Documents
+            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-wealth-navy-950">
+              Documents & Statements
             </h1>
-            <p className="text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
-              Access authentic, certified custodian statements issued by Northern Trust and quarterly strategy reports prepared by Sterling Private Wealth for Vicky Hernandez.
-            </p>
           </div>
 
-          <div className="text-xs bg-slate-50 p-3 rounded-lg border border-slate-200 text-slate-600">
-            <p className="font-bold text-wealth-navy-950">Custody Partner:</p>
-            <p>Northern Trust Global Custodial Services (Live)</p>
+          <div className="text-xs bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 flex items-center gap-2 w-fit">
+            <Lock className="w-3.5 h-3.5 text-slate-400" />
+            <span className="font-semibold text-wealth-navy-950">{documents.length} Records</span>
           </div>
         </div>
       </div>

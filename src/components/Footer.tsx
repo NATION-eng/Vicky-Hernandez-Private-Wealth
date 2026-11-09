@@ -86,20 +86,30 @@ export const Footer: React.FC = () => {
 
         </div>
 
-        {/* Fiduciary Disclaimers */}
-        <div className="pt-8 text-[11px] text-slate-400 leading-relaxed space-y-2">
-          <p>
-            <strong>Important Fiduciary & Regulatory Notice:</strong> This platform is designed to present verified wealth information from authorized custodian data sources, or to model strategic financial planning proposals. In accordance with PRD non-goals, this release does not execute market trades, initiate asset withdrawals, or process third-party banking transfers.
+        {/* Minimalist Fiduciary Badges & Notice */}
+        <div className="pt-6 text-xs text-slate-400 space-y-3">
+          <div className="flex flex-wrap items-center gap-3 text-[11px]">
+            <span className="inline-flex items-center gap-1.5 bg-wealth-navy-900 px-2.5 py-1 rounded-md border border-wealth-navy-800 text-slate-300">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Northern Trust Custody</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 bg-wealth-navy-900 px-2.5 py-1 rounded-md border border-wealth-navy-800 text-slate-300">
+              <Lock className="w-3.5 h-3.5 text-wealth-gold-400" />
+              <span>SOC2 Type II Encrypted</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 bg-wealth-navy-900 px-2.5 py-1 rounded-md border border-wealth-navy-800 text-slate-300">
+              <Accessibility className="w-3.5 h-3.5 text-wealth-gold-400" />
+              <span>WCAG 2.2 AA Accessible</span>
+            </span>
+          </div>
+
+          <p className="text-[11px] text-slate-400 leading-relaxed">
+            Private wealth portal for Vicky Hernandez. Custodian records reconciled via Northern Trust. Advisory services provided by Sterling Private Wealth Advisors LLC. Non-trading fiduciary portal.
           </p>
-          <p>
-            Past performance is no guarantee of future returns. Proposed allocations represent planning recommendations and do not imply funded balances until verified source instructions are executed.
-          </p>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pt-4 border-t border-wealth-navy-900 text-slate-500">
+
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pt-3 border-t border-wealth-navy-900 text-[11px] text-slate-500">
             <p>© 2026 Vicky Hernandez Private Wealth. All rights reserved.</p>
-            <p className="flex items-center gap-1 mt-2 sm:mt-0">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
-              <span>SOC2 Type II & WCAG 2.2 AA Certified Design System</span>
-            </p>
+            <p className="mt-1 sm:mt-0 font-mono">Account: {profile.accountNumberMasked}</p>
           </div>
         </div>
 

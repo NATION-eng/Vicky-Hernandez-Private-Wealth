@@ -36,6 +36,7 @@ interface ClientDataContextType {
   logout: () => void;
   profile: ClientProfile;
   updateProfileName: (preferredName: string) => void;
+  updateProfilePhoto: (photoDataUrl: string) => void;
   proposedAllocation: ProposedAllocationModel;
   assetAllocations: AssetClassAllocation[];
   holdings: HoldingItem[];
@@ -73,12 +74,16 @@ export const ClientDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     }
   ]);
 
-  // Read saved session on mount
+  // Read saved session and avatar on mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const savedAuth = localStorage.getItem('vhpw_authenticated');
       if (savedAuth === 'true') {
         setIsAuthenticated(true);
+      }
+      const savedAvatar = localStorage.getItem('vhpw_avatar');
+      if (savedAvatar) {
+        setProfile((prev) => ({ ...prev, avatarUrl: savedAvatar }));
       }
     }
   }, []);
@@ -120,6 +125,18 @@ export const ClientDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     recordAudit("UPDATE_PREFERRED_NAME", `NEW_VALUE: ${preferredName}`, "SUCCESS");
   };
 
+  const updateProfilePhoto = (photoDataUrl: string) => {
+    setProfile((prev) => ({ ...prev, avatarUrl: photoDataUrl }));
+    if (typeof window !== 'undefined') {
+      if (photoDataUrl) {
+        localStorage.setItem('vhpw_avatar', photoDataUrl);
+      } else {
+        localStorage.removeItem('vhpw_avatar');
+      }
+    }
+    recordAudit("UPDATE_PROFILE_PHOTO", photoDataUrl ? "PHOTO_UPLOADED" : "PHOTO_REMOVED", "SUCCESS");
+  };
+
   const verifyStepUp = (code: string): boolean => {
     if (code === "8920" || code === "123456") {
       setIsStepUpVerified(true);
@@ -157,6 +174,7 @@ export const ClientDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         logout,
         profile,
         updateProfileName,
+        updateProfilePhoto,
         proposedAllocation,
         assetAllocations,
         holdings,

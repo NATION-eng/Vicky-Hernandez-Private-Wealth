@@ -52,21 +52,22 @@ export default function HoldingsPage() {
           className="text-xs font-semibold text-wealth-navy-950 hover:text-wealth-gold-700 flex items-center gap-1 transition-colors mb-2"
         >
           <ChevronLeft className="w-4 h-4" aria-hidden="true" />
-          <span>Back to Portfolio Overview</span>
+          <span>Portfolio</span>
         </Link>
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
-          <div>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
             <h1 className="text-2xl sm:text-3xl font-serif font-bold text-wealth-navy-950">
-              Holding-Level Portfolio Details
+              Holdings Detail
             </h1>
-            <p className="text-xs sm:text-sm text-slate-600 mt-1">
-              Source-verified security holdings, quantity, unit price, and institution record identifiers.
-            </p>
+            <span className="text-[10px] uppercase font-bold tracking-wider bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded-full flex items-center gap-1">
+              <ShieldCheck className="w-3 h-3 text-emerald-600" />
+              <span>Verified</span>
+            </span>
           </div>
 
-          <div className="text-xs bg-slate-100 p-2.5 rounded-lg border border-slate-200 text-slate-600 flex items-center gap-2 self-start md:self-auto">
-            <Clock className="w-4 h-4 text-slate-500 shrink-0" aria-hidden="true" />
-            <span>Valuation delay: End-of-Day Official Close (4:30 PM EST)</span>
+          <div className="text-xs text-slate-500 flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200 w-fit">
+            <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" aria-hidden="true" />
+            <span>Close: 4:30 PM EST</span>
           </div>
         </div>
       </div>
