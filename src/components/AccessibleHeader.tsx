@@ -9,7 +9,6 @@ import { GlossaryModal } from '@/components/GlossaryModal';
 import { 
   ShieldCheck, 
   BookOpen, 
-  Phone, 
   LogOut,
   LogIn,
   Menu,
@@ -24,7 +23,6 @@ import {
   PieChart,
   ListFilter,
   BarChart2,
-  Mail,
   UserCheck,
   Sun,
   Moon,
@@ -118,7 +116,7 @@ export const AccessibleHeader: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setIsGlossaryOpen(true)}
-                className="btn-touch px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-300 bg-wealth-navy-900/90 border border-wealth-navy-700 hover:border-wealth-gold-400/50 hover:text-white transition-all flex items-center gap-2"
+                className="btn-touch px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-200 bg-wealth-navy-900/90 border border-wealth-navy-700 hover:border-wealth-gold-400/50 hover:text-white transition-all flex items-center gap-2"
                 title="Open Plain-English Financial Terms Dictionary"
               >
                 <BookOpen className="w-4 h-4 text-wealth-gold-400" aria-hidden="true" />
@@ -127,30 +125,20 @@ export const AccessibleHeader: React.FC = () => {
 
               {/* Verified Institutional Custody Pill */}
               <div 
-                className="btn-touch px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-2 border bg-emerald-950/70 border-emerald-500/40 text-emerald-300"
+                className="btn-touch px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 border bg-emerald-950/70 border-emerald-500/40 text-emerald-300"
                 title="Live Custodian Connection via Northern Trust Global Custody"
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true" />
-                <span className="hidden lg:inline font-normal text-emerald-300/80">Custodian:</span>
-                <span className="font-semibold text-emerald-200">Northern Trust</span>
+                <span className="hidden lg:inline font-semibold text-emerald-300/80">Custodian:</span>
+                <span className="font-bold text-emerald-200">Northern Trust</span>
               </div>
-
-              {/* Dedicated Adviser Phone Link */}
-              <a
-                href={`tel:${profile.adviserPhone.replace(/[^0-9+]/g, '')}`}
-                className="btn-touch px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-gradient-to-r from-wealth-gold-600 via-wealth-gold-500 to-wealth-gold-600 text-wealth-navy-950 hover:brightness-105 transition-all flex items-center gap-1.5 shadow-sm border border-wealth-gold-300/40"
-                title={`Call Lead Adviser ${profile.adviserName}`}
-              >
-                <Phone className="w-3.5 h-3.5" aria-hidden="true" />
-                <span className="hidden lg:inline">Adviser Hotline</span>
-              </a>
 
               {/* Authentication Status / Sign Out Action */}
               {isAuthenticated ? (
                 <button
                   type="button"
                   onClick={logout}
-                  className="btn-touch px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 bg-wealth-navy-900/80 border border-wealth-navy-700 hover:bg-red-950/80 hover:text-red-200 hover:border-red-600 transition-all flex items-center gap-1.5"
+                  className="btn-touch px-3 py-1.5 rounded-lg text-xs font-bold text-slate-300 bg-wealth-navy-900/80 border border-wealth-navy-700 hover:bg-red-950/80 hover:text-red-200 hover:border-red-600 transition-all flex items-center gap-1.5"
                   title="Sign out of portal session"
                 >
                   <LogOut className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
@@ -159,7 +147,7 @@ export const AccessibleHeader: React.FC = () => {
               ) : (
                 <Link
                   href="/sign-in"
-                  className="btn-touch px-3.5 py-1.5 rounded-lg text-xs font-semibold text-wealth-gold-300 bg-wealth-navy-900 border border-wealth-gold-500/50 hover:bg-wealth-gold-500 hover:text-wealth-navy-950 transition-all flex items-center gap-1.5"
+                  className="btn-touch px-3.5 py-1.5 rounded-lg text-xs font-bold text-wealth-gold-300 bg-wealth-navy-900 border border-wealth-gold-500/50 hover:bg-wealth-gold-500 hover:text-wealth-navy-950 transition-all flex items-center gap-1.5"
                 >
                   <LogIn className="w-3.5 h-3.5" aria-hidden="true" />
                   <span>Sign In</span>
@@ -173,22 +161,12 @@ export const AccessibleHeader: React.FC = () => {
               
               {/* Custodian Live Status Dot Pill */}
               <div 
-                className="px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wider flex items-center gap-1.5 border bg-emerald-950/70 border-emerald-500/30 text-emerald-300 shadow-xs"
+                className="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider flex items-center gap-1.5 border bg-emerald-950/70 border-emerald-500/30 text-emerald-300 shadow-xs"
                 title="Live Institutional Custody via Northern Trust"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="uppercase font-bold tracking-wider">NT Live</span>
               </div>
-
-              {/* Tap to Call Lead Adviser - Refined Jewel Button */}
-              <a
-                href={`tel:${profile.adviserPhone.replace(/[^0-9+]/g, '')}`}
-                className="btn-touch w-9 h-9 rounded-full bg-wealth-navy-900 border border-wealth-gold-500/40 text-wealth-gold-300 hover:bg-wealth-gold-500 hover:text-wealth-navy-950 active:scale-95 transition-all flex items-center justify-center shadow-xs"
-                aria-label={`Call Lead Adviser ${profile.adviserName}`}
-                title="Call Lead Adviser Hotline"
-              >
-                <Phone className="w-4 h-4" aria-hidden="true" />
-              </a>
 
               {/* Mobile Drawer Hamburger Button - Refined Jewel Button */}
               <button
@@ -265,9 +243,9 @@ export const AccessibleHeader: React.FC = () => {
                       <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
                       <span>Northern Trust Live</span>
                     </span>
-                    <span className="text-wealth-gold-300 font-serif font-bold text-xs">$1,850,000.00</span>
+                    <span className="text-wealth-gold-300 font-mono font-bold text-xs">$0.00</span>
                   </div>
-                  <div className="flex items-center justify-between text-slate-300 text-[11px]">
+                  <div className="flex items-center justify-between text-slate-300 text-[11px] font-semibold">
                     <span>Account: <strong>{profile.accountNumberMasked}</strong></span>
                     <span className="text-slate-400 truncate max-w-[140px]">{profile.fullName} Revocable Trust</span>
                   </div>
@@ -452,28 +430,19 @@ export const AccessibleHeader: React.FC = () => {
               )}
             </div>
 
-            {/* Drawer Footer: Lead Adviser Direct Contact & Sign Out */}
+            {/* Drawer Footer: Institutional Custody Status & Sign Out */}
             <div className="p-4 border-t border-wealth-navy-800 space-y-3">
               <div className="bg-wealth-navy-900/60 p-3 rounded-xl border border-wealth-navy-800">
                 <p className="text-[10px] uppercase font-bold tracking-wider text-wealth-gold-400 mb-0.5">
-                  Lead Fiduciary Adviser
+                  Institutional Custodian
                 </p>
-                <p className="text-xs font-bold text-white">{profile.adviserName}</p>
-                <div className="mt-2 flex items-center gap-2">
-                  <a
-                    href={`tel:${profile.adviserPhone.replace(/[^0-9+]/g, '')}`}
-                    className="btn-touch flex-1 py-1.5 px-2 bg-wealth-gold-500 text-wealth-navy-950 rounded-md text-[11px] font-bold text-center justify-center flex items-center gap-1 shadow-xs"
-                  >
-                    <Phone className="w-3 h-3" />
-                    <span>Call</span>
-                  </a>
-                  <a
-                    href={`mailto:${profile.adviserEmail}`}
-                    className="btn-touch flex-1 py-1.5 px-2 bg-wealth-navy-800 text-slate-200 border border-wealth-navy-700 rounded-md text-[11px] font-medium text-center justify-center flex items-center gap-1 hover:text-white"
-                  >
-                    <Mail className="w-3 h-3" />
-                    <span>Email</span>
-                  </a>
+                <p className="text-xs font-bold text-white">Northern Trust Global Custody</p>
+                <div className="mt-2 flex items-center justify-between text-[11px] text-slate-400">
+                  <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    Verified Fiduciary Link
+                  </span>
+                  <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Tier-1 Custody</span>
                 </div>
               </div>
 

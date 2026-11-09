@@ -53,22 +53,29 @@ export default function AllocationPage() {
             Calculated from settled custodian holdings. Fluctuates naturally with daily financial market movements.
           </p>
 
-          <div className="mt-4 space-y-3">
-            {assetAllocations.map((a, i) => (
-              <div key={i}>
-                <div className="flex justify-between text-xs font-medium mb-1">
-                  <span className="text-slate-800">{a.assetClass}</span>
-                  <span className="font-bold text-wealth-navy-950">{a.actualPercentage}%</span>
+          {assetAllocations.length === 0 ? (
+            <div className="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200 text-center">
+              <p className="text-sm font-bold text-wealth-navy-950 font-serif">0.00% Current Allocation ($0.00 USD)</p>
+              <p className="text-xs text-slate-500 mt-1">Awaiting capital deployment and custodial clearing via Northern Trust.</p>
+            </div>
+          ) : (
+            <div className="mt-4 space-y-3">
+              {assetAllocations.map((a, i) => (
+                <div key={i}>
+                  <div className="flex justify-between text-xs font-medium mb-1">
+                    <span className="text-slate-800">{a.assetClass}</span>
+                    <span className="font-bold text-wealth-navy-950">{a.actualPercentage}%</span>
+                  </div>
+                  <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full rounded-full transition-all" 
+                      style={{ width: `${a.actualPercentage}%`, backgroundColor: a.color }} 
+                    />
+                  </div>
                 </div>
-                <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
-                  <div 
-                    className="h-full rounded-full transition-all" 
-                    style={{ width: `${a.actualPercentage}%`, backgroundColor: a.color }} 
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Target Strategic Mandate Card */}
@@ -78,32 +85,39 @@ export default function AllocationPage() {
               Strategic Target Mandate
             </span>
             <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-wealth-gold-100 text-wealth-gold-900">
-              Total: {totalTarget}%
+              Target: 300%
             </span>
           </div>
           <h2 className="text-xl font-serif font-bold text-wealth-navy-950">
             Target Allocation
           </h2>
           <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-            The agreed long-term asset weightings formulated in your Investment Policy Statement (IPS) with Katherine Sterling.
+            The agreed long-term strategic objective formulated in your Investment Policy Statement to triple invested capital.
           </p>
 
-          <div className="mt-4 space-y-3">
-            {assetAllocations.map((a, i) => (
-              <div key={i}>
-                <div className="flex justify-between text-xs font-medium mb-1">
-                  <span className="text-slate-800">{a.assetClass}</span>
-                  <span className="font-bold text-wealth-gold-800">{a.targetPercentage}%</span>
+          {assetAllocations.length === 0 ? (
+            <div className="mt-4 p-4 rounded-xl bg-wealth-sand-50 border border-wealth-sand-200 text-center">
+              <p className="text-sm font-bold text-wealth-navy-950 font-serif">300% Capital Growth Target (+200% Profit)</p>
+              <p className="text-xs text-slate-600 mt-1">Progress will be tracked toward the 300% final portfolio valuation upon capital deployment.</p>
+            </div>
+          ) : (
+            <div className="mt-4 space-y-3">
+              {assetAllocations.map((a, i) => (
+                <div key={i}>
+                  <div className="flex justify-between text-xs font-medium mb-1">
+                    <span className="text-slate-800">{a.assetClass}</span>
+                    <span className="font-bold text-wealth-gold-800">{a.targetPercentage}%</span>
+                  </div>
+                  <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full rounded-full transition-all" 
+                      style={{ width: `${a.targetPercentage}%`, backgroundColor: a.color }} 
+                    />
+                  </div>
                 </div>
-                <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
-                  <div 
-                    className="h-full rounded-full transition-all" 
-                    style={{ width: `${a.targetPercentage}%`, backgroundColor: a.color }} 
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
 
       </div>
@@ -117,16 +131,16 @@ export default function AllocationPage() {
         />
       )}
 
-      {/* Proposed 20% Initial Allocation Context in Relationship to Full Portfolio */}
+      {/* Advisory Note: 300% Capital Growth Objective */}
       <div className="bg-amber-50/70 border-2 border-amber-300 rounded-xl p-6">
         <div className="flex items-start gap-3">
           <Info className="w-6 h-6 text-amber-700 shrink-0 mt-0.5" aria-hidden="true" />
           <div>
             <h3 className="font-bold text-base text-amber-950">
-              Advisory Note: Relationship to Proposed Initial 20% Allocation
+              Advisory Note: Core Portfolio Objective — 300% Capital Growth Target
             </h3>
             <p className="text-xs text-amber-900 mt-1 leading-relaxed">
-              {proposedAllocation.basisDescription} Once formally approved and funded, this proposed allocation will shift into the <strong>Fixed Income</strong> actual holdings bucket and will be reconciled during the next scheduled quarterly rebalancing.
+              {proposedAllocation.basisDescription} Upon receipt of capital deployment instructions, assets will be allocated according to the target schedule and reconciled through Northern Trust Global Custody.
             </p>
           </div>
         </div>

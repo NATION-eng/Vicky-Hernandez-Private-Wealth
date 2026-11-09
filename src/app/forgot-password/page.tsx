@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useClientData } from '@/context/ClientDataContext';
-import { KeyRound, Mail, ArrowLeft, CheckCircle2, Phone } from 'lucide-react';
+import { KeyRound, Mail, ArrowLeft, CheckCircle2 } from 'lucide-react';
 
 export default function ForgotPasswordPage() {
   const { profile } = useClientData();
@@ -91,10 +91,7 @@ export default function ForgotPasswordPage() {
                 <span>Back to Sign-In</span>
               </Link>
 
-              <a href={`tel:${profile.adviserPhone.replace(/[^0-9+]/g, '')}`} className="font-semibold text-wealth-gold-700 hover:underline flex items-center gap-1">
-                <Phone className="w-3.5 h-3.5" aria-hidden="true" />
-                <span>Call Adviser</span>
-              </a>
+              <span className="text-slate-400 font-semibold">Northern Trust Custody</span>
             </div>
           </form>
         )}

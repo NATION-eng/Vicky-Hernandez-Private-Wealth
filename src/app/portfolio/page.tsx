@@ -165,7 +165,7 @@ export default function PortfolioOverviewPage() {
       )}
 
       {/* Holdings Preview: Mobile Cards & Desktop Table */}
-      {holdings.length > 0 && (
+      {holdings.length > 0 ? (
         <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5 sm:p-6">
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
             <div>
@@ -242,6 +242,25 @@ export default function PortfolioOverviewPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+      ) : (
+        <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8 text-center">
+          <ListFilter className="w-12 h-12 text-slate-300 mx-auto mb-3" aria-hidden="true" />
+          <h2 className="text-xl font-bold font-serif text-wealth-navy-950">
+            No Active Holdings on File
+          </h2>
+          <p className="text-sm text-slate-600 max-w-lg mx-auto mt-2 leading-relaxed">
+            Your custody account currently holds $0.00 in settled active positions. Holdings will appear automatically following trade settlement and custodial clearing through Northern Trust.
+          </p>
+          <div className="mt-4">
+            <Link
+              href="/plan"
+              className="btn-touch px-5 py-2.5 bg-wealth-navy-950 text-white rounded-lg text-xs font-bold hover:bg-wealth-navy-800 inline-flex items-center gap-2"
+            >
+              <span>View 300% Capital Growth Framework</span>
+              <ArrowRight className="w-4 h-4 text-wealth-gold-300" aria-hidden="true" />
+            </Link>
           </div>
         </div>
       )}

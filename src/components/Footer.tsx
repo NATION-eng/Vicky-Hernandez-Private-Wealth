@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useClientData } from '@/context/ClientDataContext';
-import { ShieldCheck, Phone, Mail, Lock, Accessibility, HelpCircle } from 'lucide-react';
+import { ShieldCheck, Lock, Accessibility, HelpCircle } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const { profile } = useClientData();
@@ -28,27 +28,20 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Dedicated Concierge */}
+          {/* Institutional Custody */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-wealth-gold-400 mb-3">
-              Dedicated Adviser
+              Institutional Custodian
             </h4>
             <div className="space-y-2 text-xs">
-              <p className="font-semibold text-white">{profile.adviserName}</p>
-              <a 
-                href={`tel:${profile.adviserPhone.replace(/[^0-9+]/g, '')}`}
-                className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors"
-              >
-                <Phone className="w-3.5 h-3.5 text-wealth-gold-400" aria-hidden="true" />
-                <span>{profile.adviserPhone}</span>
-              </a>
-              <a 
-                href={`mailto:${profile.adviserEmail}`}
-                className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors"
-              >
-                <Mail className="w-3.5 h-3.5 text-wealth-gold-400" aria-hidden="true" />
-                <span className="truncate">{profile.adviserEmail}</span>
-              </a>
+              <p className="font-bold text-white">Northern Trust Global Custody</p>
+              <p className="text-slate-400 text-[11px] leading-relaxed">
+                Fiduciary Administration & Global Asset Servicing. Assets held in segregated client custody.
+              </p>
+              <div className="flex items-center gap-1.5 text-emerald-400 font-semibold pt-1">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>DTC & Federal Reserve Reconciled</span>
+              </div>
             </div>
           </div>
 

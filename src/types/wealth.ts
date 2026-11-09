@@ -63,7 +63,7 @@ export interface HoldingItem {
 
 export interface ProposedAllocationModel {
   title: string;
-  headlinePercentage: number; // 20%
+  headlinePercentage: number; // e.g. 300% target portfolio value (triple invested capital)
   basisDescription: string;
   intendedDenominator: string;
   targetAssetClass: string;

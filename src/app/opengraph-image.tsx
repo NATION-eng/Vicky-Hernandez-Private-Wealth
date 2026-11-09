@@ -139,7 +139,7 @@ export default async function Image() {
               letterSpacing: '1px',
             }}
           >
-            Verified Institutional Custody: Northern Trust ($1,850,000.00 USD)
+            Verified Institutional Custody: Northern Trust Global Custody
           </span>
         </div>
       </div>

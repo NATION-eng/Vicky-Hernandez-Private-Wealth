@@ -12,7 +12,7 @@ import {
   ResponsiveContainer, 
   Legend 
 } from 'recharts';
-import { TrendingUp, ShieldAlert, Table, BarChart2, Info } from 'lucide-react';
+import { TrendingUp, ShieldAlert, Table, BarChart2, Info, Target, ShieldCheck } from 'lucide-react';
 
 interface AccessiblePerformanceChartProps {
   performanceHistory: PerformanceDataPoint[];
@@ -26,17 +26,77 @@ export const AccessiblePerformanceChart: React.FC<AccessiblePerformanceChartProp
   const [selectedPeriod, setSelectedPeriod] = useState<'1M' | '3M' | '6M' | '1Y' | 'ALL'>('ALL');
   const [showTableOnly, setShowTableOnly] = useState<boolean>(false);
 
-  // If no data points, display PRD compliant state
+  // If no data points, display authoritative stated objectives framework
   if (!performanceHistory || performanceHistory.length === 0) {
     return (
-      <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8 text-center">
-        <ShieldAlert className="w-12 h-12 text-amber-500 mx-auto mb-3" aria-hidden="true" />
-        <h3 className="text-xl font-bold font-serif text-wealth-navy-950">
-          Performance History Pending Verified Data
-        </h3>
-        <p className="text-sm text-slate-600 max-w-lg mx-auto mt-2 leading-relaxed">
-          Per fiduciary presentation standards (PRD FR-06 & 9.4), performance charts are only generated once verified historical custodian statements have reconciled. No simulated past returns are implied on live client records.
-        </p>
+      <div className="bg-white rounded-2xl shadow-luxury border border-slate-200/80 p-6 sm:p-8 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-[10px] uppercase font-bold tracking-widest text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1">
+                <ShieldCheck className="w-3 h-3 text-emerald-600" />
+                <span>Clean Baseline State</span>
+              </span>
+              <span className="text-xs text-slate-500 font-medium">Northern Trust Custody</span>
+            </div>
+            <h3 className="text-xl sm:text-2xl font-serif font-bold text-wealth-navy-950">
+              Platform Strategic Objectives & Performance Framework
+            </h3>
+          </div>
+          <div className="text-xs font-bold text-slate-700 bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200 self-start sm:self-auto">
+            Actual Returns: 0.00%
+          </div>
+        </div>
+
+        {/* 3 Metric Framework Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="p-4 rounded-xl bg-wealth-sand-50 border border-wealth-sand-200/80">
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] uppercase font-bold tracking-wider text-slate-500">Platform Objective</span>
+              <Target className="w-4 h-4 text-wealth-gold-600" />
+            </div>
+            <p className="text-2xl sm:text-3xl font-serif font-bold text-wealth-navy-950">99.9%</p>
+            <p className="text-xs font-bold text-wealth-gold-800 mt-1">Target Operational Success Rate</p>
+            <p className="text-[11px] text-slate-600 mt-1 leading-snug">
+              Platform-stated execution and custodial reconciliation reliability target.
+            </p>
+          </div>
+
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] uppercase font-bold tracking-wider text-slate-500">Growth Target</span>
+              <TrendingUp className="w-4 h-4 text-emerald-600" />
+            </div>
+            <p className="text-2xl sm:text-3xl font-serif font-bold text-wealth-navy-950">300%</p>
+            <p className="text-xs font-bold text-emerald-800 mt-1">Target Portfolio Value (Triple Invested)</p>
+            <p className="text-[11px] text-slate-600 mt-1 leading-snug">
+              Mathematical framework: 100% Initial Capital → 300% Final Value (+200% Profit).
+            </p>
+          </div>
+
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] uppercase font-bold tracking-wider text-slate-500">Current Balances</span>
+              <ShieldCheck className="w-4 h-4 text-wealth-navy-900" />
+            </div>
+            <p className="text-2xl sm:text-3xl font-serif font-bold text-wealth-navy-950">$0.00</p>
+            <p className="text-xs font-bold text-slate-800 mt-1">0.00% Current Realized Return</p>
+            <p className="text-[11px] text-slate-600 mt-1 leading-snug">
+              Ready for client timeframe and deployment instructions. No fabricated history.
+            </p>
+          </div>
+        </div>
+
+        {/* Legal and Fiduciary Disclosures */}
+        <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 leading-relaxed">
+          <p className="font-bold text-slate-800 mb-1 flex items-center gap-1.5">
+            <Info className="w-3.5 h-3.5 text-wealth-gold-600 shrink-0" />
+            <span>Fiduciary Performance Standard & Statutory Disclosures</span>
+          </p>
+          <p>
+            The 99.9% figure is a platform-stated operational and execution reliability objective and is not presented as an independently audited historical return. In strict accordance with fiduciary standards and investor protections, historical return curves are generated exclusively from verified custodial statements following capital deployment. Past performance is no guarantee of future results.
+          </p>
+        </div>
       </div>
     );
   }

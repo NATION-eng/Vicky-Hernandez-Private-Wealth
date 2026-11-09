@@ -19,7 +19,8 @@ export const PortfolioSummaryCard: React.FC = () => {
     }).format(val);
   };
 
-  const gainPercent = ((totalGainLoss / (totalValuation - totalGainLoss)) * 100).toFixed(2);
+  const costBasis = totalValuation - totalGainLoss;
+  const gainPercent = costBasis > 0 ? ((totalGainLoss / costBasis) * 100).toFixed(2) : "0.00";
 
   return (
     <div className="bg-white rounded-2xl shadow-luxury border border-slate-200/80 p-5 sm:p-6 md:p-7 flex flex-col justify-between hover:shadow-luxury-hover transition-all">

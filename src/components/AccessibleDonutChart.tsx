@@ -18,6 +18,20 @@ export const AccessibleDonutChart: React.FC<AccessibleDonutChartProps> = ({
 }) => {
   const [viewMode, setViewMode] = useState<'both' | 'table_only'>('both');
 
+  if (!allocations || allocations.length === 0) {
+    return (
+      <div className="bg-white rounded-2xl shadow-luxury border border-slate-200/80 p-8 text-center">
+        <PieIcon className="w-12 h-12 text-slate-300 mx-auto mb-3" aria-hidden="true" />
+        <h3 className="text-xl font-bold font-serif text-wealth-navy-950">
+          Asset Allocation Pending Capital Deployment
+        </h3>
+        <p className="text-sm text-slate-600 max-w-lg mx-auto mt-2 leading-relaxed">
+          All asset allocation percentages currently stand at 0.00% across all asset classes ($0.00 USD). Holdings will be tracked directly toward the 300% growth target once capital is deployed and cleared through Northern Trust.
+        </p>
+      </div>
+    );
+  }
+
   const totalPercentage = allocations.reduce((sum, item) => sum + item.actualPercentage, 0);
   const unallocatedPercentage = Math.max(0, 100 - totalPercentage);
 

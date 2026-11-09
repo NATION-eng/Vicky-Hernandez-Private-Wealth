@@ -4,17 +4,13 @@ import React, { useState } from 'react';
 import { useClientData } from '@/context/ClientDataContext';
 import { 
   HelpCircle, 
-  Phone, 
-  Mail, 
   ShieldAlert, 
   Search, 
-  Calendar, 
   ChevronDown, 
   ChevronUp, 
   CheckCircle2, 
   ExternalLink,
-  Lock,
-  Headphones
+  Lock
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -26,28 +22,33 @@ interface FAQItem {
 
 const FAQS: FAQItem[] = [
   {
-    question: "What is the meaning of the 'Proposed Initial Allocation — 20%' on my screen?",
-    answer: "This is an advisory proposal suggesting an initial 20% placement into capital-preservation instruments (such as US Treasury notes). It is not an active holding, deposit, or trade. It represents a recommendation for discussion during your planning consultation.",
+    question: "What is the primary objective of the portfolio platform?",
+    answer: "The platform's primary investment objective is to triple the amount invested over time through gradual, progressive growth (100% initial capital -> 300% final portfolio valuation / 200% target profit). All financial figures currently initialize at zero ($0.00 / 0.00%) pending client-provided investment timeframe and funding schedule.",
     category: "Advisory"
   },
   {
-    question: "Why does my dashboard state 'Value Not Connected' in Proposed Plan mode?",
-    answer: "Per our strict fiduciary standards, we never fabricate or simulate account balances on your client portal. Until your institutional custodian (such as Northern Trust or BNY Mellon) is connected via secure feed, real values remain unavailable to prevent any misleading presentation.",
+    question: "What does the 99.9% target rate represent?",
+    answer: "The 99.9% figure is a platform-stated operational and custody reconciliation reliability objective. In accordance with strict fiduciary presentation standards, it is not presented as an independently verified historical return.",
+    category: "Security"
+  },
+  {
+    question: "Why are financial figures currently showing zero ($0.00 / 0.00%)?",
+    answer: "Per our strict fiduciary standards, we never fabricate or simulate account balances or investment returns. All figures initialize at a clean zero baseline until capital deployment instructions and investment timeframes are formally executed.",
     category: "Accounts"
   },
   {
     question: "How do I report suspicious account activity or unrecognized log-ins?",
-    answer: "You can use our 'Report Suspicious Activity' tool on this page, or immediately call Katherine Sterling at +1 (555) 430-8800. Our security team can freeze portal access and verify recent IP sessions instantly.",
+    answer: "You can use our 'Report Suspicious Activity' tool on this page to immediately alert our fiduciary operations desk. Our team can terminate active sessions and verify recent login events instantly.",
     category: "Security"
   },
   {
     question: "Can trades or money transfers be executed directly from this portal?",
-    answer: "No. In accordance with PRD non-goals (FR-12), this release operates solely as a wealth information, plan review, and document reporting platform. No withdrawals, trades, or fund movements can be initiated from this portal.",
+    answer: "No. In accordance with fiduciary security architecture, this portal operates solely as a protected wealth information, plan review, and document vault platform. No unauthorized withdrawals, trades, or fund transfers can be executed through this interface.",
     category: "Security"
   },
   {
     question: "How do I adjust the text size or switch to High Contrast mode?",
-    answer: "Use the Viewing Assistance toolbar at the very top of your screen. You can select '125%' or '150%' text size, or switch to 'High Contrast' black-and-white mode with a single click at any time.",
+    answer: "Use the Viewing Assistance toolbar at the very top of your screen. You can select '125%' or '150%' text size, or switch to 'High Contrast' mode with a single click at any time.",
     category: "Accounts"
   }
 ];
@@ -83,88 +84,78 @@ export default function HelpPage() {
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="text-xs uppercase font-bold tracking-widest text-wealth-gold-600 bg-wealth-gold-50 px-2.5 py-0.5 rounded-full border border-wealth-gold-200">
-                Direct Client Support
+                Client Support & Security
               </span>
               <span className="text-xs text-slate-500 font-medium">
-                Senior & Elderly-First Accessibility Guaranteed
+                Northern Trust Institutional Custody
               </span>
             </div>
             <h1 className="text-2xl md:text-3xl font-serif font-bold text-wealth-navy-950">
-              Help, Concierge & Advisory Contacts
+              Platform Support & Security Guidance
             </h1>
             <p className="text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
-              We believe older clients and family office members should never be trapped in automated chat loops. You have direct phone and email access to your dedicated private wealth team.
+              Transparent fiduciary information, plain-language guidance, and direct security reporting for Vicky Hernandez.
             </p>
           </div>
 
           <div className="flex items-center gap-2">
-            <a
-              href={`tel:${profile.adviserPhone.replace(/[^0-9+]/g, '')}`}
-              className="btn-touch px-5 py-3 bg-wealth-navy-950 text-white rounded-xl text-sm font-semibold hover:bg-wealth-navy-800 transition-colors flex items-center gap-2 shadow-sm"
+            <Link
+              href="/documents"
+              className="btn-touch px-5 py-3 bg-wealth-navy-950 text-white rounded-xl text-sm font-bold hover:bg-wealth-navy-800 transition-colors flex items-center gap-2 shadow-sm"
             >
-              <Phone className="w-4 h-4 text-wealth-gold-300" aria-hidden="true" />
-              <span>Call Adviser Directly</span>
-            </a>
+              <Lock className="w-4 h-4 text-wealth-gold-300" aria-hidden="true" />
+              <span>Access Custody Vault</span>
+            </Link>
           </div>
         </div>
       </div>
 
-      {/* Direct Contact Cards */}
+      {/* Support & Fiduciary Structure Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        {/* Dedicated Adviser */}
+        {/* Institutional Custody */}
         <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
           <div>
-            <div className="w-10 h-10 rounded-full bg-wealth-gold-100 border border-wealth-gold-300 flex items-center justify-center mb-3">
-              <Headphones className="w-5 h-5 text-wealth-gold-700" aria-hidden="true" />
+            <div className="w-10 h-10 rounded-full bg-emerald-50 border border-emerald-300 flex items-center justify-center mb-3">
+              <CheckCircle2 className="w-5 h-5 text-emerald-700" aria-hidden="true" />
             </div>
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Dedicated Wealth Lead</span>
-            <h3 className="text-lg font-serif font-bold text-wealth-navy-950 mt-1">{profile.adviserName}</h3>
-            <p className="text-xs text-slate-600 mt-1">Available Mon–Fri, 8:00 AM – 6:00 PM EST for portfolio consultations.</p>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Institutional Custody</span>
+            <h3 className="text-lg font-serif font-bold text-wealth-navy-950 mt-1">Northern Trust</h3>
+            <p className="text-xs text-slate-600 mt-1">Global Custody & Asset Servicing. Regulated institutional reconciliation under Federal Reserve book-entry.</p>
           </div>
-          <div className="mt-4 pt-4 border-t border-slate-100 space-y-2 text-xs">
-            <a href={`tel:${profile.adviserPhone.replace(/[^0-9+]/g, '')}`} className="font-semibold text-wealth-navy-950 flex items-center gap-1.5 hover:underline">
-              <Phone className="w-3.5 h-3.5 text-wealth-gold-600" aria-hidden="true" />
-              <span>{profile.adviserPhone}</span>
-            </a>
-            <a href={`mailto:${profile.adviserEmail}`} className="text-slate-600 flex items-center gap-1.5 hover:underline">
-              <Mail className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
-              <span className="truncate">{profile.adviserEmail}</span>
-            </a>
+          <div className="mt-4 pt-4 border-t border-slate-100 text-xs font-semibold text-emerald-800 flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>Custodian Status: Active</span>
           </div>
         </div>
 
-        {/* 24/7 Security & Fraud Concierge */}
+        {/* 24/7 Security & Fraud Protection */}
         <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
           <div>
-            <div className="w-10 h-10 rounded-full bg-red-100 border border-red-300 flex items-center justify-center mb-3">
-              <ShieldAlert className="w-5 h-5 text-red-700" aria-hidden="true" />
+            <div className="w-10 h-10 rounded-full bg-wealth-sand-100 border border-wealth-sand-300 flex items-center justify-center mb-3">
+              <ShieldAlert className="w-5 h-5 text-wealth-navy-950" aria-hidden="true" />
             </div>
-            <span className="text-xs font-bold uppercase tracking-wider text-red-800">24/7 Fraud & Safety Hotline</span>
-            <h3 className="text-lg font-serif font-bold text-wealth-navy-950 mt-1">Emergency Security Desk</h3>
-            <p className="text-xs text-slate-600 mt-1">Direct line for identity verification, suspected fraud, or lost devices.</p>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Session Protection</span>
+            <h3 className="text-lg font-serif font-bold text-wealth-navy-950 mt-1">Enterprise Security</h3>
+            <p className="text-xs text-slate-600 mt-1">PBKDF2 salted credential encryption, HTTP-only secure cookies, and 2-hour automatic session expiration.</p>
           </div>
-          <div className="mt-4 pt-4 border-t border-slate-100 space-y-2 text-xs">
-            <a href="tel:+18005550199" className="font-semibold text-red-700 flex items-center gap-1.5 hover:underline">
-              <Phone className="w-3.5 h-3.5 text-red-600" aria-hidden="true" />
-              <span>+1 (800) 555-0199 (Toll-Free 24/7)</span>
-            </a>
-            <p className="text-slate-500">fraud-alerts@sterlingprivatewealth.com</p>
+          <div className="mt-4 pt-4 border-t border-slate-100 text-xs font-bold text-wealth-navy-950">
+            <span>Session Timeout: 120 Minutes</span>
           </div>
         </div>
 
-        {/* Accessibility & Tech Help Desk */}
+        {/* Accessibility Support */}
         <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
           <div>
             <div className="w-10 h-10 rounded-full bg-wealth-navy-100 border border-wealth-navy-300 flex items-center justify-center mb-3">
               <Lock className="w-5 h-5 text-wealth-navy-900" aria-hidden="true" />
             </div>
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Device & Screen Reader Help</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Inclusive Design</span>
             <h3 className="text-lg font-serif font-bold text-wealth-navy-950 mt-1">Accessibility Support</h3>
-            <p className="text-xs text-slate-600 mt-1">Assistance configuring browser zoom, JAWS/NVDA screen readers, or iPad tablets.</p>
+            <p className="text-xs text-slate-600 mt-1">Built to WCAG 2.2 AA standards with full keyboard navigation, high contrast options, and screen reader readiness.</p>
           </div>
           <div className="mt-4 pt-4 border-t border-slate-100 space-y-2 text-xs">
-            <Link href="/accessibility" className="font-semibold text-wealth-gold-700 hover:underline flex items-center gap-1">
+            <Link href="/accessibility" className="font-bold text-wealth-gold-700 hover:underline flex items-center gap-1">
               <span>Read Full Accessibility Statement</span>
               <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
             </Link>

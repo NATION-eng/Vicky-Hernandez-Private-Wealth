@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useClientData } from '@/context/ClientDataContext';
-import { ChevronLeft, Phone, Mail, Clock, MapPin, Headphones } from 'lucide-react';
+import { ChevronLeft, ShieldCheck, Landmark, Lock, FileText, ArrowRight } from 'lucide-react';
 
 export default function HelpContactSubpage() {
   const { profile } = useClientData();
@@ -19,49 +19,47 @@ export default function HelpContactSubpage() {
           <span>Back to Help Hub</span>
         </Link>
         <h1 className="text-2xl md:text-3xl font-serif font-bold text-wealth-navy-950">
-          Direct Advisory & Support Directory
+          Institutional Custody & Fiduciary Administration
         </h1>
         <p className="text-sm text-slate-600 mt-1">
-          Always reach a qualified private wealth professional without chatbot friction.
+          Segregated custody and administration directory for Vicky Hernandez.
         </p>
       </div>
 
       <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 space-y-6">
         <div className="flex items-center gap-3 pb-4 border-b border-slate-100">
-          <div className="w-12 h-12 rounded-full bg-wealth-gold-100 flex items-center justify-center">
-            <Headphones className="w-6 h-6 text-wealth-gold-700" aria-hidden="true" />
+          <div className="w-12 h-12 rounded-full bg-emerald-50 border border-emerald-300 flex items-center justify-center">
+            <Landmark className="w-6 h-6 text-emerald-700" aria-hidden="true" />
           </div>
           <div>
-            <h2 className="text-xl font-serif font-bold text-wealth-navy-950">{profile.adviserName}</h2>
-            <p className="text-xs text-slate-500">Dedicated Wealth Advisor to Vicky Hernandez</p>
+            <h2 className="text-xl font-serif font-bold text-wealth-navy-950">Northern Trust Global Custody</h2>
+            <p className="text-xs text-slate-500">Tier-1 Institutional Custodian to Vicky Hernandez</p>
           </div>
         </div>
 
         <div className="space-y-4 text-sm">
           <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
             <div>
-              <p className="text-xs font-bold uppercase text-slate-400">Direct Telephone</p>
-              <p className="text-base font-bold text-wealth-navy-950 mt-0.5">{profile.adviserPhone}</p>
+              <p className="text-xs font-bold uppercase text-slate-400">Custodial Account</p>
+              <p className="text-base font-bold text-wealth-navy-950 mt-0.5">{profile.accountNumberMasked}</p>
             </div>
-            <a
-              href={`tel:${profile.adviserPhone.replace(/[^0-9+]/g, '')}`}
-              className="btn-touch px-4 py-2 bg-wealth-navy-950 text-white rounded-lg text-xs font-semibold hover:bg-wealth-navy-800"
-            >
-              Call Now
-            </a>
+            <span className="text-xs font-bold bg-emerald-100 text-emerald-900 border border-emerald-300 px-3 py-1 rounded-full">
+              Status: Active
+            </span>
           </div>
 
           <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
             <div>
-              <p className="text-xs font-bold uppercase text-slate-400">Encrypted Email</p>
-              <p className="text-base font-bold text-wealth-navy-950 mt-0.5">{profile.adviserEmail}</p>
+              <p className="text-xs font-bold uppercase text-slate-400">Custodial Statements</p>
+              <p className="text-sm text-slate-600 mt-0.5">Access official statements directly in your secure vault.</p>
             </div>
-            <a
-              href={`mailto:${profile.adviserEmail}`}
-              className="btn-touch px-4 py-2 bg-white text-slate-800 border border-slate-300 rounded-lg text-xs font-semibold hover:bg-slate-50"
+            <Link
+              href="/documents"
+              className="btn-touch px-4 py-2 bg-wealth-navy-950 text-white rounded-lg text-xs font-bold hover:bg-wealth-navy-800 flex items-center gap-1.5"
             >
-              Send Email
-            </a>
+              <span>View Vault</span>
+              <ArrowRight className="w-3.5 h-3.5 text-wealth-gold-400" />
+            </Link>
           </div>
         </div>
       </div>

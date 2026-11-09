@@ -36,107 +36,74 @@ export default function DocumentsPage() {
       content = `
 ====================================================================================================
 THE NORTHERN TRUST COMPANY - GLOBAL CUSTODY & ASSET SERVICING
-50 South La Salle Street, Chicago, Illinois 60603
-OFFICIAL MONTHLY CUSTODY ACCOUNT STATEMENT
+OFFICIAL CUSTODY ACCOUNT STATEMENT
 ====================================================================================================
-STATEMENT PERIOD: October 1, 2026 through October 31, 2026
-ACCOUNT TITLE:    VICKY HERNANDEZ REVOCABLE TRUST U/A DTD 04/12/2018
-ACCOUNT NUMBER:   NT-CUST-802144
-TAX IDENTIFIER:   XX-XXX8920
-PRIMARY CLIENT:   Vicky Hernandez
-LEAD ADVISER:     Katherine Sterling, CFP® (Sterling Private Wealth Advisors)
+STATEMENT STATUS:  Active Fiduciary Custody
+ACCOUNT TITLE:     VICKY HERNANDEZ REVOCABLE TRUST
+ACCOUNT NUMBER:    NT-CUST-802144
+TAX IDENTIFIER:    XX-XXX8920
+PRIMARY CLIENT:    Vicky Hernandez
+CUSTODIAN:         Northern Trust Global Custody
 
 ----------------------------------------------------------------------------------------------------
 1. CONSOLIDATED PORTFOLIO VALUATION SUMMARY
 ----------------------------------------------------------------------------------------------------
-Total Market Valuation as of Oct 31, 2026, 4:30 PM EST:   $1,850,000.00 USD
-Net Unrealized Portfolio Gain:                            +$43,475.00 USD (+2.40%)
-Accrued Monthly Income:                                   +$14,571.80 USD
+Total Market Valuation:                                       $0.00 USD
+Net Unrealized Portfolio Gain:                                +$0.00 USD (0.00%)
+Accrued Monthly Income:                                       +$0.00 USD
 
 Asset Class Breakdown:
-  - Fixed Income (US Treasury & Sovereign Notes):        $962,000.00 USD  (52.00%)
-  - Global Equities (Conservative Dividend Index):        $536,480.00 USD  (29.00%)
-  - Cash & FDIC-Insured Treasury Sweep:                   $351,520.00 USD  (19.00%)
+  - Fixed Income (Sovereign & Treasury Notes):                $0.00 USD  (0.00%)
+  - Global Equities (Dividend Index):                         $0.00 USD  (0.00%)
+  - Cash & FDIC-Insured Treasury Sweep:                       $0.00 USD  (0.00%)
   ----------------------------------------------------------------------------------
-  TOTAL RECONCILED PORTFOLIO:                            $1,850,000.00 USD (100.00%)
+  TOTAL RECONCILED PORTFOLIO:                                 $0.00 USD  (0.00%)
 
 ----------------------------------------------------------------------------------------------------
-2. SCHEDULE OF ITEMIZED CUSTODIAN HOLDINGS
+2. STRATEGIC PLATFORM OBJECTIVES
 ----------------------------------------------------------------------------------------------------
-Security Name: United States Treasury Note 4.375% Due 08/15/2028
-  CUSIP: 912828-YT | Quantity: 500 | Market Price: $101.850
-  Total Value: $509,250.00 USD | Est. Annual Income: $21,875.00 USD
-
-Security Name: US Treasury Inflation-Protected Security (TIPS) 1.875% Due 2032
-  CUSIP: 912810-ZX | Quantity: 450 | Market Price: $100.610
-  Total Value: $452,745.00 USD | Est. Annual Income: $8,488.97 USD
-
-Security Name: Vanguard Dividend Appreciation ETF (VIG)
-  CUSIP: 921908-844 | Ticker: VIG | Quantity: 2,800 | Market Price: $191.600
-  Total Value: $536,480.00 USD | Est. Annual Income: $10,136.00 USD
-
-Security Name: Northern Trust Government Cash Sweep (FDIC-Insured)
-  Symbol: NT-SWEEP-USD | Quantity: 351,525 | Market Price: $1.000
-  Total Value: $351,525.00 USD | 7-Day Current Yield: 4.85%
+Core Objective: 300% Target Portfolio Value (Triple Invested Capital / 200% Profit)
+Operational Reliability Target: 99.9% Platform-Stated Objective
 
 ----------------------------------------------------------------------------------------------------
-3. RECORDED ACTIVITY FOR OCTOBER 2026
+3. RECORDED ACTIVITY
 ----------------------------------------------------------------------------------------------------
-10/01/2026 | Quarterly Advisory Fee (Q3)                  -$2,312.50 USD [Ref: NT-FEE-2026-Q3]
-10/20/2026 | Cash Dividend Distribution - Vanguard VIG    +$2,212.00 USD [Ref: NT-TX-8802911]
-10/31/2026 | Treasury Note Coupon Accrual & Sweep Yield   +$1,422.30 USD [Ref: NT-TX-8803140]
+No settled activity for this reporting cycle. All positions initialize at $0.00 awaiting
+client investment schedule and funding deployment.
 
 ----------------------------------------------------------------------------------------------------
 OFFICIAL CERTIFICATION & FIDUCIARY ATTESTATION
 ----------------------------------------------------------------------------------------------------
 This statement is an official, audited certified record issued by The Northern Trust Company
-under custody mandate NT-CUST-802144. All positions are reconciled against DTC and Federal Reserve Book-Entry systems.
-
-Authorized Signatory:
-Arthur Pendelton, Senior Vice President
-Global Custodial Services Division | The Northern Trust Company
+under custody mandate NT-CUST-802144. Reconciled against Federal Reserve Book-Entry systems.
 ====================================================================================================
 `;
     } else if (doc.id === 'doc-ver-2') {
       content = `
 ====================================================================================================
-STERLING PRIVATE WEALTH ADVISORS LLC
-590 Madison Avenue, 32nd Floor, New York, NY 10022
+STERLING PRIVATE WEALTH ADVISORS
 QUARTERLY FIDUCIARY STRATEGY & ASSET ALLOCATION REPORT
 ====================================================================================================
-REPORTING PERIOD: Third Quarter 2026 (Ending September 30, 2026)
 PREPARED FOR:     Vicky Hernandez
 ACCOUNT NUMBER:   NT-CUST-802144 (Northern Trust Custody)
-LEAD ADVISER:     Katherine Sterling, CFP® | Managing Director
+PRIMARY CLIENT:   Vicky Hernandez
 
 EXECUTIVE SUMMARY:
-Dear Vicky,
-During the third quarter of 2026, your portfolio delivered a net time-weighted return of +3.65%
-(after all advisory and custodian expenses), outperforming your benchmark (70% Bloomberg Aggregate /
-30% Dividend Equity Index) by +0.56%.
+Core Portfolio Objective: Triple the amount invested over time through gradual, progressive growth
+(100% initial capital -> 300% final portfolio valuation / 200% target profit).
 
-STRATEGIC MANDATE & PLANNING REVIEW:
-1. Capital Preservation: 71% of total capital remains positioned in sovereign US Treasuries and
-   guaranteed cash equivalents, protecting purchasing power against market drawdowns.
-2. The Proposed Initial 20% Allocation:
-   We continue to monitor the proposed 20% initial allocation tranche into Short-Duration
-   Treasury Notes to capture high nominal yields without duration risk. Execution remains on hold
-   pending your scheduled annual consultation on November 15, 2026.
+All financial figures currently initialize at $0.00 USD pending deployment of funds.
 
-PORTFOLIO PERFORMANCE SUMMARY:
-  - Vicky Hernandez Portfolio (Net of Fees):  +3.65% QTD | +3.93% YTD
-  - Conservative Benchmark Composite:         +3.09% QTD | +3.37% YTD
-  - Net Value Added (Alpha):                  +0.56% QTD | +0.56% YTD
-
-Signed,
-Katherine Sterling, CFP®
-Sterling Private Wealth Advisors LLC
+STRATEGIC MANDATE:
+1. Capital Framework: 300% Target Portfolio Valuation.
+2. Operational Target: 99.9% Platform-Stated Reliability Objective.
+3. Custody Administration: Northern Trust Global Custody.
 ====================================================================================================
 `;
     } else {
       content = `
 ====================================================================================================
-FORM 1099 CONSOLIDATED TAX INFORMATION STATEMENT (TAX YEAR 2025)
+FORM 1099 CONSOLIDATED TAX INFORMATION STATEMENT
 NORTHERN TRUST TAX REPORTING SERVICES | OMB No. 1545-0110
 ====================================================================================================
 RECIPIENT:
@@ -146,28 +113,17 @@ Custody Account: NT-CUST-802144
 
 PAYER:
 The Northern Trust Company (EIN: 36-1561860)
-50 South La Salle Street, Chicago, IL 60603
+Global Custodial Services Division
 
 ----------------------------------------------------------------------------------------------------
-FORM 1099-DIV: DIVIDENDS AND DISTRIBUTIONS
+FORM 1099-DIV / 1099-INT SUMMARY
 ----------------------------------------------------------------------------------------------------
-Box 1a  Total Ordinary Dividends:                 $18,450.00 USD
-Box 1b  Qualified Dividends:                      $16,210.00 USD
-Box 2a  Total Capital Gain Distributions:         $0.00 USD
-Box 3   Nondividend Distributions:                $0.00 USD
-Box 5   Section 199A Dividends:                   $2,240.00 USD
-Box 4   Federal Income Tax Withheld:              $0.00 USD
+Total Ordinary Dividends:                                     $0.00 USD
+Total Qualified Dividends:                                    $0.00 USD
+Total Interest Income:                                        $0.00 USD
+Federal Income Tax Withheld:                                  $0.00 USD
 
-----------------------------------------------------------------------------------------------------
-FORM 1099-INT: INTEREST INCOME
-----------------------------------------------------------------------------------------------------
-Box 1   Interest Income:                          $32,812.50 USD
-Box 3   Interest on U.S. Savings Bonds & Treas:   $32,812.50 USD (State-Tax Exempt)
-Box 8   Tax-Exempt Interest:                      $0.00 USD
-Box 4   Federal Income Tax Withheld:              $0.00 USD
-
-This information is being furnished to the Internal Revenue Service.
-Certified copy for client tax preparation archives.
+Current Tax Year Position: Initialized at $0.00.
 ====================================================================================================
 `;
     }
@@ -226,53 +182,69 @@ Certified copy for client tax preparation archives.
           </span>
         </div>
 
-        <div className="divide-y divide-slate-100">
-          {documents.map((doc) => (
-            <div key={doc.id} className="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 first:pt-0">
-              <div className="flex items-start gap-3.5">
-                <div className="w-12 h-12 rounded-xl bg-wealth-navy-50 border border-wealth-navy-200 flex items-center justify-center shrink-0">
-                  <FileText className="w-6 h-6 text-wealth-navy-900" aria-hidden="true" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-base text-wealth-navy-950 font-serif">
-                    {doc.title}
-                  </h3>
-                  <p className="text-xs text-slate-600 mt-0.5">
-                    Issuer: <strong>{doc.issuer}</strong> • Certified Date: {doc.documentDate} • {doc.fileSize}
-                  </p>
-                  <div className="flex items-center gap-2 mt-1.5">
-                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-300">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" aria-hidden="true" />
-                      <span>{doc.verificationStatus}</span>
-                    </span>
-                    <span className="text-[11px] text-slate-500">
-                      Account: {profile.accountNumberMasked}
-                    </span>
+        {documents.length === 0 ? (
+          <div className="py-12 text-center">
+            <FileText className="w-12 h-12 text-slate-300 mx-auto mb-3" aria-hidden="true" />
+            <h3 className="text-lg font-serif font-bold text-wealth-navy-950">
+              No Custody Documents Currently on File
+            </h3>
+            <p className="text-xs text-slate-500 max-w-md mx-auto mt-1 leading-relaxed">
+              Official monthly custody statements, certified tax records, and quarterly strategy reports will be securely deposited here following capital clearing and statement generation by Northern Trust.
+            </p>
+            <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              <span>Northern Trust Global Custody Vault Active</span>
+            </div>
+          </div>
+        ) : (
+          <div className="divide-y divide-slate-100">
+            {documents.map((doc) => (
+              <div key={doc.id} className="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 first:pt-0">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-12 h-12 rounded-xl bg-wealth-navy-50 border border-wealth-navy-200 flex items-center justify-center shrink-0">
+                    <FileText className="w-6 h-6 text-wealth-navy-900" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-base text-wealth-navy-950 font-serif">
+                      {doc.title}
+                    </h3>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      Issuer: <strong>{doc.issuer}</strong> • Certified Date: {doc.documentDate} • {doc.fileSize}
+                    </p>
+                    <div className="flex items-center gap-2 mt-1.5">
+                      <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-300">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" aria-hidden="true" />
+                        <span>{doc.verificationStatus}</span>
+                      </span>
+                      <span className="text-[11px] text-slate-500">
+                        Account: {profile.accountNumberMasked}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2.5 w-full sm:w-auto mt-2 sm:mt-0">
-                <button
-                  type="button"
-                  onClick={() => setSelectedDoc(doc)}
-                  className="btn-touch w-full sm:w-auto justify-center px-4 py-2 bg-slate-100 text-slate-800 hover:bg-slate-200 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors border border-slate-300"
-                >
-                  <Eye className="w-4 h-4 text-slate-600" aria-hidden="true" />
-                  <span>Preview Official PDF</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleDownload(doc)}
-                  className="btn-touch w-full sm:w-auto justify-center px-4 py-2 bg-wealth-navy-950 text-white hover:bg-wealth-navy-800 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-sm"
-                >
-                  <Download className="w-4 h-4 text-wealth-gold-400" aria-hidden="true" />
-                  <span>Download Statement</span>
-                </button>
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2.5 w-full sm:w-auto mt-2 sm:mt-0">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedDoc(doc)}
+                    className="btn-touch w-full sm:w-auto justify-center px-4 py-2 bg-slate-100 text-slate-800 hover:bg-slate-200 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors border border-slate-300"
+                  >
+                    <Eye className="w-4 h-4 text-slate-600" aria-hidden="true" />
+                    <span>Preview Official PDF</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleDownload(doc)}
+                    className="btn-touch w-full sm:w-auto justify-center px-4 py-2 bg-wealth-navy-950 text-white hover:bg-wealth-navy-800 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-sm"
+                  >
+                    <Download className="w-4 h-4 text-wealth-gold-400" aria-hidden="true" />
+                    <span>Download Statement</span>
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Real High-Fidelity Official PDF Preview Modal (Responsive Fullscreen on Mobile) */}
@@ -354,11 +326,11 @@ Certified copy for client tax preparation archives.
                     <div className="bg-wealth-sand-100 p-4 rounded-lg border border-wealth-sand-300 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                       <div>
                         <span className="text-xs font-bold uppercase text-slate-600">Total Account Valuation</span>
-                        <p className="text-2xl font-serif font-bold text-wealth-navy-950">$1,850,000.00 USD</p>
+                        <p className="text-2xl font-serif font-bold text-wealth-navy-950">$0.00 USD</p>
                       </div>
                       <div className="text-right sm:text-right text-xs text-slate-700">
                         <p className="font-semibold text-emerald-800">Status: Sourced & Fully Reconciled</p>
-                        <p className="text-slate-500">Valuation Date: October 31, 2026</p>
+                        <p className="text-slate-500">Custody: Northern Trust Global Custody</p>
                       </div>
                     </div>
 
@@ -380,38 +352,15 @@ Certified copy for client tax preparation archives.
                           </thead>
                           <tbody className="divide-y divide-slate-200">
                             <tr>
-                              <td className="p-2.5 font-medium">United States Treasury Note 4.375% Due 08/15/2028</td>
-                              <td className="p-2.5 font-mono text-slate-500">912828-YT</td>
-                              <td className="p-2.5 text-right font-mono">500</td>
-                              <td className="p-2.5 text-right font-mono">$101.850</td>
-                              <td className="p-2.5 text-right font-mono font-bold">$509,250.00</td>
-                            </tr>
-                            <tr>
-                              <td className="p-2.5 font-medium">US Treasury Inflation-Protected Security (TIPS) 1.875% Due 2032</td>
-                              <td className="p-2.5 font-mono text-slate-500">912810-ZX</td>
-                              <td className="p-2.5 text-right font-mono">450</td>
-                              <td className="p-2.5 text-right font-mono">$100.610</td>
-                              <td className="p-2.5 text-right font-mono font-bold">$452,745.00</td>
-                            </tr>
-                            <tr>
-                              <td className="p-2.5 font-medium">Vanguard Dividend Appreciation ETF (VIG)</td>
-                              <td className="p-2.5 font-mono text-slate-500">921908-844</td>
-                              <td className="p-2.5 text-right font-mono">2,800</td>
-                              <td className="p-2.5 text-right font-mono">$191.600</td>
-                              <td className="p-2.5 text-right font-mono font-bold">$536,480.00</td>
-                            </tr>
-                            <tr>
-                              <td className="p-2.5 font-medium">Northern Trust Government Cash Sweep (FDIC-Insured)</td>
-                              <td className="p-2.5 font-mono text-slate-500">NT-SWEEP</td>
-                              <td className="p-2.5 text-right font-mono">351,525</td>
-                              <td className="p-2.5 text-right font-mono">$1.000</td>
-                              <td className="p-2.5 text-right font-mono font-bold">$351,525.00</td>
+                              <td colSpan={5} className="p-6 text-center text-slate-500">
+                                No active holdings currently settled. All figures initialize at $0.00 USD.
+                              </td>
                             </tr>
                           </tbody>
                           <tfoot>
                             <tr className="bg-slate-50 font-bold border-t border-slate-300">
                               <td colSpan={4} className="p-2.5">Total Certified Portfolio Value</td>
-                              <td className="p-2.5 text-right font-mono text-sm">$1,850,000.00 USD</td>
+                              <td className="p-2.5 text-right font-mono text-sm">$0.00 USD</td>
                             </tr>
                           </tfoot>
                         </table>
@@ -433,8 +382,8 @@ Certified copy for client tax preparation archives.
                       </div>
 
                       <div className="text-left sm:text-right text-xs">
-                        <p className="font-serif italic text-slate-800 text-sm">Arthur Pendelton</p>
-                        <p className="text-[11px] text-slate-500">Arthur Pendelton, Senior Vice President</p>
+                        <p className="font-serif italic text-slate-800 text-sm">Custodial Administration</p>
+                        <p className="text-[11px] text-slate-500">Global Custodial Services Division</p>
                       </div>
                     </div>
                   </div>
@@ -444,22 +393,22 @@ Certified copy for client tax preparation archives.
                   <div className="space-y-6 text-xs sm:text-sm">
                     <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 space-y-2">
                       <h4 className="font-bold text-sm text-wealth-navy-950 font-serif">
-                        Executive Fiduciary Letter — Q3 2026
+                        Executive Fiduciary Letter
                       </h4>
                       <p className="text-slate-700 leading-relaxed">
-                        Dear Vicky, during the third quarter of 2026, your conservative wealth preservation portfolio delivered a net return of <strong>+3.65%</strong>, exceeding your blended benchmark (+3.09%) by +0.56% after all advisory and custody expenses.
+                        Dear Vicky, the portfolio platform is configured around our primary strategic mandate: <strong>to triple the amount invested over time through gradual, progressive growth</strong> (100% initial capital base to 300% final portfolio valuation / +200% profit).
                       </p>
                       <p className="text-slate-700 leading-relaxed">
-                        Your liquid capital remains sheltered in US Treasury notes and high-interest cash sweeps, fully insulating your lifestyle distributions against equity market volatility.
+                        In accordance with strict fiduciary controls, all financial metrics currently initialize at zero ($0.00 / 0.00%) pending formal deposit and deployment instructions.
                       </p>
                     </div>
 
                     <div className="border border-slate-200 rounded-lg p-4 space-y-2">
                       <h4 className="font-bold text-sm text-wealth-navy-950 font-serif">
-                        The Proposed Initial 20% Allocation Review
+                        Platform Strategic Objectives
                       </h4>
                       <p className="text-slate-600 leading-relaxed">
-                        We continue to preserve the recommended <strong>Proposed Initial Allocation — 20%</strong> into short-term sovereign notes. This remains a strategic planning recommendation and will be formally reviewed during our annual consultation on November 15, 2026.
+                        Operational reliability target is set at <strong>99.9%</strong> platform-stated execution across Northern Trust custody feeds. Progress will be tracked directly toward the 300% target valuation upon deployment.
                       </p>
                     </div>
 
@@ -482,7 +431,7 @@ Certified copy for client tax preparation archives.
                   <div className="space-y-6 text-xs sm:text-sm">
                     <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                       <span className="text-xs font-bold uppercase tracking-wider text-slate-600">IRS Form 1099 Consolidated Statement</span>
-                      <h4 className="text-base font-bold text-slate-900 mt-1">Tax Year 2025 Filing Information</h4>
+                      <h4 className="text-base font-bold text-slate-900 mt-1">Certified Tax Information</h4>
                       <p className="text-xs text-slate-500 mt-0.5">Furnished to the Internal Revenue Service for Vicky Hernandez</p>
                     </div>
 
@@ -491,15 +440,15 @@ Certified copy for client tax preparation archives.
                         <p className="font-bold text-slate-800 uppercase">Form 1099-DIV (Dividends)</p>
                         <div className="flex justify-between py-1 border-b border-slate-100">
                           <span>1a Total Ordinary Dividends:</span>
-                          <span className="font-mono font-bold">$18,450.00</span>
+                          <span className="font-mono font-bold">$0.00</span>
                         </div>
                         <div className="flex justify-between py-1 border-b border-slate-100">
                           <span>1b Qualified Dividends:</span>
-                          <span className="font-mono font-bold text-emerald-800">$16,210.00</span>
+                          <span className="font-mono font-bold text-emerald-800">$0.00</span>
                         </div>
                         <div className="flex justify-between py-1 border-b border-slate-100">
                           <span>5 Section 199A Dividends:</span>
-                          <span className="font-mono font-bold">$2,240.00</span>
+                          <span className="font-mono font-bold">$0.00</span>
                         </div>
                       </div>
 
@@ -507,11 +456,11 @@ Certified copy for client tax preparation archives.
                         <p className="font-bold text-slate-800 uppercase">Form 1099-INT (Interest)</p>
                         <div className="flex justify-between py-1 border-b border-slate-100">
                           <span>1 Total Interest Income:</span>
-                          <span className="font-mono font-bold">$32,812.50</span>
+                          <span className="font-mono font-bold">$0.00</span>
                         </div>
                         <div className="flex justify-between py-1 border-b border-slate-100">
-                          <span>3 US Treasury Interest (State Exempt):</span>
-                          <span className="font-mono font-bold text-emerald-800">$32,812.50</span>
+                          <span>3 US Treasury Interest:</span>
+                          <span className="font-mono font-bold text-emerald-800">$0.00</span>
                         </div>
                         <div className="flex justify-between py-1 border-b border-slate-100">
                           <span>4 Federal Tax Withheld:</span>

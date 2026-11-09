@@ -15,8 +15,14 @@ export const FINANCIAL_GLOSSARY: GlossaryTerm[] = [
   {
     term: "Proposed Allocation",
     category: "Allocation",
-    definition: "A recommended strategy suggested by your adviser for discussion. It is not an executed investment, and no money is moved until you formally review and approve it.",
-    seniorExample: "Your plan suggests a 20% initial placement in high-grade bonds. This is purely a discussion proposal today."
+    definition: "A recommended strategic framework formulated by your wealth management team. It is not an executed trade, and no capital is deployed until formal authorization is provided.",
+    seniorExample: "A disciplined strategy designed to triple invested capital (300% target portfolio value / +200% profit) over time through gradual, progressive compounding."
+  },
+  {
+    term: "Platform Reliability Target (99.9%)",
+    category: "Safety & Fiduciary",
+    definition: "Our platform-stated operational and reconciliation reliability objective across Northern Trust custody settlement channels.",
+    seniorExample: "The target execution standard for daily book-entry custodial accuracy and reconciliation without error."
   },
   {
     term: "Actual Allocation",

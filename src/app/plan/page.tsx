@@ -93,7 +93,7 @@ export default function PlanPage() {
         </div>
       </div>
 
-      {/* 2. Proposed Initial 20% Allocation Feature Card */}
+      {/* 2. Platform Objective — 300% Capital Growth Target Card */}
       <ProposedAllocationCard />
 
       {/* 3. Stated Goals with Detailed Assumptions */}
@@ -184,7 +184,7 @@ export default function PlanPage() {
                 rows={3}
                 value={reviewNotes}
                 onChange={(e) => setReviewNotes(e.target.value)}
-                placeholder="I would like to discuss the timing of the proposed 20% fixed income allocation..."
+                placeholder="I would like to discuss the deployment schedule of the 300% capital growth objective..."
                 className="w-full p-3 bg-slate-50 border border-slate-300 rounded-lg text-sm text-slate-900 focus:bg-white focus:ring-2 focus:ring-wealth-gold-500 focus:border-wealth-gold-500"
               />
             </div>

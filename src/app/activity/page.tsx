@@ -98,8 +98,10 @@ export default function ActivityPage() {
         {filteredActivities.length === 0 ? (
           <div className="bg-white rounded-xl p-8 text-center border border-slate-200 text-slate-500">
             <Clock className="w-10 h-10 mx-auto text-slate-300 mb-2" aria-hidden="true" />
-            <p className="font-semibold text-sm">No activity records found</p>
-            <p className="text-xs text-slate-400 mt-1">Try clearing your search query or filter.</p>
+            <p className="font-semibold text-sm">No activity records on file</p>
+            <p className="text-xs text-slate-400 mt-1">
+              {searchQuery ? 'No activities matching your search criteria.' : 'Clean data state initialized. Settled transactions will appear upon capital deployment.'}
+            </p>
           </div>
         ) : (
           filteredActivities.map((act) => (
@@ -171,11 +173,11 @@ export default function ActivityPage() {
         {filteredActivities.length === 0 ? (
           <div className="text-center py-16 text-slate-500">
             <Clock className="w-12 h-12 mx-auto text-slate-300 mb-2" aria-hidden="true" />
-            <p className="font-semibold text-base">No account activity records found</p>
+            <p className="font-semibold text-base">No account activity records on file</p>
             <p className="text-xs text-slate-400 mt-1">
-              {dataMode === 'PROPOSED_PLANNING' 
-                ? 'Your account currently displays initial planning documents. Sourced activity will stream once live feeds synchronize.'
-                : 'No activities matching your search criteria.'}
+              {searchQuery 
+                ? 'No activities matching your search criteria.' 
+                : 'All financial activity initializes at a clean baseline ($0.00). Sourced custodial records will appear following capital deployment.'}
             </p>
           </div>
         ) : (
