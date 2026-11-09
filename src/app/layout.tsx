@@ -3,9 +3,9 @@ import './globals.css';
 import { AccessibilityProvider } from '@/context/AccessibilityContext';
 import { ClientDataProvider } from '@/context/ClientDataContext';
 import { AccessibilityToolbar } from '@/components/AccessibilityToolbar';
-import { DemoWatermarkBanner } from '@/components/DemoWatermarkBanner';
 import { AccessibleHeader } from '@/components/AccessibleHeader';
 import { AppNavigation } from '@/components/AppNavigation';
+import { AuthGuard } from '@/components/AuthGuard';
 import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
@@ -26,18 +26,17 @@ export default function RootLayout({
             {/* Top Accessibility Bar */}
             <AccessibilityToolbar />
 
-            {/* Persistent Demo Watermark Warning Banner (Active only in Demo Mode) */}
-            <DemoWatermarkBanner />
-
-            {/* Main Application Header */}
+            {/* Main Application Header with Live Status & Sign Out */}
             <AccessibleHeader />
 
             {/* Primary Navigation Menu */}
             <AppNavigation />
 
-            {/* Main Page Body */}
+            {/* Main Page Body with Mandatory Auth Guard */}
             <main id="main-content" className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-              {children}
+              <AuthGuard>
+                {children}
+              </AuthGuard>
             </main>
 
             {/* Footer */}

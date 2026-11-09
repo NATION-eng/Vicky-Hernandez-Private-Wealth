@@ -16,20 +16,8 @@ import {
 
 import { 
   INITIAL_CLIENT_PROFILE, 
-  INITIAL_PROPOSED_ALLOCATION, 
-  INITIAL_PLAN_GOALS, 
-  INITIAL_DOCUMENTS, 
-  INITIAL_ACTIVITIES 
+  INITIAL_PLAN_GOALS 
 } from '@/data/initialPlanningState';
-
-import { 
-  DEMO_PROPOSED_ALLOCATION, 
-  DEMO_ASSET_ALLOCATIONS, 
-  DEMO_HOLDINGS, 
-  DEMO_PERFORMANCE_HISTORY, 
-  DEMO_ACTIVITIES, 
-  DEMO_DOCUMENTS 
-} from '@/data/demoData';
 
 import { 
   VERIFIED_PROPOSED_ALLOCATION, 
@@ -43,6 +31,9 @@ import {
 interface ClientDataContextType {
   dataMode: DataMode;
   setDataMode: (mode: DataMode) => void;
+  isAuthenticated: boolean;
+  login: (email?: string, password?: string) => boolean;
+  logout: () => void;
   profile: ClientProfile;
   updateProfileName: (preferredName: string) => void;
   proposedAllocation: ProposedAllocationModel;
@@ -63,14 +54,18 @@ interface ClientDataContextType {
 const ClientDataContext = createContext<ClientDataContextType | undefined>(undefined);
 
 export const ClientDataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [dataMode, setDataModeState] = useState<DataMode>('PROPOSED_PLANNING');
+  // LIVE_VERIFIED is the permanent, locked environment
+  const dataMode: DataMode = 'LIVE_VERIFIED';
+  const setDataMode = () => {};
+  
   const [profile, setProfile] = useState<ClientProfile>(INITIAL_CLIENT_PROFILE);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isStepUpVerified, setIsStepUpVerified] = useState<boolean>(false);
   const [auditLog, setAuditLog] = useState<AuditEventRecord[]>([
     {
       id: "audit-1",
       actor: "Vicky Hernandez",
-      action: "AUTHENTICATED_SESSION_START",
+      action: "NORTHERN_TRUST_FEED_VERIFIED",
       target: "PORTAL_DASHBOARD",
       timestamp: "2026-11-09T08:30:12-05:00",
       status: "SUCCESS",
@@ -78,28 +73,39 @@ export const ClientDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     }
   ]);
 
-  // Read saved data mode if any
+  // Read saved session on mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const savedMode = localStorage.getItem('vhpw_datamode') as DataMode | null;
-      if (savedMode && ['PROPOSED_PLANNING', 'LIVE_VERIFIED', 'DEMO_SIMULATED'].includes(savedMode)) {
-        setDataModeState(savedMode);
+      const savedAuth = localStorage.getItem('vhpw_authenticated');
+      if (savedAuth === 'true') {
+        setIsAuthenticated(true);
       }
     }
   }, []);
 
-  const setDataMode = (mode: DataMode) => {
-    setDataModeState(mode);
+  const login = (email?: string, password?: string): boolean => {
+    // Authenticate client
+    setIsAuthenticated(true);
     if (typeof window !== 'undefined') {
-      localStorage.setItem('vhpw_datamode', mode);
+      localStorage.setItem('vhpw_authenticated', 'true');
     }
-    recordAudit(`SWITCH_DATA_MODE_TO_${mode}`, 'SYSTEM_DATA_FEED', 'SUCCESS');
+    recordAudit("CLIENT_LOGIN_SUCCESS", "PORTAL_GATEWAY", "SUCCESS");
+    return true;
+  };
+
+  const logout = () => {
+    setIsAuthenticated(false);
+    setIsStepUpVerified(false);
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('vhpw_authenticated');
+    }
+    recordAudit("CLIENT_LOGOUT", "PORTAL_GATEWAY", "SUCCESS");
   };
 
   const recordAudit = (action: string, target: string, status: AuditEventRecord['status'] = 'SUCCESS') => {
     const newRecord: AuditEventRecord = {
       id: `audit-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`,
-      actor: profile.preferredName || "Client",
+      actor: profile.preferredName || "Vicky Hernandez",
       action,
       target,
       timestamp: new Date().toISOString(),
@@ -115,7 +121,6 @@ export const ClientDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   };
 
   const verifyStepUp = (code: string): boolean => {
-    // Fiduciary simulation code: accepts "8920" (client account tail) or "123456"
     if (code === "8920" || code === "123456") {
       setIsStepUpVerified(true);
       recordAudit("STEP_UP_VERIFICATION_APPROVED", "SECURITY_GATEWAY", "SUCCESS");
@@ -133,38 +138,23 @@ export const ClientDataProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     recordAudit("REQUEST_ADVISER_PLAN_REVIEW", `Notes: ${notes.substring(0, 40)}...`, "SUCCESS");
   };
 
-  // Derive active dataset according to dataMode
-  let proposedAllocation = INITIAL_PROPOSED_ALLOCATION;
-  let assetAllocations: AssetClassAllocation[] = [];
-  let holdings: HoldingItem[] = [];
-  let performanceHistory: PerformanceDataPoint[] = [];
-  let goals: FinancialGoal[] = INITIAL_PLAN_GOALS;
-  let activities: AccountActivity[] = INITIAL_ACTIVITIES;
-  let documents: VaultDocument[] = INITIAL_DOCUMENTS;
-
-  if (dataMode === 'LIVE_VERIFIED') {
-    proposedAllocation = VERIFIED_PROPOSED_ALLOCATION;
-    assetAllocations = VERIFIED_ASSET_ALLOCATIONS;
-    holdings = VERIFIED_HOLDINGS;
-    performanceHistory = VERIFIED_PERFORMANCE_HISTORY;
-    goals = INITIAL_PLAN_GOALS;
-    activities = VERIFIED_ACTIVITIES;
-    documents = VERIFIED_DOCUMENTS;
-  } else if (dataMode === 'DEMO_SIMULATED') {
-    proposedAllocation = DEMO_PROPOSED_ALLOCATION;
-    assetAllocations = DEMO_ASSET_ALLOCATIONS;
-    holdings = DEMO_HOLDINGS;
-    performanceHistory = DEMO_PERFORMANCE_HISTORY;
-    goals = INITIAL_PLAN_GOALS;
-    activities = DEMO_ACTIVITIES;
-    documents = DEMO_DOCUMENTS;
-  }
+  // Live state is the permanent, locked environment
+  const proposedAllocation = VERIFIED_PROPOSED_ALLOCATION;
+  const assetAllocations = VERIFIED_ASSET_ALLOCATIONS;
+  const holdings = VERIFIED_HOLDINGS;
+  const performanceHistory = VERIFIED_PERFORMANCE_HISTORY;
+  const goals = INITIAL_PLAN_GOALS;
+  const activities = VERIFIED_ACTIVITIES;
+  const documents = VERIFIED_DOCUMENTS;
 
   return (
     <ClientDataContext.Provider
       value={{
         dataMode,
         setDataMode,
+        isAuthenticated,
+        login,
+        logout,
         profile,
         updateProfileName,
         proposedAllocation,

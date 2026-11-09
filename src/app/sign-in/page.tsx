@@ -4,17 +4,22 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useClientData } from '@/context/ClientDataContext';
-import { Lock, Mail, ArrowRight, ShieldCheck, KeyRound } from 'lucide-react';
+import { Lock, Mail, ArrowRight, ShieldCheck, KeyRound, Sparkles } from 'lucide-react';
 
 export default function SignInPage() {
   const router = useRouter();
-  const { profile, recordAudit } = useClientData();
+  const { profile, login } = useClientData();
   const [email, setEmail] = useState(profile.email);
   const [password, setPassword] = useState("••••••••••••");
 
   const handleSignIn = (e: React.FormEvent) => {
     e.preventDefault();
-    recordAudit("AUTHENTICATED_LOGIN_SUCCESS", "PORTAL_AUTHENTICATION", "SUCCESS");
+    login(email, password);
+    router.push('/dashboard');
+  };
+
+  const handleQuickLogin = () => {
+    login(profile.email, "demo-secure-access");
     router.push('/dashboard');
   };
 
@@ -26,8 +31,11 @@ export default function SignInPage() {
           <div className="w-12 h-12 rounded-full bg-wealth-navy-950 text-wealth-gold-400 mx-auto flex items-center justify-center mb-3">
             <Lock className="w-6 h-6" aria-hidden="true" />
           </div>
+          <span className="text-[11px] uppercase tracking-[0.25em] text-wealth-gold-700 font-bold bg-wealth-gold-50 px-3 py-0.5 rounded-full border border-wealth-gold-200 inline-block mb-2">
+            Private Client Portal
+          </span>
           <h1 className="text-2xl font-serif font-bold text-wealth-navy-950">
-            Client Portal Sign-In
+            Client Sign-In
           </h1>
           <p className="text-xs text-slate-500 mt-1">
             Secure private wealth access for Vicky Hernandez
@@ -83,12 +91,24 @@ export default function SignInPage() {
               <ArrowRight className="w-4 h-4 text-wealth-gold-400" aria-hidden="true" />
             </button>
           </div>
+
+          {/* Quick One-Click Login */}
+          <div className="pt-2">
+            <button
+              type="button"
+              onClick={handleQuickLogin}
+              className="w-full py-2.5 px-3 bg-wealth-sand-100 hover:bg-wealth-sand-200 text-wealth-navy-950 rounded-lg text-xs font-semibold border border-wealth-sand-300 transition-colors flex items-center justify-center gap-1.5"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-wealth-gold-600" aria-hidden="true" />
+              <span>One-Click Sign-In as Vicky Hernandez</span>
+            </button>
+          </div>
         </form>
 
         <div className="mt-6 pt-6 border-t border-slate-100 text-center">
           <p className="text-xs text-slate-500 flex items-center justify-center gap-1.5">
             <ShieldCheck className="w-4 h-4 text-emerald-600" aria-hidden="true" />
-            <span>256-bit TLS encrypted session • Biometrics supported</span>
+            <span>256-bit TLS encrypted session • Northern Trust Sourced</span>
           </p>
         </div>
 

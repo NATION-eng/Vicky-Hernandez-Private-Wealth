@@ -43,26 +43,19 @@ export default function PublicLandingPage() {
           {/* Call to Actions */}
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
-              href="/dashboard"
+              href="/sign-in"
               className="btn-touch px-6 py-3.5 bg-wealth-gold-500 text-wealth-navy-950 rounded-xl text-sm font-bold hover:bg-wealth-gold-400 transition-all flex items-center gap-2 shadow-md"
             >
-              <span>Enter Vicky&apos;s Portal</span>
+              <span>Sign In as Vicky Hernandez</span>
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
 
             <Link
-              href="/demo"
+              href="/dashboard"
               className="btn-touch px-6 py-3.5 bg-wealth-navy-900 text-white border border-wealth-navy-700 rounded-xl text-sm font-semibold hover:bg-wealth-navy-800 transition-all flex items-center gap-2"
             >
-              <Sparkles className="w-4 h-4 text-wealth-gold-400" aria-hidden="true" />
-              <span>Explore Demo Sandbox</span>
-            </Link>
-
-            <Link
-              href="/sign-in"
-              className="btn-touch px-5 py-3.5 text-slate-300 hover:text-white text-sm font-medium transition-colors"
-            >
-              Client Sign-In
+              <ShieldCheck className="w-4 h-4 text-emerald-400" aria-hidden="true" />
+              <span>Live Portfolio Overview</span>
             </Link>
           </div>
         </div>

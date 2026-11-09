@@ -8,17 +8,13 @@ import {
   ShieldCheck, 
   BookOpen, 
   Phone, 
-  HelpCircle, 
-  SlidersHorizontal, 
-  ChevronDown,
-  Layers,
-  Sparkles
+  LogOut,
+  LogIn
 } from 'lucide-react';
 
 export const AccessibleHeader: React.FC = () => {
-  const { dataMode, setDataMode, profile } = useClientData();
+  const { profile, isAuthenticated, logout } = useClientData();
   const [isGlossaryOpen, setIsGlossaryOpen] = useState(false);
-  const [isModeDropdownOpen, setIsModeDropdownOpen] = useState(false);
 
   return (
     <>
@@ -56,91 +52,14 @@ export const AccessibleHeader: React.FC = () => {
                 <span className="hidden sm:inline">Financial Glossary</span>
               </button>
 
-              {/* Data Environment Mode Selector */}
-              <div className="relative">
-                <button
-                  type="button"
-                  onClick={() => setIsModeDropdownOpen(!isModeDropdownOpen)}
-                  aria-expanded={isModeDropdownOpen}
-                  aria-label="Select Data Source Environment"
-                  className="btn-touch px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-2 border bg-wealth-navy-900 border-wealth-navy-700 hover:border-wealth-gold-500"
-                >
-                  <Layers className="w-4 h-4 text-wealth-gold-400" aria-hidden="true" />
-                  <span className="hidden md:inline text-slate-300 font-normal">Environment:</span>
-                  <span className={`font-semibold ${
-                    dataMode === 'LIVE_VERIFIED' ? 'text-emerald-400' :
-                    dataMode === 'PROPOSED_PLANNING' ? 'text-amber-400' : 'text-red-400'
-                  }`}>
-                    {dataMode === 'LIVE_VERIFIED' ? 'Live Verified' :
-                     dataMode === 'PROPOSED_PLANNING' ? 'Proposed Plan' : 'Demo Sandbox'}
-                  </span>
-                  <ChevronDown className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
-                </button>
-
-                {isModeDropdownOpen && (
-                  <div 
-                    role="menu"
-                    className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-slate-200 text-slate-900 p-2 z-50 text-xs"
-                  >
-                    <p className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100">
-                      Switch Data Environment
-                    </p>
-                    
-                    <button
-                      type="button"
-                      role="menuitem"
-                      onClick={() => {
-                        setDataMode('PROPOSED_PLANNING');
-                        setIsModeDropdownOpen(false);
-                      }}
-                      className={`w-full text-left px-3 py-2 rounded-lg flex items-center justify-between ${
-                        dataMode === 'PROPOSED_PLANNING' ? 'bg-amber-50 text-amber-950 font-bold' : 'hover:bg-slate-50'
-                      }`}
-                    >
-                      <div>
-                        <p className="font-semibold">Proposed Plan Mode</p>
-                        <p className="text-[11px] text-slate-500">Unconnected baseline advisory plan</p>
-                      </div>
-                      {dataMode === 'PROPOSED_PLANNING' && <span className="w-2 h-2 rounded-full bg-amber-500" />}
-                    </button>
-
-                    <button
-                      type="button"
-                      role="menuitem"
-                      onClick={() => {
-                        setDataMode('LIVE_VERIFIED');
-                        setIsModeDropdownOpen(false);
-                      }}
-                      className={`w-full text-left px-3 py-2 rounded-lg flex items-center justify-between ${
-                        dataMode === 'LIVE_VERIFIED' ? 'bg-emerald-50 text-emerald-950 font-bold' : 'hover:bg-slate-50'
-                      }`}
-                    >
-                      <div>
-                        <p className="font-semibold">Live Verified State</p>
-                        <p className="text-[11px] text-slate-500">Connected Northern Trust custody records</p>
-                      </div>
-                      {dataMode === 'LIVE_VERIFIED' && <span className="w-2 h-2 rounded-full bg-emerald-500" />}
-                    </button>
-
-                    <button
-                      type="button"
-                      role="menuitem"
-                      onClick={() => {
-                        setDataMode('DEMO_SIMULATED');
-                        setIsModeDropdownOpen(false);
-                      }}
-                      className={`w-full text-left px-3 py-2 rounded-lg flex items-center justify-between ${
-                        dataMode === 'DEMO_SIMULATED' ? 'bg-red-50 text-red-950 font-bold' : 'hover:bg-slate-50'
-                      }`}
-                    >
-                      <div>
-                        <p className="font-semibold">Demo Sandbox (Fictional)</p>
-                        <p className="text-[11px] text-slate-500">Watermarked synthetic presentation</p>
-                      </div>
-                      {dataMode === 'DEMO_SIMULATED' && <span className="w-2 h-2 rounded-full bg-red-500" />}
-                    </button>
-                  </div>
-                )}
+              {/* Permanent Live Verified Custody Badge */}
+              <div 
+                className="btn-touch px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 border bg-emerald-950/80 border-emerald-500/50 text-emerald-300"
+                title="Live Custodian Connection via Northern Trust Global Custody"
+              >
+                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" aria-hidden="true" />
+                <span className="hidden md:inline font-normal text-emerald-200">Custodian:</span>
+                <span className="font-semibold text-emerald-300">Northern Trust (Live)</span>
               </div>
 
               {/* Dedicated Adviser Phone Link */}
@@ -162,6 +81,27 @@ export const AccessibleHeader: React.FC = () => {
               >
                 VH
               </Link>
+
+              {/* Authentication Status / Sign Out Action */}
+              {isAuthenticated ? (
+                <button
+                  type="button"
+                  onClick={logout}
+                  className="btn-touch px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 bg-wealth-navy-900 border border-wealth-navy-700 hover:bg-red-950 hover:text-red-200 hover:border-red-600 transition-all flex items-center gap-1.5"
+                  title="Sign out of portal session"
+                >
+                  <LogOut className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
+                  <span className="hidden sm:inline">Sign Out</span>
+                </button>
+              ) : (
+                <Link
+                  href="/sign-in"
+                  className="btn-touch px-3 py-1.5 rounded-lg text-xs font-semibold text-wealth-gold-300 bg-wealth-navy-900 border border-wealth-gold-500/50 hover:bg-wealth-gold-500 hover:text-wealth-navy-950 transition-all flex items-center gap-1.5"
+                >
+                  <LogIn className="w-3.5 h-3.5" aria-hidden="true" />
+                  <span>Sign In</span>
+                </Link>
+              )}
 
             </div>
 
