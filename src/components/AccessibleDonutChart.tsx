@@ -30,7 +30,7 @@ export const AccessibleDonutChart: React.FC<AccessibleDonutChartProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-luxury border border-slate-200/80 p-6 md:p-8">
+    <div className="bg-white rounded-2xl shadow-luxury border border-slate-200/80 p-5 sm:p-6 md:p-8">
       
       {/* Header & Accessibility Toggle */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-100">
@@ -49,7 +49,7 @@ export const AccessibleDonutChart: React.FC<AccessibleDonutChartProps> = ({
         </div>
 
         {/* View Mode Toggle */}
-        <div className="flex items-center bg-slate-100 p-1 rounded-lg text-xs" role="group" aria-label="Chart display preferences">
+        <div className="flex items-center bg-slate-100 p-1 rounded-lg text-xs self-start sm:self-auto" role="group" aria-label="Chart display preferences">
           <button
             type="button"
             onClick={() => setViewMode('both')}
@@ -70,7 +70,7 @@ export const AccessibleDonutChart: React.FC<AccessibleDonutChartProps> = ({
             }`}
           >
             <Table className="w-3.5 h-3.5 text-wealth-gold-600" aria-hidden="true" />
-            <span>Table Only (High Contrast)</span>
+            <span>Table Only</span>
           </button>
         </div>
       </div>

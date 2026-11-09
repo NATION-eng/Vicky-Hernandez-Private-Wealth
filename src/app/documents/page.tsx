@@ -254,11 +254,11 @@ Certified copy for client tax preparation archives.
                 </div>
               </div>
 
-              <div className="flex items-center gap-2.5 self-end sm:self-center">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2.5 w-full sm:w-auto mt-2 sm:mt-0">
                 <button
                   type="button"
                   onClick={() => setSelectedDoc(doc)}
-                  className="btn-touch px-4 py-2 bg-slate-100 text-slate-800 hover:bg-slate-200 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors border border-slate-300"
+                  className="btn-touch w-full sm:w-auto justify-center px-4 py-2 bg-slate-100 text-slate-800 hover:bg-slate-200 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors border border-slate-300"
                 >
                   <Eye className="w-4 h-4 text-slate-600" aria-hidden="true" />
                   <span>Preview Official PDF</span>
@@ -266,7 +266,7 @@ Certified copy for client tax preparation archives.
                 <button
                   type="button"
                   onClick={() => handleDownload(doc)}
-                  className="btn-touch px-4 py-2 bg-wealth-navy-950 text-white hover:bg-wealth-navy-800 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-sm"
+                  className="btn-touch w-full sm:w-auto justify-center px-4 py-2 bg-wealth-navy-950 text-white hover:bg-wealth-navy-800 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-sm"
                 >
                   <Download className="w-4 h-4 text-wealth-gold-400" aria-hidden="true" />
                   <span>Download Statement</span>
@@ -277,35 +277,35 @@ Certified copy for client tax preparation archives.
         </div>
       </section>
 
-      {/* Real High-Fidelity Official PDF Preview Modal */}
+      {/* Real High-Fidelity Official PDF Preview Modal (Responsive Fullscreen on Mobile) */}
       {selectedDoc && (
         <div 
           role="dialog" 
           aria-modal="true" 
           aria-labelledby="preview-title"
-          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-wealth-navy-950/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-4 bg-wealth-navy-950/80 backdrop-blur-sm"
         >
-          <div className="bg-white rounded-2xl shadow-2xl border border-slate-300 w-full max-w-4xl max-h-[95vh] flex flex-col overflow-hidden">
+          <div className="bg-white rounded-none sm:rounded-2xl shadow-2xl border border-slate-300 w-full max-w-4xl h-full sm:h-auto sm:max-h-[95vh] flex flex-col overflow-hidden">
             
             {/* Modal Header */}
-            <div className="px-6 py-4 bg-wealth-navy-950 text-white flex items-center justify-between border-b border-wealth-navy-800 print:hidden">
-              <div className="flex items-center gap-3">
-                <Landmark className="w-6 h-6 text-wealth-gold-400" aria-hidden="true" />
-                <div>
-                  <h3 id="preview-title" className="font-serif font-bold text-base sm:text-lg">
+            <div className="px-4 sm:px-6 py-3 sm:py-4 bg-wealth-navy-950 text-white flex items-center justify-between border-b border-wealth-navy-800 print:hidden shrink-0">
+              <div className="flex items-center gap-2.5 sm:gap-3 truncate pr-2">
+                <Landmark className="w-5 h-5 sm:w-6 sm:h-6 text-wealth-gold-400 shrink-0" aria-hidden="true" />
+                <div className="truncate">
+                  <h3 id="preview-title" className="font-serif font-bold text-sm sm:text-lg truncate">
                     {selectedDoc.title}
                   </h3>
-                  <p className="text-xs text-slate-300">
+                  <p className="text-[11px] sm:text-xs text-slate-300 truncate">
                     Issuer: {selectedDoc.issuer} • Certified Fiduciary Record
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                 <button
                   type="button"
                   onClick={() => window.print()}
-                  className="btn-touch px-3 py-1.5 bg-wealth-navy-900 border border-wealth-navy-700 hover:bg-wealth-navy-800 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5"
+                  className="btn-touch px-2.5 sm:px-3 py-1.5 bg-wealth-navy-900 border border-wealth-navy-700 hover:bg-wealth-navy-800 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5"
                   title="Print or Save as PDF"
                 >
                   <Printer className="w-4 h-4 text-wealth-gold-400" aria-hidden="true" />
@@ -315,17 +315,17 @@ Certified copy for client tax preparation archives.
                 <button
                   type="button"
                   onClick={() => setSelectedDoc(null)}
-                  className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-wealth-navy-900"
+                  className="p-1.5 sm:p-2 text-slate-400 hover:text-white rounded-lg hover:bg-wealth-navy-900"
                   aria-label="Close document viewer"
                 >
-                  <X className="w-6 h-6" aria-hidden="true" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 </button>
               </div>
             </div>
 
             {/* Official Document Canvas (Styled like authentic institutional bond paper) */}
-            <div className="p-4 sm:p-8 overflow-y-auto bg-slate-100 flex-1">
-              <div className="bg-white p-6 sm:p-10 rounded-xl shadow-md border border-slate-300 max-w-3xl mx-auto space-y-8 font-sans text-slate-900 print:p-0 print:border-none print:shadow-none">
+            <div className="p-2.5 sm:p-8 overflow-y-auto bg-slate-100 flex-1">
+              <div className="bg-white p-4 sm:p-10 rounded-lg sm:rounded-xl shadow-md border border-slate-300 max-w-3xl mx-auto space-y-6 sm:space-y-8 font-sans text-slate-900 print:p-0 print:border-none print:shadow-none overflow-x-auto">
                 
                 {/* 1. Official Header */}
                 <div className="border-b-2 border-wealth-navy-950 pb-6 flex flex-col sm:flex-row justify-between items-start gap-4">

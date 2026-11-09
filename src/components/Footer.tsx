@@ -9,8 +9,8 @@ export const Footer: React.FC = () => {
   const { profile } = useClientData();
 
   return (
-    <footer className="bg-wealth-navy-950 text-slate-300 border-t border-wealth-navy-900 mt-20 print:hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="bg-wealth-navy-950 text-slate-300 border-t border-wealth-navy-900 mt-16 sm:mt-20 print:hidden pb-24 md:pb-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-wealth-navy-800">

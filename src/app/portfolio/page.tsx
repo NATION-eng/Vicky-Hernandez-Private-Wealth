@@ -13,7 +13,8 @@ import {
   ListFilter, 
   BarChart2, 
   HelpCircle,
-  Landmark
+  Landmark,
+  ChevronRight
 } from 'lucide-react';
 
 export default function PortfolioOverviewPage() {
@@ -31,10 +32,10 @@ export default function PortfolioOverviewPage() {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       
       {/* Portfolio Header */}
-      <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
+      <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5 sm:p-6 md:p-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-1">
@@ -45,33 +46,33 @@ export default function PortfolioOverviewPage() {
                 Mandate: Balanced Conservative Growth
               </span>
             </div>
-            <h1 className="text-2xl md:text-3xl font-serif font-bold text-wealth-navy-950">
+            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-wealth-navy-950">
               My Portfolio Overview
             </h1>
-            <p className="text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
               Consolidated view of your asset holdings, verified directly against institutional custodian records with source timestamps.
             </p>
           </div>
 
-          {/* Subpage Quick Links */}
-          <div className="flex flex-wrap items-center gap-2">
+          {/* Subpage Quick Links (Horizontally scrollable on mobile) */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar w-full md:w-auto">
             <Link
               href="/portfolio/allocation"
-              className="btn-touch px-4 py-2 bg-wealth-navy-950 text-white rounded-lg text-xs font-semibold hover:bg-wealth-navy-800 transition-colors flex items-center gap-1.5"
+              className="btn-touch px-3.5 sm:px-4 py-2 bg-wealth-navy-950 text-white rounded-lg text-xs font-semibold hover:bg-wealth-navy-800 transition-colors flex items-center gap-1.5 shrink-0"
             >
               <PieChart className="w-3.5 h-3.5 text-wealth-gold-400" aria-hidden="true" />
               <span>Asset Allocation</span>
             </Link>
             <Link
               href="/portfolio/holdings"
-              className="btn-touch px-4 py-2 bg-white text-slate-800 border border-slate-300 rounded-lg text-xs font-semibold hover:bg-slate-50 transition-colors flex items-center gap-1.5"
+              className="btn-touch px-3.5 sm:px-4 py-2 bg-white text-slate-800 border border-slate-300 rounded-lg text-xs font-semibold hover:bg-slate-50 transition-colors flex items-center gap-1.5 shrink-0"
             >
               <ListFilter className="w-3.5 h-3.5 text-slate-600" aria-hidden="true" />
               <span>Holding Details</span>
             </Link>
             <Link
               href="/portfolio/performance"
-              className="btn-touch px-4 py-2 bg-white text-slate-800 border border-slate-300 rounded-lg text-xs font-semibold hover:bg-slate-50 transition-colors flex items-center gap-1.5"
+              className="btn-touch px-3.5 sm:px-4 py-2 bg-white text-slate-800 border border-slate-300 rounded-lg text-xs font-semibold hover:bg-slate-50 transition-colors flex items-center gap-1.5 shrink-0"
             >
               <BarChart2 className="w-3.5 h-3.5 text-slate-600" aria-hidden="true" />
               <span>Performance</span>
@@ -80,8 +81,8 @@ export default function PortfolioOverviewPage() {
         </div>
 
         {/* Financial Valuation Summary Card */}
-        <div className="mt-6 pt-6 border-t border-slate-100 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
+        <div className="mt-5 sm:mt-6 pt-5 sm:pt-6 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+          <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
               Total Portfolio Valuation
             </span>
@@ -90,24 +91,24 @@ export default function PortfolioOverviewPage() {
                 Value Not Connected
               </p>
             ) : (
-              <p className="text-2xl md:text-3xl font-serif font-bold text-wealth-navy-950 mt-1">
+              <p className="text-2xl sm:text-3xl font-serif font-bold text-wealth-navy-950 mt-1 tabular-nums break-words">
                 {formatUSD(totalValuation)} <span className="text-xs font-sans text-slate-500">USD</span>
               </p>
             )}
             <p className="text-xs text-slate-500 mt-1 flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5" aria-hidden="true" />
+              <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" aria-hidden="true" />
               <span>As of Nov 8, 2026, 4:30 PM EST</span>
             </p>
           </div>
 
-          <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
+          <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
               Unrealized Paper Gain
             </span>
             {dataMode === 'PROPOSED_PLANNING' ? (
               <p className="text-2xl font-serif font-bold text-slate-500 mt-1">—</p>
             ) : (
-              <p className="text-2xl md:text-3xl font-serif font-bold text-emerald-800 mt-1">
+              <p className="text-2xl sm:text-3xl font-serif font-bold text-emerald-800 mt-1 tabular-nums break-words">
                 +{formatUSD(totalGainLoss)} <span className="text-xs font-sans text-slate-500">USD</span>
               </p>
             )}
@@ -116,12 +117,12 @@ export default function PortfolioOverviewPage() {
             </p>
           </div>
 
-          <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
+          <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 sm:col-span-2 md:col-span-1">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
               Custodian Data Source
             </span>
             <p className="text-base font-bold text-wealth-navy-950 mt-1 flex items-center gap-1.5">
-              <Landmark className="w-4 h-4 text-wealth-gold-600" aria-hidden="true" />
+              <Landmark className="w-4 h-4 text-wealth-gold-600 shrink-0" aria-hidden="true" />
               <span>
                 {dataMode === 'LIVE_VERIFIED' 
                   ? 'Northern Trust Global Custody' 
@@ -165,9 +166,9 @@ export default function PortfolioOverviewPage() {
         </div>
       )}
 
-      {/* Holdings Preview Table */}
+      {/* Holdings Preview: Mobile Cards & Desktop Table */}
       {holdings.length > 0 && (
-        <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+        <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5 sm:p-6">
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
             <div>
               <h2 className="text-xl font-serif font-bold text-wealth-navy-950">
@@ -179,12 +180,39 @@ export default function PortfolioOverviewPage() {
               href="/portfolio/holdings"
               className="text-xs font-bold text-wealth-gold-700 hover:text-wealth-gold-900 flex items-center gap-1"
             >
-              <span>View Full Holdings List</span>
+              <span>View All</span>
               <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
             </Link>
           </div>
 
-          <div className="overflow-x-auto">
+          {/* Mobile Holdings Preview Cards */}
+          <div className="block md:hidden space-y-3">
+            {holdings.slice(0, 4).map((h) => (
+              <Link 
+                key={h.id}
+                href="/portfolio/holdings"
+                className="block p-3.5 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200/80 transition-colors"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <p className="font-serif font-bold text-sm text-wealth-navy-950">{h.instrumentName}</p>
+                    <p className="font-mono text-xs text-slate-500">{h.tickerOrIdentifier} • {h.assetClass}</p>
+                  </div>
+                  <div className="text-right shrink-0">
+                    <p className="font-serif font-bold text-sm text-wealth-navy-950 tabular-nums">
+                      {formatUSD(h.totalValuation)}
+                    </p>
+                    <p className="text-[11px] font-bold text-emerald-700">
+                      +{formatUSD(h.unrealizedGainLoss)}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Desktop Holdings Preview Table */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left text-sm border-collapse" aria-label="Holdings summary preview">
               <thead>
                 <tr className="border-b-2 border-slate-300 bg-slate-50 text-xs font-bold uppercase text-wealth-navy-950">

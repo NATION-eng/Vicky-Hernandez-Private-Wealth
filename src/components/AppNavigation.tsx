@@ -31,7 +31,7 @@ export const AppNavigation: React.FC = () => {
   return (
     <nav 
       aria-label="Main Portfolio Navigation"
-      className="bg-white/95 backdrop-blur-md border-b border-slate-200/80 sticky top-20 z-30 shadow-xs"
+      className="hidden md:block bg-white/95 backdrop-blur-md border-b border-slate-200/80 sticky top-20 z-30 shadow-xs"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center space-x-1 sm:space-x-1.5 overflow-x-auto py-2.5 no-scrollbar">
