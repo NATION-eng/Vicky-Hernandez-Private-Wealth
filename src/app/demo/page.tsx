@@ -106,7 +106,7 @@ export default function DemoPage() {
             Sandbox Currently Inactive
           </h2>
           <p className="text-sm text-slate-600 max-w-lg mx-auto mt-2 leading-relaxed">
-            Click <strong>"Activate Demo Simulation Dataset"</strong> above to preview how the portfolio, performance curves, and asset classes render when populated with synthetic data.
+            Click <strong>&quot;Activate Demo Simulation Dataset&quot;</strong> above to preview how the portfolio, performance curves, and asset classes render when populated with synthetic data.
           </p>
         </div>
       )}

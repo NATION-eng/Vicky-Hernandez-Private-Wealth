@@ -46,7 +46,7 @@ export default function PublicLandingPage() {
               href="/dashboard"
               className="btn-touch px-6 py-3.5 bg-wealth-gold-500 text-wealth-navy-950 rounded-xl text-sm font-bold hover:bg-wealth-gold-400 transition-all flex items-center gap-2 shadow-md"
             >
-              <span>Enter Vicky's Portal</span>
+              <span>Enter Vicky&apos;s Portal</span>
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
 

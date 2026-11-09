@@ -101,7 +101,7 @@ export const GlossaryModal: React.FC<GlossaryModalProps> = ({
           {filteredTerms.length === 0 ? (
             <div className="text-center py-12 text-slate-500">
               <HelpCircle className="w-10 h-10 mx-auto text-slate-400 mb-2" aria-hidden="true" />
-              <p className="font-semibold text-base">No definitions found for "{searchQuery}"</p>
+              <p className="font-semibold text-base">No definitions found for &quot;{searchQuery}&quot;</p>
               <p className="text-xs text-slate-400 mt-1">Try another search term or browse all categories.</p>
             </div>
           ) : (
