@@ -95,7 +95,7 @@ export default function PortfolioOverviewPage() {
             )}
             <p className="text-xs text-slate-500 mt-1 flex items-center gap-1">
               <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" aria-hidden="true" />
-              <span>As of Nov 8, 2026, 4:30 PM EST</span>
+              <span>As of Nov 8, 2026, 3:30 PM CST</span>
             </p>
           </div>
 

@@ -95,8 +95,7 @@ export default function AccessibilityStatementPage() {
           <div className="bg-wealth-sand-50 p-4 rounded-xl border border-wealth-sand-200 text-xs space-y-1">
             <p className="font-bold text-wealth-navy-950">Concierge Desk for Vicky Hernandez</p>
             <p className="text-slate-700">Telephone: {profile.adviserPhone}</p>
-            <p className="text-slate-700">Email: {profile.adviserEmail}</p>
-            <p className="text-slate-500 mt-1">Available Mon–Fri 8:00 AM – 6:00 PM EST with dedicated telephone callback.</p>
+            <p className="text-slate-500 mt-1">Available Mon–Fri 8:00 AM – 5:00 PM CST (Texas Time) with dedicated concierge support.</p>
           </div>
         </section>
       </div>

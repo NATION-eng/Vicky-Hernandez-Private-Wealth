@@ -5,15 +5,11 @@ import { useClientData } from '@/context/ClientDataContext';
 import { ShieldCheck, FileText, Lock, User, Clock } from 'lucide-react';
 import Link from 'next/link';
 
+import { getTexasGreeting } from '@/lib/texasTime';
+
 export const DataStatusBanner: React.FC = () => {
   const { profile } = useClientData();
-
-  const getGreeting = () => {
-    const hour = new Date().getHours();
-    if (hour < 12) return "Good morning";
-    if (hour < 17) return "Good afternoon";
-    return "Good evening";
-  };
+  const greeting = getTexasGreeting();
 
   return (
     <div className="bg-white rounded-2xl shadow-luxury border border-slate-200/80 p-4 sm:p-6 transition-all relative overflow-hidden">
@@ -47,7 +43,7 @@ export const DataStatusBanner: React.FC = () => {
 
           <div>
             <h1 className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-wealth-navy-950 tracking-tight leading-snug">
-              {getGreeting()}, <span className="font-semibold text-wealth-navy-950">{profile.preferredName}</span>
+              {greeting}, <span className="font-semibold text-wealth-navy-950">{profile.preferredName}</span>
             </h1>
 
             {/* Icon Badges (replacing verbose paragraphs) */}
@@ -62,9 +58,9 @@ export const DataStatusBanner: React.FC = () => {
                 <span>{profile.accountNumberMasked}</span>
               </span>
 
-              <span className="inline-flex items-center gap-1.5 text-[11px] text-slate-500 bg-slate-50 px-2.5 py-0.5 rounded-full border border-slate-200 hidden sm:inline-flex">
+              <span className="inline-flex items-center gap-1.5 text-[11px] text-slate-500 bg-slate-50 px-2.5 py-0.5 rounded-full border border-slate-200 hidden sm:inline-flex" title="Central Time (Texas)">
                 <Clock className="w-3 h-3 text-slate-400" aria-hidden="true" />
-                <span>Close: 4:30 PM EST</span>
+                <span>Close: 3:30 PM CST</span>
               </span>
             </div>
           </div>

@@ -9,7 +9,7 @@ export const INITIAL_CLIENT_PROFILE: ClientProfile = {
   phone: "", // Unconfigured
   accountNumberMasked: "•••• 8920",
   locale: "en-US",
-  timezone: "America/New_York (EST)",
+  timezone: "America/Chicago (CST)",
   adviserName: "Katherine Sterling, CFP®",
   adviserPhone: "", // Custodian / representative contact details removed
   adviserEmail: "", // Custodian / representative contact details removed

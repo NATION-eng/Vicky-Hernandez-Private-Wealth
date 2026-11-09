@@ -64,9 +64,9 @@ export const PortfolioSummaryCard: React.FC = () => {
 
       {/* Minimalist Bottom Row */}
       <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-        <span className="flex items-center gap-1 text-slate-400">
+        <span className="flex items-center gap-1 text-slate-400" title="Central Time (Texas)">
           <Clock className="w-3.5 h-3.5" aria-hidden="true" />
-          <span>4:30 PM EST Close</span>
+          <span>3:30 PM CST Close</span>
         </span>
 
         <Link

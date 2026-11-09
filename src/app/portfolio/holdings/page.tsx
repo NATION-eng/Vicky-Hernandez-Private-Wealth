@@ -65,9 +65,9 @@ export default function HoldingsPage() {
             </span>
           </div>
 
-          <div className="text-xs text-slate-500 flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200 w-fit">
+          <div className="text-xs text-slate-500 flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200 w-fit" title="Central Time (Texas)">
             <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" aria-hidden="true" />
-            <span>Close: 4:30 PM EST</span>
+            <span>Close: 3:30 PM CST</span>
           </div>
         </div>
       </div>
