@@ -63,7 +63,7 @@ export const AccessiblePerformanceChart: React.FC<AccessiblePerformanceChartProp
   const benchmarkReturn = displayedData[displayedData.length - 1]?.benchmarkReturnPercent ?? 0;
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+    <div className="bg-white rounded-2xl shadow-luxury border border-slate-200/80 p-6 md:p-8">
       
       {/* Title & Controls */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-100">

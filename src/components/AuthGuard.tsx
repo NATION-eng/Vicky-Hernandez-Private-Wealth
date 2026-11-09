@@ -65,19 +65,23 @@ export const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
         <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-wealth-navy-950 via-wealth-gold-500 to-wealth-navy-950" />
 
         <div className="text-center mb-8">
-          <div className="w-14 h-14 rounded-full bg-wealth-navy-950 text-wealth-gold-400 mx-auto flex items-center justify-center mb-4 shadow-md border-2 border-wealth-gold-400/40">
-            <Lock className="w-7 h-7" aria-hidden="true" />
+          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-wealth-navy-900 to-wealth-navy-950 border-2 border-wealth-gold-400/80 shadow-luxury mx-auto flex items-center justify-center mb-4 relative">
+            <div className="w-12 h-12 rounded-full border border-wealth-gold-500/40 flex items-center justify-center">
+              <span className="font-serif text-lg font-bold tracking-tight text-wealth-gold-300">
+                VH
+              </span>
+            </div>
           </div>
           
-          <span className="text-[11px] uppercase tracking-[0.25em] text-wealth-gold-700 font-bold bg-wealth-gold-50 px-3 py-1 rounded-full border border-wealth-gold-200 inline-block mb-2">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-wealth-gold-700 font-bold bg-wealth-gold-50 px-3 py-1 rounded-full border border-wealth-gold-200 inline-block mb-2">
             Private Client Gateway
           </span>
 
-          <h1 className="text-2xl sm:text-3xl font-serif font-bold text-wealth-navy-950">
+          <h1 className="text-2xl sm:text-3xl font-display font-semibold tracking-wider text-wealth-navy-950 uppercase">
             Client Authentication
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500 mt-1.5 leading-relaxed">
-            Please authenticate to access the private portfolio and verified documents for <strong>Vicky Hernandez</strong>.
+          <p className="text-xs sm:text-sm text-slate-500 mt-2 leading-relaxed">
+            Please authenticate to access the private wealth portfolio and verified documents for <strong>Vicky Hernandez</strong>.
           </p>
         </div>
 

@@ -1,23 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --font-base-size: 18px;
-  --bg-primary: #FAF9F5;
+  --font-serif: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
+  --font-display: 'Cinzel', 'Cormorant Garamond', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --bg-primary: #F8F9FA;
   --surface-card: #FFFFFF;
-  --text-primary: #0A192F;
+  --text-primary: #0F172A;
   --text-muted: #475569;
   --border-subtle: #E2E8F0;
-  --accent-gold: #946E2A;
-  --brand-navy: #0A192F;
+  --accent-gold: #C59B47;
+  --brand-navy: #070E1A;
 }
 
 html {
   font-size: var(--font-base-size);
+  font-family: var(--font-sans);
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Subtle, dignified headings */
+h1, h2, h3, .font-display {
+  letter-spacing: -0.015em;
+}
+
+/* Tabular figures for financial numbers */
+.font-mono, .tabular-nums {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
 
 /* Accessible text size scaling classes */
@@ -55,12 +77,12 @@ html.theme-high-contrast button {
 
 /* Calm dark mode */
 html.theme-dark {
-  --bg-primary: #060F1D;
-  --surface-card: #0E233F;
+  --bg-primary: #060B14;
+  --surface-card: #0C1524;
   --text-primary: #F8FAFC;
   --text-muted: #94A3B8;
-  --border-subtle: #1E3A5F;
-  --accent-gold: #DEC07D;
+  --border-subtle: #19273C;
+  --accent-gold: #E6CA85;
   --brand-navy: #FAF9F5;
 }
 
@@ -76,9 +98,9 @@ html.reduce-motion *,
 
 /* Enhanced Focus Visible Rings for Motor and Vision Accessibility */
 :focus-visible {
-  outline: 3px solid #946E2A !important;
+  outline: 2px solid #C59B47 !important;
   outline-offset: 3px !important;
-  box-shadow: 0 0 0 5px rgba(148, 110, 42, 0.25) !important;
+  box-shadow: 0 0 0 4px rgba(197, 155, 71, 0.20) !important;
 }
 
 /* Ensure all interactive buttons and inputs adhere to minimum 48px touch targets */
@@ -93,10 +115,10 @@ a.btn-touch {
 
 /* Accessible SVG Patterns for Charts (Colorblind-Safe) */
 .pattern-diagonal {
-  background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.08) 10px, rgba(0,0,0,0.08) 20px);
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.06) 10px, rgba(0,0,0,0.06) 20px);
 }
 
 .pattern-dots {
-  background-image: radial-gradient(rgba(0,0,0,0.12) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(rgba(0,0,0,0.10) 1.5px, transparent 1.5px);
   background-size: 8px 8px;
 }

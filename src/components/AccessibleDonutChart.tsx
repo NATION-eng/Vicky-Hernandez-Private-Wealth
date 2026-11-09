@@ -30,7 +30,7 @@ export const AccessibleDonutChart: React.FC<AccessibleDonutChartProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+    <div className="bg-white rounded-2xl shadow-luxury border border-slate-200/80 p-6 md:p-8">
       
       {/* Header & Accessibility Toggle */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-100">

@@ -31,10 +31,10 @@ export const AppNavigation: React.FC = () => {
   return (
     <nav 
       aria-label="Main Portfolio Navigation"
-      className="bg-white border-b border-slate-200 sticky top-20 z-30 shadow-xs"
+      className="bg-white/95 backdrop-blur-md border-b border-slate-200/80 sticky top-20 z-30 shadow-xs"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center space-x-1 sm:space-x-2 overflow-x-auto py-2 no-scrollbar">
+        <div className="flex items-center space-x-1 sm:space-x-1.5 overflow-x-auto py-2.5 no-scrollbar">
           {navLinks.map((link) => {
             const Icon = link.icon;
             const isActive = pathname === link.href || (link.href !== '/dashboard' && pathname.startsWith(link.href) && (link.href !== '/portfolio' || pathname === '/portfolio'));
@@ -44,13 +44,13 @@ export const AppNavigation: React.FC = () => {
                 key={link.href}
                 href={link.href}
                 aria-current={isActive ? 'page' : undefined}
-                className={`btn-touch px-3.5 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all flex items-center gap-2 border ${
+                className={`btn-touch px-3.5 py-2 rounded-lg text-xs tracking-wider uppercase font-semibold whitespace-nowrap transition-all flex items-center gap-2 border ${
                   isActive
-                    ? 'bg-wealth-navy-950 text-white border-wealth-navy-950 shadow-sm'
-                    : 'bg-transparent text-slate-700 border-transparent hover:bg-slate-100 hover:text-wealth-navy-950'
+                    ? 'bg-wealth-navy-950 text-white border-wealth-navy-900 shadow-sm'
+                    : 'bg-transparent text-slate-600 border-transparent hover:bg-slate-100/80 hover:text-wealth-navy-950'
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? 'text-wealth-gold-400' : 'text-slate-500'}`} aria-hidden="true" />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-wealth-gold-400' : 'text-slate-400'}`} aria-hidden="true" />
                 <span>{link.label}</span>
               </Link>
             );

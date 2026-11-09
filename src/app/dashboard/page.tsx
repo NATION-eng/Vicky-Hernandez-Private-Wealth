@@ -38,7 +38,7 @@ export default function DashboardPage() {
       </div>
 
       {/* 3. Quick Action Hub (Large, Accessible Touch Targets) */}
-      <section aria-labelledby="quick-actions-heading" className="bg-wealth-navy-950 text-white rounded-xl p-6 shadow-sm border border-wealth-navy-800">
+      <section aria-labelledby="quick-actions-heading" className="bg-gradient-to-r from-wealth-navy-950 via-wealth-navy-900 to-wealth-navy-950 text-white rounded-2xl p-6 md:p-8 shadow-luxury border border-wealth-gold-500/20">
         <h2 id="quick-actions-heading" className="text-xs font-bold uppercase tracking-widest text-wealth-gold-400 mb-4">
           Quick Access & Assistance
         </h2>
@@ -117,10 +117,10 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
         {/* Stated Goals Summary */}
-        <section aria-labelledby="goals-heading" className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+        <section aria-labelledby="goals-heading" className="bg-white rounded-2xl shadow-luxury border border-slate-200/80 p-6 md:p-8">
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
             <div>
-              <h2 id="goals-heading" className="text-xl font-serif font-bold text-wealth-navy-950">
+              <h2 id="goals-heading" className="text-2xl font-serif font-bold text-wealth-navy-950">
                 Stated Wealth Goals
               </h2>
               <p className="text-xs text-slate-500">Agreed objectives with Katherine Sterling</p>
@@ -136,7 +136,7 @@ export default function DashboardPage() {
 
           <div className="space-y-4">
             {goals.map((goal) => (
-              <div key={goal.id} className="p-4 rounded-lg bg-slate-50 border border-slate-200">
+              <div key={goal.id} className="p-4 rounded-xl bg-slate-50 border border-slate-200">
                 <div className="flex items-start justify-between gap-2">
                   <h3 className="font-bold text-base text-wealth-navy-950 font-serif">
                     {goal.title}
@@ -158,10 +158,10 @@ export default function DashboardPage() {
         </section>
 
         {/* Recent Source-Backed Activity */}
-        <section aria-labelledby="activity-heading" className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+        <section aria-labelledby="activity-heading" className="bg-white rounded-2xl shadow-luxury border border-slate-200/80 p-6 md:p-8">
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
             <div>
-              <h2 id="activity-heading" className="text-xl font-serif font-bold text-wealth-navy-950">
+              <h2 id="activity-heading" className="text-2xl font-serif font-bold text-wealth-navy-950">
                 Recent Verified Activity
               </h2>
               <p className="text-xs text-slate-500">Source-backed ledger events</p>
