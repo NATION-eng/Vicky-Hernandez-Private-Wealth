@@ -1,0 +1,220 @@
+"use client";
+
+import React, { useState } from 'react';
+import { useClientData } from '@/context/ClientDataContext';
+import { ProposedAllocationCard } from '@/components/ProposedAllocationCard';
+import { 
+  Target, 
+  ShieldCheck, 
+  Clock, 
+  Calendar, 
+  CheckCircle2, 
+  Send, 
+  FileText, 
+  ArrowUpRight, 
+  Sliders,
+  Sparkles,
+  HelpCircle
+} from 'lucide-react';
+import Link from 'next/link';
+
+export default function PlanPage() {
+  const { goals, proposedAllocation, profile, requestPlanReview } = useClientData();
+  const [reviewNotes, setReviewNotes] = useState("");
+  const [reviewSubmitted, setReviewSubmitted] = useState(false);
+
+  const handleReviewSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (reviewNotes.trim().length > 0) {
+      requestPlanReview(reviewNotes);
+      setReviewSubmitted(true);
+      setReviewNotes("");
+    }
+  };
+
+  return (
+    <div className="space-y-8">
+      
+      {/* Plan Header */}
+      <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-xs uppercase font-bold tracking-widest text-wealth-gold-600 bg-wealth-gold-50 px-2.5 py-0.5 rounded-full border border-wealth-gold-200">
+                Strategic Mandate
+              </span>
+              <span className="text-xs text-slate-500 font-medium">
+                Annual Review Scheduled: Nov 15, 2027
+              </span>
+            </div>
+            <h1 className="text-2xl md:text-3xl font-serif font-bold text-wealth-navy-950">
+              My Financial & Wealth Plan
+            </h1>
+            <p className="text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
+              Tailored wealth preservation and income architecture formulated for Vicky Hernandez in partnership with Katherine Sterling, CFP®.
+            </p>
+          </div>
+
+          <div className="text-xs bg-slate-50 p-3 rounded-lg border border-slate-200">
+            <p className="font-bold text-wealth-navy-950">Fiduciary Lead:</p>
+            <p className="text-slate-700">{profile.adviserName}</p>
+            <p className="text-slate-500 mt-0.5">{profile.adviserEmail}</p>
+          </div>
+        </div>
+
+        {/* Risk Profile & Horizon Summary Banner */}
+        <div className="mt-6 pt-6 border-t border-slate-100 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              Risk Tolerance Profile
+            </span>
+            <p className="text-lg font-bold font-serif text-wealth-navy-950 mt-1">
+              Conservative Capital Preservation
+            </p>
+            <p className="text-xs text-slate-600 mt-1">
+              Focuses on safeguarding principal against inflation with minimal drawdown tolerance.
+            </p>
+          </div>
+
+          <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              Planning Horizon
+            </span>
+            <p className="text-lg font-bold font-serif text-wealth-navy-950 mt-1">
+              Multi-Generational (10+ Years)
+            </p>
+            <p className="text-xs text-slate-600 mt-1">
+              Tailored for ongoing retirement cash flow and estate preservation.
+            </p>
+          </div>
+
+          <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              Tax Optimization Strategy
+            </span>
+            <p className="text-lg font-bold font-serif text-wealth-navy-950 mt-1">
+              Treasury Exemption & Dividend Shield
+            </p>
+            <p className="text-xs text-slate-600 mt-1">
+              State-tax-exempt sovereign debt and qualified dividends.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* 2. Proposed Initial 20% Allocation Feature Card */}
+      <ProposedAllocationCard />
+
+      {/* 3. Stated Goals with Detailed Assumptions */}
+      <section aria-labelledby="goals-section-title" className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
+        <div className="mb-6 pb-4 border-b border-slate-100">
+          <h2 id="goals-section-title" className="text-xl md:text-2xl font-serif font-bold text-wealth-navy-950">
+            Detailed Life & Wealth Objectives
+          </h2>
+          <p className="text-xs text-slate-500 mt-0.5">
+            Clear milestones agreed upon during your financial planning sessions.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {goals.map((g) => (
+            <div key={g.id} className="p-5 rounded-xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-bold uppercase tracking-wider text-wealth-gold-700 bg-wealth-gold-100 px-2 py-0.5 rounded border border-wealth-gold-300">
+                    Horizon: {g.targetHorizon}
+                  </span>
+                  <span className="text-xs font-semibold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded border border-emerald-300">
+                    Status: {g.currentStatus.replace('_', ' ')}
+                  </span>
+                </div>
+
+                <h3 className="text-lg font-serif font-bold text-wealth-navy-950">
+                  {g.title}
+                </h3>
+
+                <p className="text-sm text-slate-700 mt-2 leading-relaxed">
+                  {g.description}
+                </p>
+              </div>
+
+              <div className="mt-4 pt-4 border-t border-slate-200">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                  Agreed Plan Assumptions:
+                </p>
+                <ul className="space-y-1.5 text-xs text-slate-600">
+                  {g.assumptions.map((ass, i) => (
+                    <li key={i} className="flex items-start gap-1.5">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" aria-hidden="true" />
+                      <span>{ass}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 4. Request Plan Review Mechanism (PRD 9.5 Requirement) */}
+      <section aria-labelledby="review-section-title" className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
+        <h2 id="review-section-title" className="text-xl font-serif font-bold text-wealth-navy-950 mb-1">
+          Request a Plan Adjustment or Advisory Review
+        </h2>
+        <p className="text-sm text-slate-600 leading-relaxed mb-4">
+          Any modification to your investment proposals, risk parameters, or cash withdrawal timelines requires formal consultation and adviser authorization.
+        </p>
+
+        {reviewSubmitted ? (
+          <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 flex items-start gap-3">
+            <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" aria-hidden="true" />
+            <div>
+              <p className="font-bold text-base">Plan Review Request Logged Successfully</p>
+              <p className="text-xs mt-1 text-emerald-800">
+                Katherine Sterling has received your request. An audit event was recorded in your account ledger. Your adviser will contact you within one business day.
+              </p>
+              <button
+                type="button"
+                onClick={() => setReviewSubmitted(false)}
+                className="mt-3 text-xs font-bold underline hover:text-emerald-950"
+              >
+                Submit another request or note
+              </button>
+            </div>
+          </div>
+        ) : (
+          <form onSubmit={handleReviewSubmit} className="space-y-4">
+            <div>
+              <label htmlFor="review-notes-input" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                Notes for Katherine Sterling (e.g., changes in cash needs, estate questions)
+              </label>
+              <textarea
+                id="review-notes-input"
+                rows={3}
+                value={reviewNotes}
+                onChange={(e) => setReviewNotes(e.target.value)}
+                placeholder="I would like to discuss the timing of the proposed 20% fixed income allocation..."
+                className="w-full p-3 bg-slate-50 border border-slate-300 rounded-lg text-sm text-slate-900 focus:bg-white focus:ring-2 focus:ring-wealth-gold-500 focus:border-wealth-gold-500"
+              />
+            </div>
+
+            <div className="flex items-center justify-between">
+              <span className="text-xs text-slate-500">
+                Your request is audited and transmitted securely.
+              </span>
+              <button
+                type="submit"
+                disabled={reviewNotes.trim().length === 0}
+                className="btn-touch px-5 py-2.5 bg-wealth-navy-950 text-white rounded-lg text-xs font-semibold hover:bg-wealth-navy-800 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              >
+                <Send className="w-4 h-4 text-wealth-gold-400" aria-hidden="true" />
+                <span>Submit Review Request</span>
+              </button>
+            </div>
+          </form>
+        )}
+      </section>
+
+    </div>
+  );
+}

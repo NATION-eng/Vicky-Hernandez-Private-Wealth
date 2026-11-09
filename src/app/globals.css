@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-base-size: 18px;
+  --bg-primary: #FAF9F5;
+  --surface-card: #FFFFFF;
+  --text-primary: #0A192F;
+  --text-muted: #475569;
+  --border-subtle: #E2E8F0;
+  --accent-gold: #946E2A;
+  --brand-navy: #0A192F;
+}
+
+html {
+  font-size: var(--font-base-size);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Accessible text size scaling classes */
+html.text-size-standard {
+  --font-base-size: 18px;
+}
+
+html.text-size-large {
+  --font-base-size: 21px;
+}
+
+html.text-size-xlarge {
+  --font-base-size: 24px;
+}
+
+/* High contrast mode */
+html.theme-high-contrast {
+  --bg-primary: #FFFFFF;
+  --surface-card: #FFFFFF;
+  --text-primary: #000000;
+  --text-muted: #1A1A1A;
+  --border-subtle: #000000;
+  --accent-gold: #000000;
+  --brand-navy: #000000;
+}
+
+html.theme-high-contrast * {
+  border-color: #000000 !important;
+}
+
+html.theme-high-contrast a,
+html.theme-high-contrast button {
+  text-decoration-thickness: 2px !important;
+}
+
+/* Calm dark mode */
+html.theme-dark {
+  --bg-primary: #060F1D;
+  --surface-card: #0E233F;
+  --text-primary: #F8FAFC;
+  --text-muted: #94A3B8;
+  --border-subtle: #1E3A5F;
+  --accent-gold: #DEC07D;
+  --brand-navy: #FAF9F5;
+}
+
+/* Reduced motion preference */
+html.reduce-motion *,
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Enhanced Focus Visible Rings for Motor and Vision Accessibility */
+:focus-visible {
+  outline: 3px solid #946E2A !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 5px rgba(148, 110, 42, 0.25) !important;
+}
+
+/* Ensure all interactive buttons and inputs adhere to minimum 48px touch targets */
+button, 
+input, 
+select, 
+a.btn-touch {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Accessible SVG Patterns for Charts (Colorblind-Safe) */
+.pattern-diagonal {
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.08) 10px, rgba(0,0,0,0.08) 20px);
+}
+
+.pattern-dots {
+  background-image: radial-gradient(rgba(0,0,0,0.12) 1.5px, transparent 1.5px);
+  background-size: 8px 8px;
+}

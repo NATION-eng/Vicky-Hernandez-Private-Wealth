@@ -1,0 +1,62 @@
+"use client";
+
+import React from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { 
+  LayoutDashboard, 
+  Briefcase, 
+  Target, 
+  History, 
+  FileText, 
+  HelpCircle, 
+  Settings,
+  PieChart
+} from 'lucide-react';
+
+export const AppNavigation: React.FC = () => {
+  const pathname = usePathname();
+
+  const navLinks = [
+    { href: '/dashboard', label: 'Overview', icon: LayoutDashboard },
+    { href: '/portfolio', label: 'My Portfolio', icon: Briefcase },
+    { href: '/portfolio/allocation', label: 'Allocation', icon: PieChart },
+    { href: '/plan', label: 'My Plan', icon: Target },
+    { href: '/activity', label: 'Activity', icon: History },
+    { href: '/documents', label: 'Documents', icon: FileText },
+    { href: '/help', label: 'Help & Concierge', icon: HelpCircle },
+    { href: '/settings', label: 'Settings', icon: Settings },
+  ];
+
+  return (
+    <nav 
+      aria-label="Main Portfolio Navigation"
+      className="bg-white border-b border-slate-200 sticky top-20 z-30 shadow-xs"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center space-x-1 sm:space-x-2 overflow-x-auto py-2 no-scrollbar">
+          {navLinks.map((link) => {
+            const Icon = link.icon;
+            const isActive = pathname === link.href || (link.href !== '/dashboard' && pathname.startsWith(link.href) && (link.href !== '/portfolio' || pathname === '/portfolio'));
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive ? 'page' : undefined}
+                className={`btn-touch px-3.5 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all flex items-center gap-2 border ${
+                  isActive
+                    ? 'bg-wealth-navy-950 text-white border-wealth-navy-950 shadow-sm'
+                    : 'bg-transparent text-slate-700 border-transparent hover:bg-slate-100 hover:text-wealth-navy-950'
+                }`}
+              >
+                <Icon className={`w-4 h-4 ${isActive ? 'text-wealth-gold-400' : 'text-slate-500'}`} aria-hidden="true" />
+                <span>{link.label}</span>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </nav>
+  );
+};
