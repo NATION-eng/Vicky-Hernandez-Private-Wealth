@@ -23,8 +23,8 @@ export const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
     setMounted(true);
   }, []);
 
-  // Public informational routes that don't disclose financial figures
-  const publicPaths = ['/privacy', '/security', '/accessibility', '/about', '/contact', '/forgot-password'];
+  // Public or entry routes that don't disclose financial figures
+  const publicPaths = ['/', '/sign-in', '/privacy', '/security', '/accessibility', '/about', '/contact', '/forgot-password'];
   const isPublicPath = publicPaths.includes(pathname);
 
   const handleSignIn = (e: React.FormEvent) => {

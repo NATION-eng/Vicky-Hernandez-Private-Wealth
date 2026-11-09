@@ -257,20 +257,30 @@ export const AccessibleHeader: React.FC = () => {
                 </button>
               </div>
 
-              {/* Verified Account Identifier Card */}
-              <div className="p-3.5 mx-4 mt-3 rounded-xl bg-wealth-navy-900/90 border border-wealth-gold-500/20 text-xs">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="inline-flex items-center gap-1.5 text-emerald-400 font-bold text-[11px]">
+              {/* Verified Account Identifier Card (Only when authenticated) */}
+              {isAuthenticated ? (
+                <div className="p-3.5 mx-4 mt-3 rounded-xl bg-wealth-navy-900/90 border border-wealth-gold-500/20 text-xs">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="inline-flex items-center gap-1.5 text-emerald-400 font-bold text-[11px]">
+                      <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
+                      <span>Northern Trust Live</span>
+                    </span>
+                    <span className="text-wealth-gold-300 font-serif font-bold text-xs">$1,850,000.00</span>
+                  </div>
+                  <div className="flex items-center justify-between text-slate-300 text-[11px]">
+                    <span>Account: <strong>{profile.accountNumberMasked}</strong></span>
+                    <span className="text-slate-400 truncate max-w-[140px]">{profile.fullName} Revocable Trust</span>
+                  </div>
+                </div>
+              ) : (
+                <div className="p-3.5 mx-4 mt-3 rounded-xl bg-wealth-navy-900/90 border border-wealth-gold-500/20 text-xs">
+                  <div className="flex items-center gap-1.5 text-emerald-400 font-bold text-[11px] mb-1">
                     <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
-                    <span>Northern Trust Live</span>
-                  </span>
-                  <span className="text-wealth-gold-300 font-serif font-bold text-xs">$1,850,000.00</span>
+                    <span>Northern Trust Global Custody</span>
+                  </div>
+                  <p className="text-slate-400 text-[11px]">Institutional 256-Bit SSL Encrypted Gateway</p>
                 </div>
-                <div className="flex items-center justify-between text-slate-300 text-[11px]">
-                  <span>Account: <strong>{profile.accountNumberMasked}</strong></span>
-                  <span className="text-slate-400 truncate max-w-[140px]">{profile.fullName} Revocable Trust</span>
-                </div>
-              </div>
+              )}
 
               {/* Display & Accessibility Controls (WCAG 2.2 AA compliant for mobile) */}
               <div className="p-3.5 mx-4 mt-3 rounded-xl bg-wealth-navy-900/80 border border-wealth-navy-800 text-xs">
@@ -390,44 +400,56 @@ export const AccessibleHeader: React.FC = () => {
                 </button>
               </div>
 
-              {/* Navigation Links */}
-              <nav aria-label="Mobile Drawer Navigation" className="p-4 space-y-1">
-                {navLinks.map((link) => {
-                  const Icon = link.icon;
-                  const isActive = pathname === link.href || (link.href !== '/dashboard' && pathname.startsWith(link.href));
-                  return (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={`btn-touch w-full px-3.5 py-2.5 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all flex items-center justify-between border ${
-                        isActive
-                          ? 'bg-wealth-gold-500 text-wealth-navy-950 border-wealth-gold-400 shadow-sm'
-                          : 'text-slate-300 border-transparent hover:bg-wealth-navy-900 hover:text-white'
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <Icon className={`w-4 h-4 ${isActive ? 'text-wealth-navy-950' : 'text-wealth-gold-400'}`} aria-hidden="true" />
-                        <span>{link.label}</span>
-                      </div>
-                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-wealth-navy-950" />}
-                    </Link>
-                  );
-                })}
+              {/* Navigation Links (Only when authenticated) */}
+              {isAuthenticated ? (
+                <nav aria-label="Mobile Drawer Navigation" className="p-4 space-y-1">
+                  {navLinks.map((link) => {
+                    const Icon = link.icon;
+                    const isActive = pathname === link.href || (link.href !== '/dashboard' && pathname.startsWith(link.href));
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`btn-touch w-full px-3.5 py-2.5 rounded-lg text-xs font-semibold tracking-wider uppercase transition-all flex items-center justify-between border ${
+                          isActive
+                            ? 'bg-wealth-gold-500 text-wealth-navy-950 border-wealth-gold-400 shadow-sm'
+                            : 'text-slate-300 border-transparent hover:bg-wealth-navy-900 hover:text-white'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <Icon className={`w-4 h-4 ${isActive ? 'text-wealth-navy-950' : 'text-wealth-gold-400'}`} aria-hidden="true" />
+                          <span>{link.label}</span>
+                        </div>
+                        {isActive && <span className="w-1.5 h-1.5 rounded-full bg-wealth-navy-950" />}
+                      </Link>
+                    );
+                  })}
 
-                {/* Financial Dictionary Trigger */}
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    setIsGlossaryOpen(true);
-                  }}
-                  className="btn-touch w-full px-3.5 py-2.5 rounded-lg text-xs font-semibold tracking-wider uppercase text-slate-300 hover:bg-wealth-navy-900 hover:text-white transition-all flex items-center gap-3 border border-transparent mt-2"
-                >
-                  <BookOpen className="w-4 h-4 text-wealth-gold-400" aria-hidden="true" />
-                  <span>Financial Dictionary</span>
-                </button>
-              </nav>
+                  {/* Financial Dictionary Trigger */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      setIsGlossaryOpen(true);
+                    }}
+                    className="btn-touch w-full px-3.5 py-2.5 rounded-lg text-xs font-semibold tracking-wider uppercase text-slate-300 hover:bg-wealth-navy-900 hover:text-white transition-all flex items-center gap-3 border border-transparent mt-2"
+                  >
+                    <BookOpen className="w-4 h-4 text-wealth-gold-400" aria-hidden="true" />
+                    <span>Financial Dictionary</span>
+                  </button>
+                </nav>
+              ) : (
+                <div className="p-4 space-y-2">
+                  <div className="p-3.5 rounded-xl bg-wealth-navy-900/60 border border-wealth-navy-800 text-xs text-center">
+                    <ShieldCheck className="w-6 h-6 text-emerald-400 mx-auto mb-1.5" />
+                    <p className="text-white font-semibold">Private Client Portal</p>
+                    <p className="text-slate-400 text-[11px] mt-1 leading-relaxed">
+                      Please sign in to access your portfolio, holdings, and vault.
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Drawer Footer: Lead Adviser Direct Contact & Sign Out */}

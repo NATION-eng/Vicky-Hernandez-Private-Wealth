@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useClientData } from '@/context/ClientDataContext';
 import { 
   LayoutDashboard, 
   Briefcase, 
@@ -15,7 +16,12 @@ import {
 } from 'lucide-react';
 
 export const AppNavigation: React.FC = () => {
+  const { isAuthenticated } = useClientData();
   const pathname = usePathname();
+
+  if (!isAuthenticated) {
+    return null;
+  }
 
   const navLinks = [
     { href: '/dashboard', label: 'Overview', icon: LayoutDashboard },
