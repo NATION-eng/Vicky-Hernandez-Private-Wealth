@@ -8,8 +8,8 @@ export const AccessibilityToolbar: React.FC = () => {
   const { settings, setTextSize, setContrastMode, toggleReducedMotion } = useAccessibility();
 
   return (
-    <aside aria-label="Accessibility display controls" className="relative z-50">
-      {/* Persistent Quick Controls Bar */}
+    <aside aria-label="Accessibility display controls" className="relative z-50 hidden md:block">
+      {/* Persistent Quick Controls Bar (Desktop only, mobile controls in navigation drawer) */}
       <div className="bg-wealth-navy-950 text-white px-3 sm:px-4 py-1.5 sm:py-2 border-b border-wealth-navy-800 text-xs sm:text-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
           
