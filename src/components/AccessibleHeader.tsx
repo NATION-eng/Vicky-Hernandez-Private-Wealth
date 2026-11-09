@@ -99,7 +99,7 @@ export const AccessibleHeader: React.FC = () => {
                 </div>
 
                 <div className="flex flex-col">
-                  <span className="font-display text-[13.5px] sm:text-base md:text-xl font-bold tracking-[0.14em] sm:tracking-[0.2em] text-white group-hover:text-wealth-gold-200 transition-colors uppercase leading-tight whitespace-nowrap">
+                  <span className="font-display text-[13.5px] sm:text-base md:text-xl font-bold tracking-[0.14em] sm:tracking-[0.2em] text-wealth-gold-400 group-hover:text-wealth-gold-200 transition-colors uppercase leading-tight whitespace-nowrap">
                     Vicky Hernandez
                   </span>
                   <span className="text-[8px] sm:text-[9.5px] uppercase tracking-[0.26em] sm:tracking-[0.32em] text-wealth-gold-400 font-semibold -mt-0.5">
@@ -220,7 +220,7 @@ export const AccessibleHeader: React.FC = () => {
                     )}
                   </div>
                   <div>
-                    <p className="font-display text-sm font-bold tracking-wider text-white uppercase">{profile.fullName}</p>
+                    <p className="font-display text-sm font-bold tracking-wider text-wealth-gold-400 uppercase">{profile.fullName}</p>
                     <p className="text-[10px] text-wealth-gold-400 uppercase tracking-widest font-semibold">Private Wealth</p>
                   </div>
                 </div>

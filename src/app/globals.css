@@ -33,10 +33,14 @@ html {
 }
 
 /* Authoritative, prominent headings */
-h1, h2, h3, h4, h5, h6, .font-display {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: -0.015em;
   color: #0A1120;
+}
+
+.font-display {
+  font-family: var(--font-display);
 }
 
 /* Bold tabular figures for financial numbers */
