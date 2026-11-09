@@ -10,8 +10,45 @@ import { AuthGuard } from '@/components/AuthGuard';
 import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Vicky Hernandez Private Wealth | Personalized Fiduciary Portfolio Portal',
-  description: 'A dignified, age-inclusive digital wealth portal designed for Vicky Hernandez. Delivering transparent reporting, verified holdings, and dedicated advisory planning.',
+  metadataBase: new URL('https://vicky-hernandez-private-wealth.vercel.app'),
+  title: {
+    default: 'Vicky Hernandez Private Wealth | Personalized Fiduciary Portfolio',
+    template: '%s | Vicky Hernandez Private Wealth',
+  },
+  description: 'Private Wealth Management & Personalized Fiduciary Portfolio for Vicky Hernandez. Direct institutional custody asset reporting via Northern Trust Global Custody ($1,850,000.00 USD), verified holdings, time-weighted returns, and dedicated wealth planning with Sterling Private Wealth Advisors.',
+  applicationName: 'Vicky Hernandez Private Wealth Portal',
+  authors: [{ name: 'Sterling Private Wealth Advisors LLC' }, { name: 'Vicky Hernandez' }],
+  creator: 'Vicky Hernandez Private Wealth',
+  publisher: 'Sterling Private Wealth Advisors',
+  keywords: [
+    'Vicky Hernandez',
+    'Vicky Hernandez Private Wealth',
+    'Vicky Hernandez Portfolio',
+    'Northern Trust Global Custody',
+    'Katherine Sterling CFP',
+    'Private Wealth Management',
+    'Fiduciary Portfolio',
+    'Trust Portfolio',
+    'Personalized Wealth Portal'
+  ],
+  openGraph: {
+    title: 'Vicky Hernandez Private Wealth | Personalized Fiduciary Portfolio',
+    description: 'Private Wealth Management & Personalized Fiduciary Portfolio for Vicky Hernandez. Direct institutional custody reporting via Northern Trust Global Custody ($1,850,000.00 USD), verified holdings, and personalized wealth preservation planning.',
+    url: 'https://vicky-hernandez-private-wealth.vercel.app',
+    siteName: 'Vicky Hernandez Private Wealth',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vicky Hernandez Private Wealth | Personalized Fiduciary Portfolio',
+    description: 'Private Wealth Management & Personalized Fiduciary Portfolio for Vicky Hernandez. Direct institutional custody reporting via Northern Trust Global Custody ($1,850,000.00 USD), verified holdings, and dedicated wealth planning.',
+    creator: '@SterlingWealth',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
