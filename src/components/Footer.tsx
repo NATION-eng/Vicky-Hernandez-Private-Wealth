@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
               Institutional Custodian
             </h4>
             <div className="space-y-2 text-xs">
-              <p className="font-bold text-white">Northern Trust Global Custody</p>
+              <p className="font-bold text-white">Institutional Global Custody</p>
               <p className="text-slate-400 text-[11px] leading-relaxed">
                 Fiduciary Administration & Global Asset Servicing. Assets held in segregated client custody.
               </p>
@@ -84,7 +84,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-wrap items-center gap-3 text-[11px]">
             <span className="inline-flex items-center gap-1.5 bg-wealth-navy-900 px-2.5 py-1 rounded-md border border-wealth-navy-800 text-slate-300">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Northern Trust Custody</span>
+              <span>Institutional Custody</span>
             </span>
             <span className="inline-flex items-center gap-1.5 bg-wealth-navy-900 px-2.5 py-1 rounded-md border border-wealth-navy-800 text-slate-300">
               <Lock className="w-3.5 h-3.5 text-wealth-gold-400" />
@@ -97,7 +97,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <p className="text-[11px] text-slate-400 leading-relaxed">
-            Private wealth portal for Vicky Hernandez. Custodian records reconciled via Northern Trust. Advisory services provided by Sterling Private Wealth Advisors LLC. Non-trading fiduciary portal.
+            Private wealth portal for Vicky Hernandez. Custodian records reconciled via institutional custody. Advisory services provided by Sterling Private Wealth Advisors LLC. Non-trading fiduciary portal.
           </p>
 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pt-3 border-t border-wealth-navy-900 text-[11px] text-slate-500">

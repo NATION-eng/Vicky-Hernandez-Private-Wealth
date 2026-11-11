@@ -91,7 +91,7 @@ export default function ForgotPasswordPage() {
                 <span>Back to Sign-In</span>
               </Link>
 
-              <span className="text-slate-400 font-semibold">Northern Trust Custody</span>
+              <span className="text-slate-400 font-semibold">Institutional Custody</span>
             </div>
           </form>
         )}

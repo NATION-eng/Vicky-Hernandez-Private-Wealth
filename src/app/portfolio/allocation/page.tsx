@@ -56,7 +56,7 @@ export default function AllocationPage() {
           {assetAllocations.length === 0 ? (
             <div className="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200 text-center">
               <p className="text-sm font-bold text-wealth-navy-950 font-serif">0.00% Current Allocation ($0.00 USD)</p>
-              <p className="text-xs text-slate-500 mt-1">Awaiting capital deployment and custodial clearing via Northern Trust.</p>
+              <p className="text-xs text-slate-500 mt-1">Awaiting capital deployment and custodial clearing via institutional custody.</p>
             </div>
           ) : (
             <div className="mt-4 space-y-3">
@@ -140,7 +140,7 @@ export default function AllocationPage() {
               Advisory Note: Core Portfolio Objective — 300% Capital Growth Target
             </h3>
             <p className="text-xs text-amber-900 mt-1 leading-relaxed">
-              {proposedAllocation.basisDescription} Upon receipt of capital deployment instructions, assets will be allocated according to the target schedule and reconciled through Northern Trust Global Custody.
+              {proposedAllocation.basisDescription} Upon receipt of capital deployment instructions, assets will be allocated according to the target schedule and reconciled through institutional global custody.
             </p>
           </div>
         </div>

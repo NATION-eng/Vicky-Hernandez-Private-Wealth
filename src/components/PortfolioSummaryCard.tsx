@@ -38,7 +38,7 @@ export const PortfolioSummaryCard: React.FC = () => {
 
           <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 shrink-0">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
-            <span>Northern Trust</span>
+            <span>Live Custody</span>
           </span>
         </div>
 

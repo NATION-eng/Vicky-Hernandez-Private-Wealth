@@ -87,7 +87,7 @@ export default function HelpPage() {
                 Client Support & Security
               </span>
               <span className="text-xs text-slate-500 font-medium">
-                Northern Trust Institutional Custody
+                Institutional Custody
               </span>
             </div>
             <h1 className="text-2xl md:text-3xl font-serif font-bold text-wealth-navy-950">
@@ -120,7 +120,7 @@ export default function HelpPage() {
               <CheckCircle2 className="w-5 h-5 text-emerald-700" aria-hidden="true" />
             </div>
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Institutional Custody</span>
-            <h3 className="text-lg font-serif font-bold text-wealth-navy-950 mt-1">Northern Trust</h3>
+            <h3 className="text-lg font-serif font-bold text-wealth-navy-950 mt-1">Institutional Custodian</h3>
             <p className="text-xs text-slate-600 mt-1">Global Custody & Asset Servicing. Regulated institutional reconciliation under Federal Reserve book-entry.</p>
           </div>
           <div className="mt-4 pt-4 border-t border-slate-100 text-xs font-semibold text-emerald-800 flex items-center gap-1.5">

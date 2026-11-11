@@ -50,7 +50,7 @@ export const DataStatusBanner: React.FC = () => {
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mt-1 sm:mt-1.5">
               <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" aria-hidden="true" />
-                <span>Northern Trust Live</span>
+                <span>Custody Verified</span>
               </span>
 
               <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200">

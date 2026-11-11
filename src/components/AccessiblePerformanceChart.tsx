@@ -37,7 +37,7 @@ export const AccessiblePerformanceChart: React.FC<AccessiblePerformanceChartProp
                 <ShieldCheck className="w-3 h-3 text-emerald-600" />
                 <span>Clean Baseline State</span>
               </span>
-              <span className="text-xs text-slate-500 font-medium">Northern Trust Custody</span>
+              <span className="text-xs text-slate-500 font-medium">Institutional Custody</span>
             </div>
             <h3 className="text-xl sm:text-2xl font-serif font-bold text-wealth-navy-950">
               Platform Strategic Objectives & Performance Framework

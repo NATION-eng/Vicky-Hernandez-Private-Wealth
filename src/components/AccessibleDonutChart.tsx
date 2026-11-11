@@ -26,7 +26,7 @@ export const AccessibleDonutChart: React.FC<AccessibleDonutChartProps> = ({
           Asset Allocation Pending Capital Deployment
         </h3>
         <p className="text-sm text-slate-600 max-w-lg mx-auto mt-2 leading-relaxed">
-          All asset allocation percentages currently stand at 0.00% across all asset classes ($0.00 USD). Holdings will be tracked directly toward the 300% growth target once capital is deployed and cleared through Northern Trust.
+          All asset allocation percentages currently stand at 0.00% across all asset classes ($0.00 USD). Holdings will be tracked directly toward the 300% growth target once capital is deployed and cleared through institutional custody.
         </p>
       </div>
     );

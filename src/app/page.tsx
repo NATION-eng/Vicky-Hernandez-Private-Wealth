@@ -186,7 +186,7 @@ export default function RootEntryPage() {
         <div className="mt-8 pt-5 border-t border-slate-100 text-center">
           <p className="text-xs font-semibold text-slate-600 flex items-center justify-center gap-1.5">
             <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" aria-hidden="true" />
-            <span>Northern Trust Global Custody • 256-Bit SSL Encrypted</span>
+            <span>Institutional Global Custody • 256-Bit SSL Encrypted</span>
           </p>
           <p className="text-[11px] text-slate-400 font-medium mt-1">
             Protected Institutional Fiduciary Session

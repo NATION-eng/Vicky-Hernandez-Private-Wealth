@@ -319,7 +319,7 @@ export default function ActivityPage() {
               </div>
 
               <div className="pt-2 border-t border-slate-100 text-xs text-slate-500 space-y-1">
-                <p><strong>Institution Custodian:</strong> Northern Trust Global Custody</p>
+                <p><strong>Institution Custodian:</strong> Institutional Global Custody</p>
                 <p><strong>Ledger Audit ID:</strong> <span className="font-mono text-slate-700">{selectedActivity.sourceReference}</span></p>
                 <p><strong>Compliance Status:</strong> Verified DTC/Federal Reserve Settled Record</p>
               </div>

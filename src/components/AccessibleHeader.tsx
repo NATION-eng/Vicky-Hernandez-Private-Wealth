@@ -126,11 +126,11 @@ export const AccessibleHeader: React.FC = () => {
               {/* Verified Institutional Custody Pill */}
               <div 
                 className="btn-touch px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 border bg-emerald-950/70 border-emerald-500/40 text-emerald-300"
-                title="Live Custodian Connection via Northern Trust Global Custody"
+                title="Live Institutional Custody Connection"
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true" />
                 <span className="hidden lg:inline font-semibold text-emerald-300/80">Custodian:</span>
-                <span className="font-bold text-emerald-200">Northern Trust</span>
+                <span className="font-bold text-emerald-200">Institutional Custody</span>
               </div>
 
               {/* Authentication Status / Sign Out Action */}
@@ -162,10 +162,10 @@ export const AccessibleHeader: React.FC = () => {
               {/* Custodian Live Status Dot Pill */}
               <div 
                 className="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider flex items-center gap-1.5 border bg-emerald-950/70 border-emerald-500/30 text-emerald-300 shadow-xs"
-                title="Live Institutional Custody via Northern Trust"
+                title="Live Institutional Custody"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="uppercase font-bold tracking-wider">NT Live</span>
+                <span className="uppercase font-bold tracking-wider">Live</span>
               </div>
 
               {/* Mobile Drawer Hamburger Button - Refined Jewel Button */}
@@ -241,7 +241,7 @@ export const AccessibleHeader: React.FC = () => {
                   <div className="flex items-center justify-between mb-1">
                     <span className="inline-flex items-center gap-1.5 text-emerald-400 font-bold text-[11px]">
                       <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
-                      <span>Northern Trust Live</span>
+                      <span>Live Custody</span>
                     </span>
                     <span className="text-wealth-gold-300 font-mono font-bold text-xs">$0.00</span>
                   </div>
@@ -254,7 +254,7 @@ export const AccessibleHeader: React.FC = () => {
                 <div className="p-3.5 mx-4 mt-3 rounded-xl bg-wealth-navy-900/90 border border-wealth-gold-500/20 text-xs">
                   <div className="flex items-center gap-1.5 text-emerald-400 font-bold text-[11px] mb-1">
                     <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
-                    <span>Northern Trust Global Custody</span>
+                    <span>Institutional Custody</span>
                   </div>
                   <p className="text-slate-400 text-[11px]">Institutional 256-Bit SSL Encrypted Gateway</p>
                 </div>
@@ -439,7 +439,7 @@ export const AccessibleHeader: React.FC = () => {
                 <p className="text-[10px] uppercase font-bold tracking-wider text-wealth-gold-400 mb-0.5">
                   Institutional Custodian
                 </p>
-                <p className="text-xs font-bold text-white">Northern Trust Global Custody</p>
+                <p className="text-xs font-bold text-white">Institutional Global Custody</p>
                 <div className="mt-2 flex items-center justify-between text-[11px] text-slate-400">
                   <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />

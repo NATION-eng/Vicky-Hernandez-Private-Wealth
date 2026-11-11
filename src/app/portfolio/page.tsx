@@ -44,7 +44,7 @@ export default function PortfolioOverviewPage() {
                 <span>Live Custody</span>
               </span>
               <span className="text-xs text-slate-400 font-medium">
-                Northern Trust
+                Institutional Custody
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-serif font-bold text-wealth-navy-950">
@@ -123,7 +123,7 @@ export default function PortfolioOverviewPage() {
               <Landmark className="w-4 h-4 text-wealth-gold-600 shrink-0" aria-hidden="true" />
               <span>
                 {dataMode === 'LIVE_VERIFIED' 
-                  ? 'Northern Trust Global Custody' 
+                  ? 'Institutional Global Custody' 
                   : dataMode === 'DEMO_SIMULATED' 
                     ? 'Synthetic Demo Custodian' 
                     : 'Awaiting Connection'}
@@ -251,7 +251,7 @@ export default function PortfolioOverviewPage() {
             No Active Holdings on File
           </h2>
           <p className="text-sm text-slate-600 max-w-lg mx-auto mt-2 leading-relaxed">
-            Your custody account currently holds $0.00 in settled active positions. Holdings will appear automatically following trade settlement and custodial clearing through Northern Trust.
+            Your custody account currently holds $0.00 in settled active positions. Holdings will appear automatically following trade settlement and custodial clearing through institutional custody.
           </p>
           <div className="mt-4">
             <Link

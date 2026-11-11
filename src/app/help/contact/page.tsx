@@ -32,7 +32,7 @@ export default function HelpContactSubpage() {
             <Landmark className="w-6 h-6 text-emerald-700" aria-hidden="true" />
           </div>
           <div>
-            <h2 className="text-xl font-serif font-bold text-wealth-navy-950">Northern Trust Global Custody</h2>
+            <h2 className="text-xl font-serif font-bold text-wealth-navy-950">Institutional Global Custody</h2>
             <p className="text-xs text-slate-500">Tier-1 Institutional Custodian to Vicky Hernandez</p>
           </div>
         </div>

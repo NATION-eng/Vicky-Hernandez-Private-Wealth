@@ -172,7 +172,7 @@ export default function HoldingsPage() {
                 <div className="mt-2.5 pt-2 flex items-center justify-between text-[11px] text-slate-500">
                   <span className="flex items-center gap-1 text-emerald-700 font-medium">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Northern Trust Custody</span>
+                    <span>Institutional Custody</span>
                   </span>
                   <span className="font-mono text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded text-[10px]">
                     {h.sourceRecordId}

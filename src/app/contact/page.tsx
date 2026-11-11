@@ -35,7 +35,7 @@ export default function ContactPage() {
               Institutional Custodian
             </span>
             <h2 className="text-2xl font-serif font-bold text-wealth-navy-950 mt-2">
-              Northern Trust Global Custody
+              Institutional Global Custody
             </h2>
             <p className="text-xs text-slate-500">Global Custody & Asset Servicing Division</p>
           </div>

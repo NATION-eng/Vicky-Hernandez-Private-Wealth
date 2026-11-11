@@ -52,7 +52,7 @@ export const ProposedAllocationCard: React.FC = () => {
           <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-slate-50 border border-slate-200">
             <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" aria-hidden="true" />
             <span className="text-slate-600 text-[11px]">
-              Fiduciary Custody Mandate • Northern Trust Global Custody
+              Fiduciary Custody Mandate • Institutional Global Custody
             </span>
           </div>
         </div>

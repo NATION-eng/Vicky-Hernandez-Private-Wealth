@@ -42,7 +42,7 @@ export default function PrivacyPage() {
           </h2>
           <ul className="list-disc pl-5 space-y-1.5 text-xs text-slate-600">
             <li><strong>Client Identity:</strong> Preferred name, full registered legal name, email, and designated telephone number.</li>
-            <li><strong>Custodian Feed Data:</strong> Synchronized holdings, quantities, valuations, and coupon histories sourced from authorized institutions (e.g. Northern Trust).</li>
+            <li><strong>Custodian Feed Data:</strong> Synchronized holdings, quantities, valuations, and coupon histories sourced from authorized institutional custody channels.</li>
             <li><strong>Planning Records:</strong> Agreed risk profile, assumptions, and platform objectives (such as the 300% capital growth target).</li>
             <li><strong>Audit Logs:</strong> Timestamps of logins, profile modifications, and document downloads.</li>
           </ul>
