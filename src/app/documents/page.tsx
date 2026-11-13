@@ -35,15 +35,15 @@ export default function DocumentsPage() {
     if (doc.id === 'doc-ver-1') {
       content = `
 ====================================================================================================
-THE NORTHERN TRUST COMPANY - GLOBAL CUSTODY & ASSET SERVICING
+INSTITUTIONAL GLOBAL CUSTODY & ASSET SERVICING
 OFFICIAL CUSTODY ACCOUNT STATEMENT
 ====================================================================================================
 STATEMENT STATUS:  Active Fiduciary Custody
 ACCOUNT TITLE:     VICKY HERNANDEZ REVOCABLE TRUST
-ACCOUNT NUMBER:    NT-CUST-802144
+ACCOUNT NUMBER:    CUST-802144
 TAX IDENTIFIER:    XX-XXX8920
 PRIMARY CLIENT:    Vicky Hernandez
-CUSTODIAN:         Northern Trust Global Custody
+CUSTODIAN:         Institutional Global Custody
 
 ----------------------------------------------------------------------------------------------------
 1. CONSOLIDATED PORTFOLIO VALUATION SUMMARY
@@ -74,8 +74,8 @@ client investment schedule and funding deployment.
 ----------------------------------------------------------------------------------------------------
 OFFICIAL CERTIFICATION & FIDUCIARY ATTESTATION
 ----------------------------------------------------------------------------------------------------
-This statement is an official, audited certified record issued by The Northern Trust Company
-under custody mandate NT-CUST-802144. Reconciled against Federal Reserve Book-Entry systems.
+This statement is an official, audited certified record issued by Institutional Global Custody
+under custody mandate CUST-802144. Reconciled against Federal Reserve Book-Entry systems.
 ====================================================================================================
 `;
     } else if (doc.id === 'doc-ver-2') {
@@ -85,7 +85,7 @@ STERLING PRIVATE WEALTH ADVISORS
 QUARTERLY FIDUCIARY STRATEGY & ASSET ALLOCATION REPORT
 ====================================================================================================
 PREPARED FOR:     Vicky Hernandez
-ACCOUNT NUMBER:   NT-CUST-802144 (Northern Trust Custody)
+ACCOUNT NUMBER:   CUST-802144 (Institutional Custody)
 PRIMARY CLIENT:   Vicky Hernandez
 
 EXECUTIVE SUMMARY:
@@ -97,22 +97,22 @@ All financial figures currently initialize at $0.00 USD pending deployment of fu
 STRATEGIC MANDATE:
 1. Capital Framework: 300% Target Portfolio Valuation.
 2. Operational Target: 99.9% Platform-Stated Reliability Objective.
-3. Custody Administration: Northern Trust Global Custody.
+3. Custody Administration: Institutional Global Custody.
 ====================================================================================================
 `;
     } else {
       content = `
 ====================================================================================================
 FORM 1099 CONSOLIDATED TAX INFORMATION STATEMENT
-NORTHERN TRUST TAX REPORTING SERVICES | OMB No. 1545-0110
+INSTITUTIONAL TAX REPORTING SERVICES | OMB No. 1545-0110
 ====================================================================================================
 RECIPIENT:
 Vicky Hernandez
 Masked TIN: XX-XXX8920
-Custody Account: NT-CUST-802144
+Custody Account: CUST-802144
 
 PAYER:
-The Northern Trust Company (EIN: 36-1561860)
+Institutional Global Custody (EIN: 36-1561860)
 Global Custodial Services Division
 
 ----------------------------------------------------------------------------------------------------
@@ -152,7 +152,7 @@ Current Tax Year Position: Initialized at $0.00.
                 <span>Certified Vault</span>
               </span>
               <span className="text-xs text-slate-400 font-medium">
-                Northern Trust
+                Institutional Custody
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-serif font-bold text-wealth-navy-950">
@@ -189,11 +189,11 @@ Current Tax Year Position: Initialized at $0.00.
               No Custody Documents Currently on File
             </h3>
             <p className="text-xs text-slate-500 max-w-md mx-auto mt-1 leading-relaxed">
-              Official monthly custody statements, certified tax records, and quarterly strategy reports will be securely deposited here following capital clearing and statement generation by Northern Trust.
+              Official monthly custody statements, certified tax records, and quarterly strategy reports will be securely deposited here following capital clearing and statement generation by institutional custody.
             </p>
             <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Northern Trust Global Custody Vault Active</span>
+              <span>Institutional Global Custody Vault Active</span>
             </div>
           </div>
         ) : (
@@ -312,7 +312,7 @@ Current Tax Year Position: Initialized at $0.00.
                   </div>
 
                   <div className="text-left sm:text-right text-xs text-slate-600 bg-slate-50 sm:bg-transparent p-3 sm:p-0 rounded-lg border sm:border-none border-slate-200">
-                    <p><strong>Account Number:</strong> {profile.accountNumberMasked} (NT-CUST-802144)</p>
+                    <p><strong>Account Number:</strong> {profile.accountNumberMasked} (CUST-802144)</p>
                     <p><strong>Tax ID:</strong> •••-••-8920</p>
                     <p><strong>Effective Date:</strong> {selectedDoc.documentDate}</p>
                     <p><strong>Currency:</strong> USD ($)</p>
@@ -330,7 +330,7 @@ Current Tax Year Position: Initialized at $0.00.
                       </div>
                       <div className="text-right sm:text-right text-xs text-slate-700">
                         <p className="font-semibold text-emerald-800">Status: Sourced & Fully Reconciled</p>
-                        <p className="text-slate-500">Custody: Northern Trust Global Custody</p>
+                        <p className="text-slate-500">Custody: Institutional Global Custody</p>
                       </div>
                     </div>
 
@@ -375,7 +375,7 @@ Current Tax Year Position: Initialized at $0.00.
                         </div>
                         <div>
                           <p className="font-serif font-bold text-xs uppercase tracking-wider text-slate-900">
-                            The Northern Trust Company
+                            Institutional Global Custody
                           </p>
                           <p className="text-[11px] text-slate-500">Official Custody Certification Division</p>
                         </div>
@@ -408,7 +408,7 @@ Current Tax Year Position: Initialized at $0.00.
                         Platform Strategic Objectives
                       </h4>
                       <p className="text-slate-600 leading-relaxed">
-                        Operational reliability target is set at <strong>99.9%</strong> platform-stated execution across Northern Trust custody feeds. Progress will be tracked directly toward the 300% target valuation upon deployment.
+                        Operational reliability target is set at <strong>99.9%</strong> platform-stated execution across institutional custody feeds. Progress will be tracked directly toward the 300% target valuation upon deployment.
                       </p>
                     </div>
 
@@ -470,7 +470,7 @@ Current Tax Year Position: Initialized at $0.00.
                     </div>
 
                     <p className="text-[11px] text-slate-500 italic mt-4">
-                      * Certified official reporting statement prepared by Northern Trust Tax Reporting Services under EIN 36-1561860.
+                      * Certified official reporting statement prepared by Institutional Tax Reporting Services under EIN 36-1561860.
                     </p>
                   </div>
                 )}

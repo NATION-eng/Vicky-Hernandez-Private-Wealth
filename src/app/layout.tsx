@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     default: 'Vicky Hernandez Private Wealth | Personalized Fiduciary Portfolio',
     template: '%s | Vicky Hernandez Private Wealth',
   },
-  description: 'Private Wealth Management & Personalized Fiduciary Portfolio for Vicky Hernandez. Direct institutional custody reporting via Northern Trust Global Custody, verified holdings, and strategic wealth planning with Sterling Private Wealth Advisors.',
+  description: 'Private Wealth Management & Personalized Fiduciary Portfolio for Vicky Hernandez. Direct institutional custody reporting via Institutional Global Custody, verified holdings, and strategic wealth planning with Sterling Private Wealth Advisors.',
   applicationName: 'Vicky Hernandez Private Wealth Portal',
   authors: [{ name: 'Sterling Private Wealth Advisors LLC' }, { name: 'Vicky Hernandez' }],
   creator: 'Vicky Hernandez Private Wealth',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'Vicky Hernandez',
     'Vicky Hernandez Private Wealth',
     'Vicky Hernandez Portfolio',
-    'Northern Trust Global Custody',
+    'Institutional Global Custody',
     'Katherine Sterling CFP',
     'Private Wealth Management',
     'Fiduciary Portfolio',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Vicky Hernandez Private Wealth | Personalized Fiduciary Portfolio',
-    description: 'Private Wealth Management & Personalized Fiduciary Portfolio for Vicky Hernandez. Direct institutional custody reporting via Northern Trust Global Custody, verified holdings, and personalized wealth preservation planning.',
+    description: 'Private Wealth Management & Personalized Fiduciary Portfolio for Vicky Hernandez. Direct institutional custody reporting via Institutional Global Custody, verified holdings, and personalized wealth preservation planning.',
     url: 'https://vicky-hernandez-private-wealth.vercel.app',
     siteName: 'Vicky Hernandez Private Wealth',
     locale: 'en_US',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Vicky Hernandez Private Wealth | Personalized Fiduciary Portfolio',
-    description: 'Private Wealth Management & Personalized Fiduciary Portfolio for Vicky Hernandez. Direct institutional custody reporting via Northern Trust Global Custody, verified holdings, and dedicated wealth planning.',
+    description: 'Private Wealth Management & Personalized Fiduciary Portfolio for Vicky Hernandez. Direct institutional custody reporting via Institutional Global Custody, verified holdings, and dedicated wealth planning.',
     creator: '@SterlingWealth',
   },
   robots: {

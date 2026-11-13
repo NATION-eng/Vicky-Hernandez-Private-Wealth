@@ -53,7 +53,7 @@ export const INITIAL_PLAN_GOALS: FinancialGoal[] = [
     currentStatus: "PROPOSED",
     assumptions: [
       "Target success rate: 99.9% (Platform-stated objective)",
-      "Reconciled via Northern Trust institutional custody",
+      "Reconciled via institutional custody",
       "Statutory investor protections and disclosures strictly preserved"
     ]
   }

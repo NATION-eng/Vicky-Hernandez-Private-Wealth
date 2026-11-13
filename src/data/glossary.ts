@@ -21,7 +21,7 @@ export const FINANCIAL_GLOSSARY: GlossaryTerm[] = [
   {
     term: "Platform Reliability Target (99.9%)",
     category: "Safety & Fiduciary",
-    definition: "Our platform-stated operational and reconciliation reliability objective across Northern Trust custody settlement channels.",
+    definition: "Our platform-stated operational and reconciliation reliability objective across institutional custody settlement channels.",
     seniorExample: "The target execution standard for daily book-entry custodial accuracy and reconciliation without error."
   },
   {

@@ -15,7 +15,7 @@ const AUTH_CONFIG = {
   sessionDurationMs: 2 * 60 * 60 * 1000,
 
   // HMAC Secret for signing session tokens
-  signingSecret: process.env.SESSION_SECRET || 'vhpw_institutional_fiduciary_secret_key_8920_ntc'
+  signingSecret: process.env.SESSION_SECRET || 'vhpw_institutional_fiduciary_secret_key_8920'
 };
 
 /**

@@ -139,7 +139,7 @@ export default async function Image() {
               letterSpacing: '1px',
             }}
           >
-            Verified Institutional Custody: Northern Trust Global Custody
+            Verified Institutional Custody: Institutional Global Custody
           </span>
         </div>
       </div>
