@@ -7,9 +7,9 @@ const AUTH_CONFIG = {
   // Configured administrator username
   username: 'Vickyh1970',
 
-  // PBKDF2 100,000 iterations SHA-512 salted hash of 'PuppyKat2018!'
-  salt: '5a44728d8e23a05bd721518d2f18bf15',
-  passwordHash: '2d83260c85cf78567f3119c3cd4c2d781fcde18e42e5d8e82062fe4f6fc9f2e3159c2ed9e8a75f5038c85d81c8701b528289f7ebee3e5ad919f9054a67a6b861',
+  // PBKDF2 100,000 iterations SHA-512 salted hash
+  salt: 'f4d073bd6abe26b3b6e92e5688f7dc39',
+  passwordHash: '959d6838db15c8b1a85bc6b02ba3a0ee27e51ec22d1907ef36afa4f97645af6cde2ef619769fe7065a2d62c61030a0ae033c2e1d7aa51222362874e2d077370b',
 
   // Session duration: 2 hours of inactivity before automatic expiration
   sessionDurationMs: 2 * 60 * 60 * 1000,
